@@ -7,3 +7,5 @@ To create a local Git Repository for this project read http://happygitwithr.com 
 The core of this project focuses around the dataset provided from the Kaggle dataset: Where it Pays to Attend College (https://www.kaggle.com/wsj/college-salaries) created by the Wall Street Journal. Those csv files are as follows degrees-that-pay-back.csv, salaries-by-college-type.csv, salaries-by-region.csv. The data on college costs were found on the website www.collegedata.com.
 
 R scripts will be added eventually and listed here along with basic premise of the script.
+
+Excel/CSV files will be added eventually and listed here along with basic premise of the script.
