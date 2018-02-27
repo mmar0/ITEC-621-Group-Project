@@ -153,3 +153,4 @@ write.csv(schoolAnom, file = "SchoolScrapeAnomalies.csv", row.names = FALSE)
 #  attCostVal[1] > attCostVal[2]
 
 #angela check to see if git is good
+#George check to see if git works
