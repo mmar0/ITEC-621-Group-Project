@@ -21,7 +21,7 @@ sAIndex <- 1
 # indexer for tutAnom
 tAIndex <- 1
 #Valid id nums from the website
-IDno <- 6:1799
+IDno <- 6:2200
 #Initializes attCostVal
 attCostVal <- NULL
 
@@ -135,7 +135,15 @@ write.csv(tuition, file = "Costs of Tuition in the US 2018.csv", row.names = FAL
 write.csv(tutAnom, file = "TuitionAnomalies.csv", row.names = FALSE)
 
 # oldUniCost <- read.csv("Costs of Attending Universities in the US 2018.csv", header = TRUE, stringsAsFactors = FALSE)
-# schoolAnom <- read.csv("~/Grad Year 1/ITEC 621/SchoolScrapeAnomalies.csv", header = TRUE, stringsAsFactors = FALSE)
+# oldschoolAnom <- read.csv("CostOfAttendingAnomalies.csv", header = TRUE, stringsAsFactors = FALSE)
+# oldTuition <- read.csv("Costs of Tuition in the US 2018.csv", header = TRUE, stringsAsFactors = FALSE)
+# oldTutAnom <- read.csv("TuitionAnomalies.csv", header = TRUE, stringsAsFactors = FALSE)
+# 
+# uniCost <- rbind(oldUniCost, uniCost) 
+# schoolAnom <- rbind(oldschoolAnom, schoolAnom) 
+# tuition <- rbind(oldTuition, tuition)
+# tutAnom <- rbind(oldTutAnom, tutAnom)
+
 
 # Use if needing to fix already written costs table
 # oldUniCost<-uniCost[!(uniCost$University== "Retrieve a Saved Search"),]
