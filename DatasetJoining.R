@@ -40,20 +40,26 @@ nameReconciliation <- function(tempCol) {
   tempCol <- gsub("university of nebraska lincoln", "university of nebraska", as.character(tempCol))
   tempCol <- gsub("utah valley state college", "utah valley university", as.character(tempCol))
   tempCol <- gsub("embry-riddle aeronautical university daytona beach", "embry-riddle aeronautical university", as.character(tempCol))
+  tempCol <- gsub("neumont college of computer science", "neumont university", as.character(tempCol))
+  tempCol <- gsub("university of puerto rico rio piedras ", "university of puerto rico rio piedras", as.character(tempCol))
+  tempCol <- gsub("cincinnati christian university ", "cincinnati christian university", as.character(tempCol))
+  tempCol <- gsub("hellenic college ", "hellenic college", as.character(tempCol))
   return(tempCol)
 }
 
 salaryUniType <- read_csv("salaries-by-college-type.csv", na = "N/A", col_types = cols("c", "c", "n", "n", "n", "n", "n", "n"))
 salaryRegion <- read_csv("salaries-by-region.csv", na = "N/A", col_types = cols("c", "c", "n", "n", "n", "n", "n", "n"))
 degreePayBack <- read_csv("degrees-that-pay-back.csv", na = "N/A", col_types = cols("c", "n", "n", "n", "n", "n", "n", "n"))
-tuitionCosts <- read_csv("Costs of Tuition in the US 2018.csv", col_types = cols("c", "n", "n"))
+schoolProfiles <- read_csv("School Profiles.csv", col_types = cols("c","n","n","c","n","c","n","c","c","c"))
+
+
 
 head(salaryUniType)
 head(salaryRegion)
 head(degreePayBack)
-head(tuitionCosts)
+head(schoolProfiles)
 
-tuitionCosts$University <- standardizeUni(tuitionCosts$University)
+schoolProfiles$University <- standardizeUni(schoolProfiles$University)
 salaryRegion$`School Name` <- standardizeUni(salaryRegion$`School Name`)
 salaryUniType$`School Name` <- standardizeUni(salaryUniType$`School Name`)
 
@@ -71,8 +77,8 @@ rm(embryRiddle)
 #Solved typeRegionDif <- anti_join(salaryUniType, salaryRegion, by = c("School Name" = "School Name"))
 regionTypeDif <- anti_join(salaryRegion, salaryUniType, by = c("School Name" = "School Name"))
 View(regionTypeDif)
-typeCostDif <- anti_join(salaryUniType, tuitionCosts, by = c("School Name" = "University"))
-View(typeCostDif)
-regionCostDif <- anti_join(salaryRegion, tuitionCosts, by = c("School Name" = "University"))
-View(regionCostDif)
+typeSalaryProfileDif <- anti_join(salaryUniType, schoolProfiles, by = c("School Name" = "University"))
+View(typeSalaryProfileDif)
+regSalaryProfileDif <- anti_join(salaryRegion, schoolProfiles, by = c("School Name" = "University"))
+View(regSalaryProfileDif)
 
