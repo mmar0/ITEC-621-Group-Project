@@ -82,3 +82,10 @@ View(typeSalaryProfileDif)
 regSalaryProfileDif <- anti_join(salaryRegion, schoolProfiles, by = c("School Name" = "University"))
 View(regSalaryProfileDif)
 
+full_data_set <- left_join(schoolProfiles, salaryRegion, by = c("University" = "School Name"))
+View(full_data_set)
+write.csv(full_data_set, file = "FullData.csv", row.names = FALSE)
+
+#Fill out region classification
+#Drop NAs
+#Kaggle Training test split
