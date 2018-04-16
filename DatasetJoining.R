@@ -86,6 +86,56 @@ full_data_set <- left_join(schoolProfiles, salaryRegion, by = c("University" = "
 View(full_data_set)
 write.csv(full_data_set, file = "FullData.csv", row.names = FALSE)
 
+State_Region_Compeletion <- full_data_set %>% 
+  select(State, Region) %>% 
+  distinct() %>% 
+  na.omit()
+View(State_Region_Compeletion)
+
+State_Region_Compeletion <- State_Region_Compeletion %>% 
+  filter(!(State == "KY" & Region == "Northeastern")) %>% 
+  filter(!(State == "NE" & Region == "Northeastern")) %>% 
+  filter(!(State == "PA" & Region == "Midwestern")) 
+View(State_Region_Compeletion)
+
+
+full_data_set <- full_data_set %>% 
+  select(-Region)
+
+full_data_set <- left_join(full_data_set, State_Region_Compeletion, by = c("State" = "State"))
+names(full_data_set)
+
+full_data_set <- full_data_set %>% 
+  select("University", "CostIState", "CostOState", "CollegeType", "Undergraduates", "EntranceDifficulty", "AdmitRate",
+         "Applicants", "City", "State","Region", "Starting Median Salary", "Mid-Career Median Salary", 
+         "Mid-Career 10th Percentile Salary", "Mid-Career 25th Percentile Salary", 
+         "Mid-Career 75th Percentile Salary", "Mid-Career 90th Percentile Salary") 
+
+Rate_Difficulty_Compeletion <- full_data_set %>% 
+  select(EntranceDifficulty, AdmitRate) %>% 
+  distinct() %>% 
+  na.omit()
+View(Rate_Difficulty_Compeletion)
+
+adRate <- full_data_set$AdmitRate %>% 
+  na.omit()
+
+median(adRate)
+sd(adRate)
+
+ggplot()+
+  geom_histogram(aes(adRate))+
+  geom_vline(aes(xintercept = median(adRate), col = "blue"))+
+  geom_vline(aes(xintercept = mean(adRate), col = "red"))+
+  geom_vline(aes(xintercept = (mean(adRate) + sd(adRate)), col = "green"))+
+  geom_vline(aes(xintercept = (mean(adRate) - sd(adRate)), col = "green"))+
+  geom_vline(aes(xintercept = (mean(adRate) + 2*sd(adRate)), col = "green"))+
+  geom_vline(aes(xintercept = (mean(adRate) - 2*sd(adRate)), col = "green"))
+
+
 #Fill out region classification
 #Drop NAs
 #Kaggle Training test split
+#KY, NE, PA
+#Admit Rates
+
