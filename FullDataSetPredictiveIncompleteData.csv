@@ -1,0 +1,302 @@
+University,CostIState,CostOState,CollegeType,Undergraduates,EntranceDifficulty,AdmitRate,Applicants,City,State,Region,Starting Median Salary,Mid-Career Median Salary,Mid-Career 10th Percentile Salary,Mid-Career 25th Percentile Salary,Mid-Career 75th Percentile Salary,Mid-Career 90th Percentile Salary
+st. francis college,26188,26188,private,2598,NA,NA,NA,brooklyn heights,NY,Northeastern,NA,NA,NA,NA,NA,NA
+shippensburg university of pennsylvania,12086,19944,public,5912,NA,0.88,5799,shippensburg,PA,Northeastern,NA,NA,NA,NA,NA,NA
+parsons the new school for design,47720,47720,private,4301,NA,NA,NA,new york,NY,Northeastern,NA,NA,NA,NA,NA,NA
+rhode island school of design,48470,48470,private,2000,NA,NA,NA,providence,RI,Northeastern,NA,NA,NA,NA,NA,NA
+maine college of art,34000,34000,private,369,NA,NA,NA,portland,ME,Northeastern,NA,NA,NA,NA,NA,NA
+university of maine farmington,9458,19026,public,1782,NA,NA,NA,farmington,ME,Northeastern,NA,NA,NA,NA,NA,NA
+thomas college,26110,26110,private,1212,NA,NA,NA,waterville,ME,Northeastern,NA,NA,NA,NA,NA,NA
+united states military academy,NA,NA,public,4389,NA,NA,NA,west point,NY,Northeastern,NA,NA,NA,NA,NA,NA
+massachusetts college of pharmacy & health sciences,32590,32590,private,3843,NA,0.84,5531,boston,MA,Northeastern,NA,NA,NA,NA,NA,NA
+wagner college,45380,45380,private,1807,NA,NA,NA,staten island,NY,Northeastern,NA,NA,NA,NA,NA,NA
+clarion university of pennsylvania,10890,14636,public,4330,NA,NA,NA,clarion,PA,Northeastern,NA,NA,NA,NA,NA,NA
+lim college,26350,26350,private for profit,1499,NA,NA,NA,new york,NY,Northeastern,NA,NA,NA,NA,NA,NA
+heritage university,18084,18084,private,861,NA,NA,NA,toppenish,WA,Western,NA,NA,NA,NA,NA,NA
+bayamon central university,5775,5775,private,1722,NA,0.45,517,bayam<f3>n,PR,NA,NA,NA,NA,NA,NA,NA
+pacific oaks college,24240,24240,private,257,NA,0.77,339,pasadena,CA,California,NA,NA,NA,NA,NA,NA
+beloit college,48706,48706,private,1394,NA,NA,NA,beloit,WI,Midwestern,NA,NA,NA,NA,NA,NA
+rockford university,30050,30050,private,1086,NA,NA,NA,rockford,IL,Midwestern,NA,NA,NA,NA,NA,NA
+college of staten island,7089,17959,public,12806,NA,NA,NA,staten island,NY,Northeastern,NA,NA,NA,NA,NA,NA
+lesley university,27470,27470,private,1929,NA,0.64,3386,cambridge,MA,Northeastern,NA,NA,NA,NA,NA,NA
+emmanuel college,38844,38844,private,2012,NA,0.71,6223,boston,MA,Northeastern,NA,NA,NA,NA,NA,NA
+alice lloyd college,11550,11550,private,599,NA,NA,NA,pippa passes,KY,Southern,NA,NA,NA,NA,NA,NA
+university of arkansas pine bluff,7212,13464,public,2545,NA,0.46,4452,pine bluff,AR,Southern,NA,NA,NA,NA,NA,NA
+armstrong state university,6430,19506,public,6397,NA,NA,NA,savannah,GA,Southern,NA,NA,NA,NA,NA,NA
+bluefield college,24800,24800,private,969,NA,NA,NA,bluefield,VA,Southern,NA,NA,NA,NA,NA,NA
+paier college of art,17070,17070,private for profit,128,NA,NA,NA,hamden,CT,Northeastern,NA,NA,NA,NA,NA,NA
+south university savannah,NA,NA,private for profit,NA,NA,NA,NA,savannah,GA,Southern,NA,NA,NA,NA,NA,NA
+university of advancing technology,23150,23150,private for profit,1013,NA,NA,NA,tempe,AZ,Western,NA,NA,NA,NA,NA,NA
+art institute of california san diego,NA,NA,private for profit,NA,NA,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+art institute of california san francisco,NA,NA,private for profit,NA,NA,NA,NA,san francisco,CA,California,NA,NA,NA,NA,NA,NA
+illinois institute of art chicago,NA,NA,private for profit,NA,NA,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+northwest college of art & design,19075,19075,private for profit,114,NA,NA,NA,poulsbo,WA,Western,NA,NA,NA,NA,NA,NA
+northwestern polytechnic university,10700,10700,private,164,NA,1,249,fremont,CA,California,NA,NA,NA,NA,NA,NA
+sterling college,38038,38038,private,119,NA,NA,NA,craftsbury common,VT,Northeastern,NA,NA,NA,NA,NA,NA
+international fine arts college,22105,22105,private for profit,NA,NA,NA,NA,miami,FL,Southern,NA,NA,NA,NA,NA,NA
+illinois institute of art schaumburg,NA,NA,private for profit,NA,NA,NA,NA,schaumburg,IL,Midwestern,NA,NA,NA,NA,NA,NA
+art institute of pittsburgh,23376,23376,private for profit,NA,NA,NA,NA,pittsburgh,PA,Northeastern,NA,NA,NA,NA,NA,NA
+art institute of california orange county,NA,NA,private for profit,NA,NA,NA,NA,santa ana,CA,California,NA,NA,NA,NA,NA,NA
+art institute of washington,23328,23328,private for profit,NA,NA,NA,NA,arlington,VA,Southern,NA,NA,NA,NA,NA,NA
+san francisco conservatory of music,44810,44810,private,188,NA,NA,NA,san francisco,CA,California,NA,NA,NA,NA,NA,NA
+fort hays state university,5008,14831,public,11831,NA,NA,NA,hays,KS,Midwestern,NA,NA,NA,NA,NA,NA
+texas lutheran university,29960,29960,private,1283,NA,NA,NA,seguin,TX,Southern,NA,NA,NA,NA,NA,NA
+loyola marymount university,46386,46386,private,6261,NA,NA,NA,los angeles,CA,California,NA,NA,NA,NA,NA,NA
+california state university bakersfield,7142,19022,public,8093,NA,1,5756,bakersfield,CA,California,NA,NA,NA,NA,NA,NA
+sterling college,24985,24985,private,119,NA,NA,NA,craftsbury common,VT,Northeastern,NA,NA,NA,NA,NA,NA
+our lady of the lake university,28192,28192,private,1347,NA,NA,NA,san antonio,TX,Southern,NA,NA,NA,NA,NA,NA
+flagler college,18300,18300,private,2614,NA,0.55,4794,st augustine,FL,Southern,NA,NA,NA,NA,NA,NA
+california college of the arts,47266,47266,private,1528,NA,NA,NA,san francisco,CA,California,NA,NA,NA,NA,NA,NA
+nichols college,34000,34000,private,1272,NA,NA,NA,dudley,MA,Northeastern,NA,NA,NA,NA,NA,NA
+eugene lang college the new school for liberal arts,45928,45928,private,1663,NA,NA,NA,new york,NY,Northeastern,NA,NA,NA,NA,NA,NA
+goldey-beacom college,23850,23850,private,625,NA,NA,NA,wilmington,DE,Southern,NA,NA,NA,NA,NA,NA
+kentucky state university,8184,19638,public,1568,NA,NA,NA,frankfort,KY,Southern,NA,NA,NA,NA,NA,NA
+mount st. mary's university,40550,40550,private,2831,NA,NA,NA,los angeles,CA,California,NA,NA,NA,NA,NA,NA
+mount st. mary's university,39608,39608,private,2831,NA,NA,NA,los angeles,CA,California,NA,NA,NA,NA,NA,NA
+samuel merritt university,45491,45491,private,738,NA,NA,NA,oakland,CA,California,NA,NA,NA,NA,NA,NA
+doane college,32250,32250,private,1047,NA,NA,NA,crete,NE,Midwestern,NA,NA,NA,NA,NA,NA
+emory & henry college,35050,35050,private,1024,NA,0.7,1455,emory,VA,Southern,NA,NA,NA,NA,NA,NA
+loma linda university,33932,33932,private,1232,NA,NA,NA,loma linda,CA,California,NA,NA,NA,NA,NA,NA
+louisiana state university health sciences center,6923,13705,public,873,NA,NA,NA,new orleans,LA,Southern,NA,NA,NA,NA,NA,NA
+university of nebraska medical center,NA,NA,public,1013,NA,NA,NA,omaha,NE,Midwestern,NA,NA,NA,NA,NA,NA
+oregon health & science university,18765,32985,public,827,NA,NA,NA,portland,OR,Western,NA,NA,NA,NA,NA,NA
+oglala lakota college,3284,3284,public,NA,NA,NA,NA,kyle,SD,Midwestern,NA,NA,NA,NA,NA,NA
+art institute of portland,17316,17316,private for profit,NA,NA,NA,NA,portland,OR,Western,NA,NA,NA,NA,NA,NA
+chamberlain college of nursing,19500,19500,private for profit,633,NA,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+emmanuel college,19710,19710,private,2012,NA,0.71,6223,boston,MA,Northeastern,NA,NA,NA,NA,NA,NA
+art institute of fort lauderdale,22105,22105,private for profit,NA,NA,NA,NA,fort lauderdale,FL,Southern,NA,NA,NA,NA,NA,NA
+university of mississippi medical center,8268,24246,public,512,NA,NA,NA,jackson,MS,Southern,NA,NA,NA,NA,NA,NA
+design institute of san diego,22510,22510,private for profit,143,NA,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+talmudical academy of new jersey,13000,13000,private,48,NA,1,15,adelphia,NJ,Northeastern,NA,NA,NA,NA,NA,NA
+excelsior college,NA,NA,private,35161,NA,NA,NA,albany,NY,Northeastern,NA,NA,NA,NA,NA,NA
+saint francis medical center college of nursing,21224,21224,private,392,NA,0.72,223,peoria,IL,Midwestern,NA,NA,NA,NA,NA,NA
+divine word college,13030,13030,private,133,NA,NA,NA,epworth,IA,Midwestern,NA,NA,NA,NA,NA,NA
+god's bible school & college,7040,7040,private,292,NA,0.9,93,cincinnati,OH,Midwestern,NA,NA,NA,NA,NA,NA
+arizona christian university,4680,4680,private,820,NA,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+bastyr university,25455,25455,private,287,NA,NA,NA,kenmore,WA,Western,NA,NA,NA,NA,NA,NA
+nebraska christian college,16830,16830,private,130,NA,NA,NA,papillion,NE,Midwestern,NA,NA,NA,NA,NA,NA
+yehiva gedolah of greater detroit,6800,6800,private,57,NA,1,27,oak park,MI,Midwestern,NA,NA,NA,NA,NA,NA
+the art institute of atlanta,NA,NA,private for profit,NA,NA,NA,NA,atlanta,GA,Southern,NA,NA,NA,NA,NA,NA
+inter american university of puerto rico barranquitas campus,6262,6262,private,2067,NA,NA,NA,barranquitas,PR,NA,NA,NA,NA,NA,NA,NA
+inter american university of puerto rico bayamon campus,6180,6180,private,4328,NA,0.43,2227,bayam<f3>n,PR,NA,NA,NA,NA,NA,NA,NA
+interior designers institute,NA,NA,private for profit,468,NA,NA,NA,newport beach,CA,California,NA,NA,NA,NA,NA,NA
+catholic university of america,44060,44060,private,3238,NA,NA,NA,washington,DC,Southern,NA,NA,NA,NA,NA,NA
+huntingdon college,26400,26400,private,1148,NA,NA,NA,montgomery,AL,Southern,NA,NA,NA,NA,NA,NA
+georgia regents university,10718,29756,public,5133,NA,0.59,2151,augusta,GA,Southern,NA,NA,NA,NA,NA,NA
+johns hopkins university,52670,52670,private,6117,NA,0.12,27094,baltimore,MD,Southern,NA,NA,NA,NA,NA,NA
+university of north carolina school of the arts,9211,25081,public,907,NA,NA,NA,winston salem,NC,Southern,NA,NA,NA,NA,NA,NA
+northern kentucky university,9744,19104,public,12389,NA,0.91,6059,highland heights,KY,Southern,NA,NA,NA,NA,NA,NA
+salem international university,12920,12920,private for profit,631,NA,NA,NA,salem,WV,Southern,NA,NA,NA,NA,NA,NA
+st. thomas university,31550,31550,private,2752,NA,NA,NA,miami gardens,FL,Southern,NA,NA,NA,NA,NA,NA
+shenandoah university,31910,31910,private,2099,NA,NA,NA,winchester,VA,Southern,NA,NA,NA,NA,NA,NA
+vandercook college of music,28344,28344,private,155,NA,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+saint louis university,42166,42166,private,7454,NA,0.65,12737,st louis,MO,Midwestern,NA,NA,NA,NA,NA,NA
+art institute of phoenix,NA,NA,private for profit,NA,NA,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+beth hatalmud rabbinical college,11750,11750,private,75,NA,1,28,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+central yeshiva tomchei tmimim-lubavitch,7700,7700,private,582,NA,1,260,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+kehilath yakov rabbinical seminary,9700,9700,private,88,NA,NA,NA,ossining,NY,Northeastern,NA,NA,NA,NA,NA,NA
+mirrer yeshiva,7260,7260,private,255,NA,1,66,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+rabbinical college of long island,8800,8800,private,145,NA,1,40,long beach,NY,Northeastern,NA,NA,NA,NA,NA,NA
+rabbinical college of telshe,10800,10800,private,37,NA,NA,NA,wickliffe,OH,Midwestern,NA,NA,NA,NA,NA,NA
+talmudical seminary oholei torah,9300,9300,private,337,NA,1,65,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+telshe yeshiva chicago,15000,15000,private,61,NA,1,8,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+texas college,10008,10008,private,960,NA,0.32,4190,tyler,TX,Southern,NA,NA,NA,NA,NA,NA
+united talmudical seminary,13800,13800,private,1351,NA,NA,NA,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva beth moshe,9000,9000,private,54,NA,NA,NA,scranton,PA,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva derech chaim,11800,11800,private,95,NA,1,31,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva of nitra,8500,8500,private,186,NA,NA,NA,mount kisco,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva shaar hatorah,17250,17250,private,111,NA,NA,NA,kew gardens,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva zichron moshe,NA,NA,private,178,NA,1,74,south fallsburg,NY,Northeastern,NA,NA,NA,NA,NA,NA
+southwest university of visual arts,22944,22944,private for profit,177,NA,NA,NA,tucson,AZ,Western,NA,NA,NA,NA,NA,NA
+atlantic university college,6870,6870,private,1168,NA,NA,NA,guaynabo,PR,NA,NA,NA,NA,NA,NA,NA
+devry university westminster,17512,17512,private for profit,239,NA,NA,NA,westminster,CO,Western,NA,NA,NA,NA,NA,NA
+mercy college of health sciences,17600,17600,private,771,NA,NA,NA,des moines,IA,Midwestern,NA,NA,NA,NA,NA,NA
+cox college,14010,14010,private,778,NA,0.59,27,springfield,MO,Midwestern,NA,NA,NA,NA,NA,NA
+northpoint bible college,12055,12055,private,265,NA,NA,NA,haverhill,MA,Northeastern,NA,NA,NA,NA,NA,NA
+the king's university,14400,14400,private,NA,NA,NA,NA,southlake,TX,Southern,NA,NA,NA,NA,NA,NA
+argosy university chicago,NA,NA,private for profit,NA,NA,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+university of management & technology,9450,9450,private for profit,1029,NA,NA,NA,arlington,VA,Southern,NA,NA,NA,NA,NA,NA
+baptist university of the americas,7800,7800,private,195,NA,NA,NA,san antonio,TX,Southern,NA,NA,NA,NA,NA,NA
+beis medrash heichal dovid,9375,9375,private,91,NA,NA,NA,far rockaway,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva & kolel bais medrash elyon,11500,11500,private,17,NA,1,13,monsey,NY,Northeastern,NA,NA,NA,NA,NA,NA
+yeshiva shaarei torah of rockland,12500,12500,private,46,NA,NA,NA,suffern,NY,Northeastern,NA,NA,NA,NA,NA,NA
+international baptist college,11250,11250,private,83,NA,NA,NA,chandler,AZ,Western,NA,NA,NA,NA,NA,NA
+art institute of california hollywood,NA,NA,private for profit,NA,NA,NA,NA,north hollywood,CA,California,NA,NA,NA,NA,NA,NA
+sum bible college & theological seminary,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+art institute of michigan,NA,NA,private for profit,NA,NA,NA,NA,novi,MI,Midwestern,NA,NA,NA,NA,NA,NA
+kaplan university,NA,NA,private for profit,NA,NA,NA,NA,mason city,IA,Midwestern,NA,NA,NA,NA,NA,NA
+stratford university woodbridge,16750,16750,private for profit,361,NA,NA,NA,woodbridge,VA,Southern,NA,NA,NA,NA,NA,NA
+art institute of houston,24024,24024,private for profit,NA,NA,NA,NA,houston,TX,Southern,NA,NA,NA,NA,NA,NA
+midwest university,7770,7770,private,52,NA,NA,NA,wentzville,MO,Midwestern,NA,NA,NA,NA,NA,NA
+art institute of california inland empire,NA,NA,private for profit,NA,NA,NA,NA,san bernardino,CA,California,NA,NA,NA,NA,NA,NA
+art institute of california sacramento,NA,NA,private for profit,NA,NA,NA,NA,sacramento,CA,California,NA,NA,NA,NA,NA,NA
+southwest university,8554,8554,private for profit,NA,NA,NA,NA,kenner,LA,Southern,NA,NA,NA,NA,NA,NA
+full sail university,NA,NA,private for profit,8921,NA,NA,NA,winter park,FL,Southern,NA,NA,NA,NA,NA,NA
+argosy university atlanta,NA,NA,private for profit,NA,NA,NA,NA,atlanta,GA,Southern,NA,NA,NA,NA,NA,NA
+argosy university twin cities,NA,NA,private for profit,NA,NA,NA,NA,eagan,MN,Midwestern,NA,NA,NA,NA,NA,NA
+argosy university sarasota,NA,NA,private for profit,NA,NA,NA,NA,sarasota,FL,Southern,NA,NA,NA,NA,NA,NA
+argosy university phoenix,NA,NA,private for profit,NA,NA,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+argosy university washington dc,NA,NA,private for profit,NA,NA,NA,NA,arlington,VA,Southern,NA,NA,NA,NA,NA,NA
+argosy university san francisco bay area,NA,NA,private for profit,NA,NA,NA,NA,alameda,CA,California,NA,NA,NA,NA,NA,NA
+argosy university tampa,NA,NA,private for profit,NA,NA,NA,NA,tampa,FL,Southern,NA,NA,NA,NA,NA,NA
+argosy university seattle,NA,NA,private for profit,NA,NA,NA,NA,seattle,WA,Western,NA,NA,NA,NA,NA,NA
+argosy university hawaii,NA,NA,private for profit,NA,NA,NA,NA,honolulu,HI,Western,NA,NA,NA,NA,NA,NA
+argosy university nashville,NA,NA,private for profit,NA,NA,NA,NA,nashville,TN,Southern,NA,NA,NA,NA,NA,NA
+argosy university dallas,NA,NA,private for profit,NA,NA,NA,NA,farmers branch,TX,Southern,NA,NA,NA,NA,NA,NA
+argosy university los angeles,NA,NA,private for profit,NA,NA,NA,NA,santa monica,CA,California,NA,NA,NA,NA,NA,NA
+argosy university san diego,NA,NA,private for profit,NA,NA,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+argosy university denver,NA,NA,private for profit,NA,NA,NA,NA,denver,CO,Western,NA,NA,NA,NA,NA,NA
+argosy university inland empire,NA,NA,private for profit,NA,NA,NA,NA,ontario,CA,California,NA,NA,NA,NA,NA,NA
+argosy university salt lake city,NA,NA,private for profit,NA,NA,NA,NA,draper,UT,Western,NA,NA,NA,NA,NA,NA
+california miramar university,12180,12180,private,NA,NA,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+argosy university schaumburg,NA,NA,private for profit,NA,NA,NA,NA,schaumburg,IL,Midwestern,NA,NA,NA,NA,NA,NA
+argosy university orange county,NA,NA,private for profit,NA,NA,NA,NA,orange,CA,California,NA,NA,NA,NA,NA,NA
+west coast university,NA,NA,private for profit,1792,NA,0.83,24,north hollywood,CA,California,NA,NA,NA,NA,NA,NA
+denver school of nursing,NA,NA,private for profit,NA,NA,NA,NA,denver,CO,Western,NA,NA,NA,NA,NA,NA
+ex'pression college for digital arts,NA,NA,private for profit,NA,NA,NA,NA,emeryville,CA,California,NA,NA,NA,NA,NA,NA
+devry university chicago,17512,17512,private for profit,784,minimally difficult,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+devry university columbus,17512,17512,private for profit,961,minimally difficult,NA,NA,columbus,OH,Midwestern,NA,NA,NA,NA,NA,NA
+benedict college,19958,19958,private,2641,minimally difficult,NA,NA,columbia,SC,Southern,NA,NA,NA,NA,NA,NA
+schiller international university,NA,NA,private for profit,191,minimally difficult,NA,NA,largo,FL,Southern,NA,NA,NA,NA,NA,NA
+hodges university,17300,17300,private,1487,minimally difficult,NA,NA,naples,FL,Southern,NA,NA,NA,NA,NA,NA
+devry university new york,17512,17512,private for profit,915,minimally difficult,NA,NA,new york,NY,Northeastern,NA,NA,NA,NA,NA,NA
+devry university north brunswick,17512,17512,private for profit,583,minimally difficult,NA,NA,north brunswick,NJ,Northeastern,NA,NA,NA,NA,NA,NA
+devry university orlando,17512,17512,private for profit,534,minimally difficult,NA,NA,orlando,FL,Southern,NA,NA,NA,NA,NA,NA
+devry university crystal city,17512,17512,private for profit,252,minimally difficult,NA,NA,arlington,VA,Southern,NA,NA,NA,NA,NA,NA
+colorado technical university,NA,NA,private for profit,1896,minimally difficult,NA,NA,colorado springs,CO,Western,NA,NA,NA,NA,NA,NA
+devry university phoenix,17512,17512,private for profit,515,minimally difficult,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+devry university pomona,17512,17512,private for profit,784,minimally difficult,NA,NA,pomona,CA,California,NA,NA,NA,NA,NA,NA
+devry university irving,17512,17512,private for profit,403,minimally difficult,NA,NA,irving,TX,Southern,NA,NA,NA,NA,NA,NA
+alliant international university,17640,17640,private,163,minimally difficult,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+hannibal-lagrange university,21710,21710,private,1303,minimally difficult,NA,NA,hannibal,MO,Midwestern,NA,NA,NA,NA,NA,NA
+ashford university,11248,11248,private for profit,9866,minimally difficult,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+brewton-parker college,18190,18190,private,666,minimally difficult,NA,NA,mt vernon,GA,Southern,NA,NA,NA,NA,NA,NA
+midway college,23850,23850,private,1513,minimally difficult,NA,NA,midway,KY,Southern,NA,NA,NA,NA,NA,NA
+mount aloysius college,22430,22430,private,1720,minimally difficult,NA,NA,cresson,PA,Northeastern,NA,NA,NA,NA,NA,NA
+arkansas baptist college,8760,8760,private,626,minimally difficult,NA,NA,little rock,AR,Southern,NA,NA,NA,NA,NA,NA
+great lakes christian college,15550,15550,private,225,minimally difficult,NA,NA,lansing,MI,Midwestern,NA,NA,NA,NA,NA,NA
+amridge university,7180,7180,private,315,minimally difficult,NA,NA,montgomery,AL,Southern,NA,NA,NA,NA,NA,NA
+martin methodist college,23800,23800,private,924,minimally difficult,NA,NA,pulaski,TN,Southern,NA,NA,NA,NA,NA,NA
+ohio christian university,20240,20240,private,4213,minimally difficult,NA,NA,circleville,OH,Midwestern,NA,NA,NA,NA,NA,NA
+alaska bible college,9300,9300,private,50,minimally difficult,NA,NA,palmer,AK,Western,NA,NA,NA,NA,NA,NA
+southwestern christian university,16950,16950,private,325,minimally difficult,NA,NA,bethany,OK,Southern,NA,NA,NA,NA,NA,NA
+capitol college,24788,24788,private,309,minimally difficult,NA,NA,laurel,MD,Southern,NA,NA,NA,NA,NA,NA
+devry university atlanta,17512,17512,private for profit,903,minimally difficult,NA,NA,decatur,GA,Southern,NA,NA,NA,NA,NA,NA
+our lady of holy cross college,16100,16100,private,1128,minimally difficult,NA,NA,new orleans,LA,Southern,NA,NA,NA,NA,NA,NA
+saint joseph seminary college,17490,17490,private,107,minimally difficult,NA,NA,saint benedict,LA,Southern,NA,NA,NA,NA,NA,NA
+university of the district of columbia,8060,15956,public,4491,minimally difficult,NA,NA,washington,DC,Southern,NA,NA,NA,NA,NA,NA
+southwest minnesota state university,8619,8619,public,6451,minimally difficult,NA,NA,marshall,MN,Midwestern,NA,NA,NA,NA,NA,NA
+faith baptist bible college & theological seminary,16766,16766,private,226,minimally difficult,NA,NA,ankeny,IA,Midwestern,NA,NA,NA,NA,NA,NA
+bacone college,14850,14850,private,884,minimally difficult,NA,NA,muskogee,OK,Southern,NA,NA,NA,NA,NA,NA
+haskell indian nations university,NA,NA,public,894,minimally difficult,NA,NA,lawrence,KS,Midwestern,NA,NA,NA,NA,NA,NA
+new orleans baptist theological seminary leavell college,8175,8175,private,974,minimally difficult,NA,NA,new orleans,LA,Southern,NA,NA,NA,NA,NA,NA
+western governors university,6070,6070,private,44499,minimally difficult,NA,NA,salt lake city,UT,Western,NA,NA,NA,NA,NA,NA
+northcentral university,10680,10680,private for profit,133,minimally difficult,NA,NA,san diego,CA,California,NA,NA,NA,NA,NA,NA
+devry university miramar,17512,17512,private for profit,246,minimally difficult,NA,NA,miramar,FL,Southern,NA,NA,NA,NA,NA,NA
+devry university ft. washington,NA,NA,private for profit,436,minimally difficult,NA,NA,fort washington,PA,Northeastern,NA,NA,NA,NA,NA,NA
+capella university,12060,12060,private for profit,7487,minimally difficult,NA,NA,minneapolis,MN,Midwestern,NA,NA,NA,NA,NA,NA
+harrisburg university of science & technology,23900,23900,private,387,minimally difficult,NA,NA,harrisburg,PA,Northeastern,NA,NA,NA,NA,NA,NA
+rasmussen college lake elmo/woodbury,13455,13455,private for profit,2169,minimally difficult,NA,NA,lake elmo,MN,Midwestern,NA,NA,NA,NA,NA,NA
+trident university international,NA,NA,private for profit,NA,minimally difficult,NA,NA,cypress,CA,California,NA,NA,NA,NA,NA,NA
+thomas jefferson university,NA,NA,private,1131,moderately difficult,NA,NA,philadelphia,PA,Northeastern,NA,NA,NA,NA,NA,NA
+belmont abbey college,18500,18500,private,1524,moderately difficult,NA,NA,belmont,NC,Southern,NA,NA,NA,NA,NA,NA
+mt. sierra college,15688,15688,private for profit,511,moderately difficult,NA,NA,monrovia,CA,California,NA,NA,NA,NA,NA,NA
+rocky mountain college of art & design,15870,15870,private for profit,1079,moderately difficult,NA,NA,lakewood,CO,Western,NA,NA,NA,NA,NA,NA
+grand canyon university,17170,17170,private for profit,NA,moderately difficult,NA,NA,phoenix,AZ,Western,NA,NA,NA,NA,NA,NA
+walla walla university,27495,27495,private,1700,moderately difficult,NA,NA,college place,WA,Western,NA,NA,NA,NA,NA,NA
+university of texas health science center houston,5976,25986,public,677,moderately difficult,NA,NA,houston,TX,Southern,NA,NA,NA,NA,NA,NA
+golden gate university,15584,15584,private,458,moderately difficult,NA,NA,san francisco,CA,California,NA,NA,NA,NA,NA,NA
+beth medrash govoha,20788,20788,private,2747,moderately difficult,NA,NA,lakewood,NJ,Northeastern,NA,NA,NA,NA,NA,NA
+chamberlain college of nursing,19500,19500,private for profit,543,moderately difficult,NA,NA,st louis,MO,Midwestern,NA,NA,NA,NA,NA,NA
+concordia college alabama,10120,10120,private,611,moderately difficult,NA,NA,selma,AL,Southern,NA,NA,NA,NA,NA,NA
+ner israel rabbinical college,11900,11900,private,369,moderately difficult,NA,NA,baltimore,MD,Southern,NA,NA,NA,NA,NA,NA
+saint anthony college of nursing,25342,25342,private,238,moderately difficult,NA,NA,rockford,IL,Midwestern,NA,NA,NA,NA,NA,NA
+resurrection university,26134,26134,private,609,moderately difficult,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+goldfarb school of nursing barnes-jewish college,20188,20188,private,616,moderately difficult,NA,NA,st louis,MO,Midwestern,NA,NA,NA,NA,NA,NA
+columbia college of nursing,28900,28900,private,169,moderately difficult,NA,NA,glendale,WI,Midwestern,NA,NA,NA,NA,NA,NA
+bellin college,21513,21513,private,362,moderately difficult,NA,NA,green bay,WI,Midwestern,NA,NA,NA,NA,NA,NA
+allen college,20243,20243,private,360,moderately difficult,NA,NA,waterloo,IA,Midwestern,NA,NA,NA,NA,NA,NA
+lakeview college of nursing,16160,16160,private,236,moderately difficult,NA,NA,danville,IL,Midwestern,NA,NA,NA,NA,NA,NA
+university of puerto rico medical sciences campus,2196,2196,public,535,moderately difficult,NA,NA,san juan,PR,NA,NA,NA,NA,NA,NA,NA
+inter american university of puerto rico arecibo campus,6180,6180,private,4547,moderately difficult,NA,NA,arecibo,PR,NA,NA,NA,NA,NA,NA,NA
+washington adventist university,23400,23400,private,1327,moderately difficult,NA,NA,takoma park,MD,Southern,NA,NA,NA,NA,NA,NA
+trinity washington university,23690,23690,private,1043,moderately difficult,NA,NA,washington,DC,Southern,NA,NA,NA,NA,NA,NA
+wilmington college,25500,25500,private,1432,moderately difficult,NA,NA,wilmington,OH,Midwestern,NA,NA,NA,NA,NA,NA
+american academy of art,33100,33100,private,297,moderately difficult,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+hebrew theological college,12430,12430,private,415,moderately difficult,NA,NA,skokie,IL,Midwestern,NA,NA,NA,NA,NA,NA
+machzikei hadath rabbinical college,11500,11500,private,112,moderately difficult,NA,NA,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+northeast catholic college,NA,NA,NA,68,moderately difficult,NA,NA,warner,NH,Northeastern,NA,NA,NA,NA,NA,NA
+mesivta torah vodaath seminary,10000,10000,private,240,moderately difficult,NA,NA,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+midstate college,16230,16230,private for profit,641,moderately difficult,NA,NA,peoria,IL,Midwestern,NA,NA,NA,NA,NA,NA
+rabbinical college bobover yeshiva b'nei zion,7750,7750,private,197,moderately difficult,NA,NA,brooklyn,NY,Northeastern,NA,NA,NA,NA,NA,NA
+talmudical yeshiva of philadelphia,8900,8900,private,124,moderately difficult,NA,NA,philadelphia,PA,Northeastern,NA,NA,NA,NA,NA,NA
+antioch university santa barbara,22575,22575,private,128,moderately difficult,NA,NA,santa barbara,CA,California,NA,NA,NA,NA,NA,NA
+boston baptist college,12600,12600,private,96,moderately difficult,NA,NA,boston,MA,Northeastern,NA,NA,NA,NA,NA,NA
+curtis institute of music,NA,NA,private,135,most difficult,NA,NA,philadelphia,PA,Northeastern,NA,NA,NA,NA,NA,NA
+university of phoenix,NA,NA,private for profit,3718,noncompetitive,NA,NA,tempe,AZ,Western,NA,NA,NA,NA,NA,NA
+conception seminary college,21326,21326,private,NA,noncompetitive,NA,NA,conception,MO,Midwestern,NA,NA,NA,NA,NA,NA
+university of the potomac,NA,NA,private for profit,165,noncompetitive,NA,NA,washington,DC,Southern,NA,NA,NA,NA,NA,NA
+platt college,NA,NA,private for profit,134,noncompetitive,NA,NA,aurora,CO,Western,NA,NA,NA,NA,NA,NA
+pacific states university,16005,16005,private,19,noncompetitive,NA,NA,los angeles,CA,California,NA,NA,NA,NA,NA,NA
+beulah heights university,9830,9830,private,454,noncompetitive,NA,NA,atlanta,GA,Southern,NA,NA,NA,NA,NA,NA
+peirce college,18660,18660,private,1491,noncompetitive,NA,NA,philadelphia,PA,Northeastern,NA,NA,NA,NA,NA,NA
+stevens-henager college ogden,NA,NA,private for profit,364,noncompetitive,NA,NA,west haven,UT,Western,NA,NA,NA,NA,NA,NA
+bellevue university,9340,9340,private,6828,noncompetitive,NA,NA,bellevue,NE,Midwestern,NA,NA,NA,NA,NA,NA
+chadron state college,7031,7061,public,2199,noncompetitive,NA,NA,chadron,NE,Midwestern,NA,NA,NA,NA,NA,NA
+national american university rapid city,17175,17175,private for profit,481,noncompetitive,NA,NA,rapid city,SD,Midwestern,NA,NA,NA,NA,NA,NA
+patten university,3432,3432,private,994,noncompetitive,NA,NA,oakland,CA,California,NA,NA,NA,NA,NA,NA
+franklin university,15295,15295,private,4676,noncompetitive,NA,NA,columbus,OH,Midwestern,NA,NA,NA,NA,NA,NA
+university of alaska southeast,7710,23100,public,3073,noncompetitive,NA,NA,juneau,AK,Western,NA,NA,NA,NA,NA,NA
+harris-stowe state university,5220,9853,public,1464,noncompetitive,NA,NA,st louis,MO,Midwestern,NA,NA,NA,NA,NA,NA
+john f. kennedy university,17721,17721,private,287,noncompetitive,NA,NA,pleasant hill,CA,California,NA,NA,NA,NA,NA,NA
+national university,16350,16350,private,8314,noncompetitive,NA,NA,la jolla,CA,California,NA,NA,NA,NA,NA,NA
+thomas edison state college,7300,9820,public,16506,noncompetitive,NA,NA,trenton,NJ,Northeastern,NA,NA,NA,NA,NA,NA
+union institute & university,16076,16076,private,837,noncompetitive,NA,NA,cincinnati,OH,Midwestern,NA,NA,NA,NA,NA,NA
+athens state university,6690,12630,public,3025,noncompetitive,NA,NA,athens,AL,Southern,NA,NA,NA,NA,NA,NA
+texas a&m university texarkana,7635,21900,public,1061,noncompetitive,NA,NA,texarkana,TX,Southern,NA,NA,NA,NA,NA,NA
+humphreys college,14004,14004,private,669,noncompetitive,NA,NA,stockton,CA,California,NA,NA,NA,NA,NA,NA
+charter oak state college,9771,12591,public,1533,noncompetitive,NA,NA,new britain,CT,Northeastern,NA,NA,NA,NA,NA,NA
+sinte gleska university,3700,3700,public,869,noncompetitive,NA,NA,mission,SD,Midwestern,NA,NA,NA,NA,NA,NA
+southwestern christian college,8074,8074,private,NA,noncompetitive,NA,NA,terrell,TX,Southern,NA,NA,NA,NA,NA,NA
+trinity bible college,16040,16040,private,197,noncompetitive,NA,NA,ellendale,ND,Midwestern,NA,NA,NA,NA,NA,NA
+mid-america christian university,17830,17830,private,869,noncompetitive,NA,NA,oklahoma city,OK,Southern,NA,NA,NA,NA,NA,NA
+southeastern baptist college,6550,6550,private,79,noncompetitive,NA,NA,laurel,MS,Southern,NA,NA,NA,NA,NA,NA
+ozark christian college,11980,11980,private,NA,noncompetitive,NA,NA,joplin,MO,Midwestern,NA,NA,NA,NA,NA,NA
+baptist missionary association theological seminary,5650,5650,private,56,noncompetitive,NA,NA,jacksonville,TX,Southern,NA,NA,NA,NA,NA,NA
+walsh college,14050,14050,private,935,noncompetitive,NA,NA,troy,MI,Midwestern,NA,NA,NA,NA,NA,NA
+north central university,23490,23490,private,1125,noncompetitive,NA,NA,minneapolis,MN,Midwestern,NA,NA,NA,NA,NA,NA
+hamilton technical college,NA,NA,private for profit,NA,noncompetitive,NA,NA,davenport,IA,Midwestern,NA,NA,NA,NA,NA,NA
+global university,24958,24958,private,4176,noncompetitive,NA,NA,springfield,MO,Midwestern,NA,NA,NA,NA,NA,NA
+independence university,NA,NA,private for profit,NA,noncompetitive,NA,NA,salt lake city,UT,Western,NA,NA,NA,NA,NA,NA
+dalton state college,4212,12634,public,5188,noncompetitive,NA,NA,dalton,GA,Southern,NA,NA,NA,NA,NA,NA
+grantham university,6540,6540,private for profit,7898,noncompetitive,NA,NA,lenexa,KS,Midwestern,NA,NA,NA,NA,NA,NA
+hobe sound bible college,6490,6490,private,NA,noncompetitive,NA,NA,hobe sound,FL,Southern,NA,NA,NA,NA,NA,NA
+holy trinity orthodox seminary,7450,7450,private,58,noncompetitive,NA,NA,jordanville,NY,Northeastern,NA,NA,NA,NA,NA,NA
+national american university rio rancho,16200,16200,private for profit,336,noncompetitive,NA,NA,albuquerque,NM,Western,NA,NA,NA,NA,NA,NA
+ohio university lancaster,5060,9596,public,1728,noncompetitive,NA,NA,lancaster,OH,Midwestern,NA,NA,NA,NA,NA,NA
+ohio university eastern,4806,6718,public,751,noncompetitive,NA,NA,st clairsville,OH,Midwestern,NA,NA,NA,NA,NA,NA
+st. augustine college,16500,16500,private,1430,noncompetitive,NA,NA,chicago,IL,Midwestern,NA,NA,NA,NA,NA,NA
+columbia southern university,6635,6635,private for profit,15573,noncompetitive,NA,NA,orange beach,AL,Southern,NA,NA,NA,NA,NA,NA
+antioch university seattle,27435,27435,private,103,noncompetitive,NA,NA,seattle,WA,Western,NA,NA,NA,NA,NA,NA
+virginia university of lynchburg,9000,9000,private,233,noncompetitive,NA,NA,lynchburg,VA,Southern,NA,NA,NA,NA,NA,NA
+randall university,12640,12640,private,225,noncompetitive,NA,NA,moore,OK,Southern,NA,NA,NA,NA,NA,NA
+florida career college,NA,NA,private for profit,3952,noncompetitive,NA,NA,miami,FL,Southern,NA,NA,NA,NA,NA,NA
+medical university of south carolina,15168,23182,public,205,very difficult,NA,NA,charleston,SC,Southern,NA,NA,NA,NA,NA,NA
+university of texas medical branch,7422,19954,public,492,very difficult,NA,NA,galveston,TX,Southern,NA,NA,NA,NA,NA,NA
+saint luke's college of health sciences,15674,15674,private,113,very difficult,NA,NA,kansas city,MO,Midwestern,NA,NA,NA,NA,NA,NA
+everglades university orlando,NA,NA,NA,1313,noncompetitive,0.84,354,maitland,FL,Southern,NA,NA,NA,NA,NA,NA
+university of puerto rico cayey,NA,NA,public,3830,moderately difficult,0.78,2471,cayey,PR,NA,NA,NA,NA,NA,NA,NA
+united states naval academy,NA,NA,public,4525,very difficult,0.09,16101,annapolis,MD,Southern,NA,NA,NA,NA,NA,NA
+united states air force academy,NA,NA,public,4237,most difficult,0.15,9894,usaf academy,CO,Western,NA,NA,NA,NA,NA,NA
+united states coast guard academy,NA,NA,public,986,very difficult,0.15,2026,new london,CT,Northeastern,NA,NA,NA,NA,NA,NA
+united states merchant marine academy,NA,NA,public,904,very difficult,0.15,1872,kings point,NY,Northeastern,NA,NA,NA,NA,NA,NA
+columbia college,NA,NA,private,936,minimally difficult,0.51,1580,columbia,MO,Midwestern,NA,NA,NA,NA,NA,NA
+macmurray college,NA,NA,private,552,moderately difficult,0.54,1076,jacksonville,IL,Midwestern,NA,NA,NA,NA,NA,NA
+columbia college,NA,NA,private for profit,1750,noncompetitive,0.54,967,caguas,PR,NA,NA,NA,NA,NA,NA,NA
+edp university of puerto rico,NA,NA,private for profit,1574,noncompetitive,0.61,342,hato rey,PR,NA,NA,NA,NA,NA,NA,NA
+central christian college of the bible,NA,NA,private,417,noncompetitive,0.65,354,moberly,MO,Midwestern,NA,NA,NA,NA,NA,NA
+sullivan university,NA,NA,private for profit,2504,minimally difficult,0.77,3091,louisville,KY,Southern,NA,NA,NA,NA,NA,NA
+university of puerto rico mayaguez,NA,NA,public,12758,moderately difficult,0.77,3275,mayag<fc>ez,PR,NA,NA,NA,NA,NA,NA,NA
+state university of new york of agriculture & technology cobleskill,NA,NA,NA,2304,minimally difficult,0.78,2897,cobleskill,NY,Northeastern,NA,NA,NA,NA,NA,NA
+new charter university,NA,NA,private for profit,230,noncompetitive,0.87,115,salt lake city,UT,Western,NA,NA,NA,NA,NA,NA
+columbia college,NA,NA,private,1554,moderately difficult,0.89,506,columbia,SC,Southern,NA,NA,NA,NA,NA,NA
+city university of seattle,NA,NA,private,1035,noncompetitive,1,86,seattle,WA,Western,NA,NA,NA,NA,NA,NA

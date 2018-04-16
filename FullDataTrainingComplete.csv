@@ -1,0 +1,330 @@
+University,CostIState,CostOState,CollegeType,Undergraduates,EntranceDifficulty,AdmitRate,Applicants,City,State,Region,Starting Median Salary,Mid-Career Median Salary,Mid-Career 10th Percentile Salary,Mid-Career 25th Percentile Salary,Mid-Career 75th Percentile Salary,Mid-Career 90th Percentile Salary
+black hills state university,8602,11602,public,4020,NA,NA,NA,spearfish,SD,Midwestern,35300,43900,NA,32200,60900,NA
+davenport university,21740,21740,private,5950,noncompetitive,NA,NA,grand rapids,MI,Midwestern,39700,46600,31600,38100,65600,85700
+montana state university billings,5833,18598,public,3972,minimally difficult,1,1478,billings,MT,Western,37900,50600,NA,31800,78500,NA
+everest university,NA,NA,NA,3386,minimally difficult,0.74,2225,tampa,FL,Southern,36600,51000,32800,36800,70400,102000
+lee university,16730,16730,private,4821,NA,NA,NA,cleveland,TN,Southern,34500,53900,NA,44500,76800,NA
+virginia wesleyan college,36660,36660,private,1374,moderately difficult,0.9,1654,norfolk,VA,Southern,34600,54900,NA,37100,88900,NA
+tusculum college,23700,23700,private,1585,moderately difficult,0.74,2238,greeneville,TN,Southern,36900,55500,36200,43000,87300,124000
+southern utah university,6676,20288,public,8407,moderately difficult,0.72,10573,cedar city,UT,Western,41900,56500,NA,39700,78400,NA
+saint leo university,22280,22280,private,2264,moderately difficult,0.7,4501,saint leo,FL,Southern,40900,57800,34400,41800,80600,113000
+pittsburg state university,7100,18152,public,5905,minimally difficult,0.87,2503,pittsburg,KS,Midwestern,40400,58200,25600,46000,84600,117000
+indiana wesleyan university,25980,25980,private,2933,moderately difficult,0.96,2444,marion,IN,Midwestern,39800,58500,39600,47800,78600,93400
+austin peay state university,8225,24221,public,9513,moderately difficult,0.89,6255,clarksville,TN,Southern,37700,59200,32200,40500,73900,96200
+dallas baptist university,27480,27480,private,3223,moderately difficult,0.43,3259,dallas,TX,Southern,39400,60200,38500,50300,81800,98100
+mississippi college,17392,17392,private,3004,moderately difficult,0.82,1958,clinton,MS,Southern,35400,60400,NA,43900,80400,NA
+morehead state university,8956,13426,public,14400,minimally difficult,0.83,15996,morehead,KY,Southern,34800,60600,34300,46500,72000,91300
+university of wisconsin green bay,7878,15728,public,6758,moderately difficult,0.92,2126,green bay,WI,Midwestern,35800,60600,35500,46800,81800,102000
+tarleton state university,8903,20886,public,11463,moderately difficult,0.74,6433,stephenville,TX,Southern,40800,62400,32100,47400,80400,126000
+mercy college,18713,18713,private,7157,moderately difficult,0.78,6617,dobbs ferry,NY,Northeastern,43700,62600,35600,47300,99000,134000
+kent state university,10012,18544,public,23684,moderately difficult,0.85,16145,kent,OH,Midwestern,38700,62600,36100,45800,87000,124000
+arkansas state university,8478,14778,public,9592,moderately difficult,0.7,5346,state university,AR,Southern,38700,63300,33600,45300,83900,118000
+university of southern maine,8840,21650,public,6189,moderately difficult,0.8,4111,portland,ME,Northeastern,39400,63600,40400,47900,85700,117000
+evergreen state college,7591,25051,public,3787,moderately difficult,0.97,1901,olympia,WA,Western,39500,63900,38800,47200,91600,120000
+university of wisconsin stevens point,8031,16498,public,8296,moderately difficult,0.77,4005,stevens point,WI,Midwestern,39800,64000,38400,45100,95400,128000
+oklahoma city university,30726,30726,private,1764,NA,NA,NA,oklahoma city,OK,Southern,40000,64300,NA,45400,80600,NA
+park university,12370,12370,private,8946,minimally difficult,NA,NA,parkville,MO,Midwestern,44300,64300,37200,45600,86400,113000
+university of north carolina wilmington,7048,21064,public,13914,moderately difficult,0.72,10436,wilmington,NC,Southern,37500,64400,32100,46600,97100,129000
+ball state university,9774,25942,public,17011,NA,NA,NA,muncie,IN,Midwestern,39100,64500,35500,48200,89300,128000
+university of wisconsin eau claire,8816,16736,public,9981,moderately difficult,0.89,5706,eau claire,WI,Midwestern,41400,64800,35000,47300,93100,125000
+university of missouri kansas city,9763,24490,public,11708,moderately difficult,0.62,5138,kansas city,MO,Midwestern,38900,65800,36300,48100,95800,124000
+state university of new york fredonia,8286,17936,public,4386,moderately difficult,0.62,5381,fredonia,NY,Northeastern,37800,66200,32800,44200,93300,181000
+jacksonville university,35260,35260,private,2889,moderately difficult,0.49,5506,jacksonville,FL,Southern,46700,66200,36700,47200,88500,121000
+university of wisconsin oshkosh,7587,15160,public,13194,moderately difficult,0.68,5846,oshkosh,WI,Midwestern,39300,66400,37700,49700,90100,138000
+western carolina university,7191,17584,public,9171,moderately difficult,0.41,18297,cullowhee,NC,Southern,36900,66600,39000,49500,94400,133000
+utah valley university,5652,16066,public,34706,noncompetitive,1,10339,orem,UT,Western,42400,67100,NA,44100,84900,NA
+university of missouri st. louis,10275,27327,public,13923,moderately difficult,0.71,1947,st louis,MO,Midwestern,41400,67100,36800,49600,97600,144000
+thomas aquinas college,24500,24500,private,389,very difficult,0.74,193,santa paula,CA,California,41500,67500,NA,44600,93100,NA
+east carolina university,6972,23249,public,22969,moderately difficult,0.7,17135,greenville,NC,Southern,40200,67500,38400,52000,98700,151000
+robert morris university,29420,29420,private,4384,minimally difficult,0.8,7164,moon township,PA,Northeastern,38500,68200,37300,47100,95000,128000
+robert morris university,29420,29420,private,2352,minimally difficult,0.23,2732,chicago,IL,Midwestern,38500,68200,37300,47100,95000,128000
+robert morris university,27180,27180,private,4384,minimally difficult,0.8,7164,moon township,PA,Northeastern,38500,68200,37300,47100,95000,128000
+robert morris university,27180,27180,private,2352,minimally difficult,0.23,2732,chicago,IL,Midwestern,38500,68200,37300,47100,95000,128000
+university of wisconsin stout,9456,17423,public,8398,moderately difficult,0.88,3445,menomonie,WI,Midwestern,43600,68300,40900,50600,91600,136000
+virginia commonwealth university,13570,32942,public,24212,NA,0.75,17176,richmond,VA,Southern,42000,68400,37400,51900,1.00E+05,123000
+appalachian state university,7303,22110,public,16595,moderately difficult,0.68,13202,boone,NC,Southern,40400,69100,37200,50400,90800,115000
+university of wisconsin la crosse,8922,17591,public,9699,moderately difficult,0.82,5801,la crosse,WI,Midwestern,42200,69300,37500,47200,93100,133000
+boise state university,7326,22642,public,20209,moderately difficult,0.82,8330,boise,ID,Western,40800,69500,37400,48700,87500,110000
+missouri state university,7306,14746,public,20316,moderately difficult,0.84,9038,springfield,MO,Midwestern,36100,69500,33300,46900,102000,134000
+niagara university,31950,31950,private,3136,moderately difficult,0.83,3359,niagara university,NY,Northeastern,36900,69700,44000,57000,92000,128000
+university of memphis,9700,21413,public,16639,moderately difficult,0.92,7556,memphis,TN,Southern,41400,69700,36100,49100,93500,127000
+fort lewis college,8609,18761,public,3556,moderately difficult,0.92,4164,durango,CO,Western,42000,69800,NA,55000,94000,NA
+university of alabama birmingham,10410,23790,public,12369,moderately difficult,0.89,5838,birmingham,AL,Southern,39200,70100,43000,53400,91400,125000
+state university of new york potsdam,8220,17870,public,3416,moderately difficult,0.72,5454,potsdam,NY,Northeastern,38000,70300,35100,51200,1.00E+05,179000
+university of akron,10270,18801,public,17416,moderately difficult,0.96,13911,akron,OH,Midwestern,41100,70300,40600,53300,95200,127000
+university of texas san antonio,9380,23379,public,24724,moderately difficult,0.76,15500,san antonio,TX,Southern,42500,70700,39100,49800,92700,121000
+portland state university,9030,26130,public,21633,moderately difficult,0.89,6373,portland,OR,Western,42600,70900,40700,52300,94400,123000
+eastern washington university,7085,23837,public,11217,NA,NA,NA,cheney,WA,Western,38600,70900,36000,50500,93100,117000
+florida atlantic university,6039,21595,public,25400,moderately difficult,0.6,15907,boca raton,FL,Southern,42600,71100,40700,53000,99500,137000
+university of south florida,6410,17324,public,31461,moderately difficult,0.47,28623,tampa,FL,Southern,41100,71100,39600,51500,98100,131000
+humboldt state university,7494,19374,public,7968,moderately difficult,0.76,12967,arcata,CA,California,42600,71300,36000,56300,94400,117000
+st. cloud state university,8113,16346,public,13236,moderately difficult,0.85,6986,st cloud,MN,Midwestern,41800,71400,38700,49400,101000,126000
+california state university stanislaus,7038,18918,public,8099,moderately difficult,0.74,7618,turlock,CA,California,38000,71400,NA,50500,94100,NA
+university of wisconsin parkside,7529,15518,public,4276,moderately difficult,0.82,1629,kenosha,WI,Midwestern,40700,71400,40900,53100,84900,119000
+university of nevada las vegas,7430,21618,public,24714,moderately difficult,0.83,8533,las vegas,NV,Western,45200,71600,39000,52400,1.00E+05,128000
+university of central florida,6368,22467,public,55776,moderately difficult,0.5,34886,orlando,FL,Southern,42600,71700,39500,51500,98400,125000
+university of south carolina,12262,32362,public,25556,moderately difficult,0.65,23341,columbia,SC,Southern,40000,71700,36300,49900,98400,131000
+university of montana,7063,24871,public,10778,moderately difficult,0.84,2401,missoula,MT,Western,37300,71900,37000,51500,96400,138000
+university of maine,10902,30282,public,9323,moderately difficult,0.9,12952,orono,ME,Northeastern,41200,72100,41700,55600,99300,141000
+bowling green state university,11057,18593,public,14852,moderately difficult,0.74,14891,bowling green,OH,Midwestern,39800,72100,38200,51800,101000,146000
+eastern michigan university,13438,30619,public,17541,moderately difficult,0.73,14736,ypsilanti,MI,Midwestern,40300,72100,37900,52800,95400,135000
+california state university dominguez hills,6832,18712,public,12562,moderately difficult,0.58,4615,carson,CA,California,42700,72100,30800,47000,92200,132000
+university of texas el paso,7651,21396,public,20521,minimally difficult,1,8684,el paso,TX,Southern,43400,72100,37700,50400,99500,133000
+roger williams university,33336,33336,private,4902,moderately difficult,0.79,9829,bristol,RI,Northeastern,42000,72300,39800,48500,102000,138000
+southern illinois university carbondale,13936,13936,public,12182,moderately difficult,0.77,9084,carbondale,IL,Midwestern,43000,72500,38300,51300,99300,139000
+fitchburg state university,10173,16253,public,4162,moderately difficult,0.75,3566,fitchburg,MA,Northeastern,42400,72600,43300,56100,99600,151000
+university of alaska anchorage,7374,22764,public,16463,noncompetitive,0.8,3533,anchorage,AK,Western,45900,72600,39800,56600,99300,137000
+university of nebraska omaha,8207,22037,public,12335,minimally difficult,0.71,4955,omaha,NE,Midwestern,41500,72600,39500,54400,97400,126000
+lewis & clark college,48988,48988,private,2134,very difficult,0.55,7796,portland,OR,Western,38900,72600,38200,53400,104000,140000
+florida state university,6507,21673,public,32929,very difficult,0.58,29027,tallahassee,FL,Southern,42100,73000,39600,52800,107000,156000
+cleveland state university,9696,13747,public,12433,moderately difficult,0.88,8351,cleveland,OH,Midwestern,43500,73100,39500,51600,97000,137000
+ohio university,11896,21360,public,23788,moderately difficult,0.75,20623,athens,OH,Midwestern,42200,73400,36600,52800,106000,150000
+illinois state university,14061,25168,public,18643,moderately difficult,0.89,12078,normal,IL,Midwestern,42000,73400,39100,55200,105000,142000
+idaho state university,7166,21942,public,11087,minimally difficult,1,2950,pocatello,ID,Western,44900,73400,35400,49600,101000,143000
+south dakota state university,8441,11689,public,10959,minimally difficult,0.91,5173,brookings,SD,Midwestern,41100,73500,34100,49900,99400,129000
+regis university,34450,34450,private,4070,moderately difficult,0.57,6756,denver,CO,Western,48300,73800,41000,55500,94800,117000
+letourneau university,29320,29320,private,2253,moderately difficult,0.44,1842,longview,TX,Southern,49500,73800,41200,52700,95200,126000
+western michigan university,11943,14699,public,18313,moderately difficult,0.82,13613,kalamazoo,MI,Midwestern,42300,73800,40100,52500,103000,135000
+penn state harrisburg,15190,23692,public,4200,very difficult,0.85,4153,middletown,PA,Northeastern,45700,74000,44000,53100,104000,150000
+suffolk university,37510,37510,private,5290,moderately difficult,0.84,8624,boston,MA,Northeastern,42100,74000,48700,57800,95100,145000
+georgia state university,10858,29432,public,25455,moderately difficult,0.53,17467,atlanta,GA,Southern,41800,74000,43000,55300,99900,145000
+university of north carolina charlotte,7023,20457,public,23404,moderately difficult,0.62,17475,charlotte,NC,Southern,43100,74000,38200,53200,99500,133000
+moravian college,42024,42024,private,2006,moderately difficult,0.8,2512,bethlehem,PA,Northeastern,42500,74400,NA,56700,94900,NA
+university of arkansas monticello,7462,13312,public,3802,noncompetitive,0.46,2761,monticello,AR,Southern,39200,74500,NA,46100,110000,NA
+skidmore college,52596,52596,private,2680,very difficult,0.29,9181,saratoga springs,NY,Northeastern,41600,74600,NA,42800,147000,NA
+university of tennessee,12970,31160,public,22139,moderately difficult,0.77,17583,knoxville,TN,Southern,43800,74600,41900,53200,106000,153000
+university of wisconsin milwaukee,11008,22288,public,21375,moderately difficult,0.72,9834,milwaukee,WI,Midwestern,42300,74600,40600,54000,93700,123000
+minnesota state university mankato,8161,16212,public,13459,NA,NA,NA,mankato,MN,Midwestern,43300,74700,39500,53800,95700,140000
+sacred heart university,39820,39820,private,5428,moderately difficult,0.57,10017,fairfield,CT,Northeastern,46000,75300,39700,54800,105000,150000
+western washington university,7932,22444,public,14592,moderately difficult,0.83,10519,bellingham,WA,Western,42700,75400,41300,56700,99200,119000
+florida international university,6558,18956,public,45813,moderately difficult,0.49,17218,miami,FL,Southern,43200,75500,40500,55800,98200,136000
+university of wisconsin whitewater,7662,16235,public,11380,moderately difficult,0.81,6228,whitewater,WI,Midwestern,40800,75500,38200,53500,99300,150000
+university of toledo,9975,19313,public,16247,noncompetitive,0.94,10842,toledo,OH,Midwestern,43100,75900,40100,54100,1.00E+05,133000
+gonzaga university,41330,41330,private,5160,moderately difficult,0.67,7324,spokane,WA,Western,44900,76000,47000,57400,103000,138000
+university of hawaii,11732,33764,public,13132,moderately difficult,0.8,7861,honolulu,HI,Western,43800,76000,40400,56300,104000,128000
+wayne state university,12979,27453,public,17280,moderately difficult,0.81,11093,detroit,MI,Midwestern,42800,76100,40100,56200,101000,139000
+state university of new york plattsburgh,7950,17800,public,5215,moderately difficult,0.51,9404,plattsburgh,NY,Northeastern,40800,76200,38400,54100,105000,136000
+university of louisiana lafayette,10592,24320,public,15870,moderately difficult,0.55,10899,lafayette,LA,Southern,41100,76300,42000,54500,107000,163000
+quinnipiac university,46780,46780,private,7099,moderately difficult,0.76,23492,hamden,CT,Northeastern,43000,76500,47900,57400,117000,155000
+grinnell college,50714,50714,private,1699,very difficult,0.2,7370,grinnell,IA,Midwestern,42600,76600,NA,65100,116000,NA
+state university of new york oneonta,8166,17816,public,5852,very difficult,0.43,12338,oneonta,NY,Northeastern,37500,76700,40000,54300,97700,155000
+montana state university,7223,23927,public,14400,moderately difficult,0.83,15996,bozeman,MT,Western,46600,77500,40200,58100,111000,151000
+university of massachusetts dartmouth,13571,28285,public,6999,moderately difficult,0.76,8211,north dartmouth,MA,Northeastern,43200,77700,43300,56200,107000,132000
+state university of new york oswego,8191,17841,public,7150,moderately difficult,0.54,10715,oswego,NY,Northeastern,38000,77800,40400,53000,115000,169000
+north dakota state university,8546,20572,public,12010,moderately difficult,0.93,5128,fargo,ND,Midwestern,45100,77800,39000,55800,1.00E+05,123000
+university of maryland baltimore county,11518,25654,public,11142,moderately difficult,0.57,10812,baltimore,MD,Southern,47000,77800,46900,59100,105000,130000
+texas christian university,44760,44760,private,8891,very difficult,0.38,19972,fort worth,TX,Southern,45100,78100,42600,56600,122000,183000
+west virginia university,8376,23616,public,22350,moderately difficult,0.76,21558,morgantown,WV,Southern,43100,78100,39700,55700,106000,141000
+university of massachusetts boston,13828,32985,public,12847,moderately difficult,0.69,9886,boston,MA,Northeastern,45600,78200,36300,53800,109000,151000
+wittenberg university,38730,38730,private,1960,moderately difficult,0.78,6906,springfield,OH,Midwestern,39200,78200,NA,54100,131000,NA
+university of new hampshire,18067,32637,public,12871,moderately difficult,0.76,20203,durham,NH,Northeastern,41800,78300,41700,56400,114000,147000
+university of kentucky,11772,27856,public,22621,moderately difficult,0.91,20480,lexington,KY,Southern,42800,78300,43000,57300,107000,149000
+university of oregon,11571,34611,public,20047,moderately difficult,0.78,21821,eugene,OR,Western,42200,78400,38100,56200,117000,186000
+university of wisconsin platteville,7381,15231,public,7793,NA,NA,NA,platteville,WI,Midwestern,45800,78500,48400,61200,1.00E+05,139000
+university of wyoming,5217,16827,public,10045,moderately difficult,0.96,4657,laramie,WY,Western,44500,78700,41500,54000,105000,145000
+utah state university,7174,20726,public,24838,moderately difficult,0.9,15401,logan,UT,Western,43800,78700,41600,55400,101000,132000
+juniata college,43875,43875,private,3796,moderately difficult,0.75,2386,huntingdon,PA,Northeastern,41800,78900,NA,67200,110000,NA
+kansas state university,10135,25492,public,19472,minimally difficult,0.94,9018,manhattan,KS,Midwestern,43300,79000,37200,54100,106000,138000
+colorado state university,11519,29027,public,25688,moderately difficult,0.78,21759,fort collins,CO,Western,44800,79000,43800,57100,112000,150000
+adelphi university,37170,37170,private,5205,moderately difficult,0.7,11863,garden city,NY,Northeastern,40600,79200,44200,54800,114000,160000
+mississippi state university,8318,22358,public,18090,moderately difficult,0.71,13930,mississippi state,MS,Southern,44500,79300,43300,58800,108000,151000
+lamar university,10111,22561,public,9326,minimally difficult,0.76,5613,beaumont,TX,Southern,46500,79400,38700,51600,114000,158000
+new mexico state university,7122,22701,public,12027,moderately difficult,0.6,7618,las cruces,NM,Western,44300,79500,37400,53800,102000,131000
+university of mississippi,8300,23564,public,18785,moderately difficult,0.79,18059,university,MS,Southern,41400,79700,40400,53500,108000,186000
+university of houston,11104,26554,public,35871,moderately difficult,0.59,19860,houston,TX,Southern,46000,79900,42000,56200,106000,141000
+ursinus college,50360,50360,private,1556,moderately difficult,0.82,2491,collegeville,PA,Northeastern,42100,80000,35600,54300,1.00E+05,160000
+tennessee technological university,8873,25529,public,10052,moderately difficult,0.93,4973,cookeville,TN,Southern,46200,80000,42100,62600,99500,121000
+whitman college,49780,49780,private,1493,very difficult,0.51,3749,walla walla,WA,Western,43500,80100,NA,64800,111000,NA
+philadelphia university,39130,39130,private,2906,moderately difficult,0.64,4129,philadelphia,PA,Northeastern,45100,80300,45800,61900,108000,141000
+california state university northridge,6870,18750,public,35552,moderately difficult,0.48,32913,northridge,CA,California,45500,80400,44500,57800,108000,153000
+university of north dakota,8447,20324,public,11255,minimally difficult,0.84,5144,grand forks,ND,Midwestern,44000,80600,43400,56400,111000,157000
+gustavus adolphus college,44080,44080,private,2386,very difficult,0.67,4657,st peter,MN,Midwestern,44500,80600,NA,49300,101000,NA
+embry-riddle aeronautical university,36536,36536,private,5447,moderately difficult,0.71,4901,daytona beach,FL,Southern,52700,80700,49800,64000,106000,142000
+oklahoma state university,8738,23776,public,21093,moderately difficult,0.75,13055,stillwater,OK,Southern,42800,80700,40100,56500,114000,151000
+university of texas arlington,9952,25152,public,29883,moderately difficult,0.61,10245,arlington,TX,Southern,45400,80800,46400,61200,106000,138000
+northern illinois university,12262,21727,public,14079,moderately difficult,0.52,14980,de kalb,IL,Midwestern,43600,80800,43900,60200,111000,161000
+university of nebraska,8901,24201,public,20182,moderately difficult,0.76,9724,lincoln,NE,Midwestern,45700,80900,42200,56600,113000,156000
+fashion institute of technology,5483,14863,public,9096,moderately difficult,0.4,4632,new york,NY,Northeastern,42800,81000,38800,60500,106000,138000
+university of missouri columbia,9787,26506,public,27812,moderately difficult,0.78,21988,columbia,MO,Midwestern,41700,81000,43500,57100,111000,156000
+reed college,54200,54200,private,1410,very difficult,0.31,5705,portland,OR,Western,40500,81100,NA,67400,101000,NA
+state university of new york geneseo,8408,18058,public,5431,moderately difficult,0.67,8892,geneseo,NY,Northeastern,42300,81300,39300,47600,117000,173000
+university of california riverside,13917,41931,public,19799,very difficult,0.66,42629,riverside,CA,California,46800,81300,37200,59900,109000,134000
+university of alabama,10780,28100,public,32563,moderately difficult,0.53,38237,tuscaloosa,AL,Southern,41300,81400,40100,56500,117000,161000
+colorado college,52818,52818,private,2101,very difficult,0.16,7894,colorado springs,CO,Western,38500,81400,NA,43000,148000,NA
+university of puget sound,48090,48090,private,2508,moderately difficult,0.83,6098,tacoma,WA,Western,46600,81500,48900,60100,104000,137000
+university of north carolina chapel hill,9005,34588,public,18523,very difficult,0.27,34889,chapel hill,NC,Southern,42900,81500,43400,57500,117000,155000
+university of kansas,10824,26592,public,19262,moderately difficult,0.93,15015,lawrence,KS,Midwestern,42400,81600,44800,57200,115000,156000
+university of new mexico,7146,22037,public,20522,moderately difficult,0.5,13517,albuquerque,NM,Western,41600,81600,41800,59100,105000,141000
+oberlin college,53460,53460,private,2895,very difficult,0.28,8518,oberlin,OH,Midwestern,43400,81600,NA,46400,128000,NA
+university buffalo,9828,27338,public,20411,moderately difficult,0.59,26001,buffalo,NY,Northeastern,46200,81700,45900,61400,110000,147000
+university of illinois chicago,13704,26560,public,17959,moderately difficult,0.74,17931,chicago,IL,Midwestern,47500,81700,44700,58800,110000,146000
+howard university,25997,25997,private,6883,moderately difficult,0.49,15163,washington,DC,Southern,46900,81800,43300,60000,109000,138000
+university of idaho,7488,23812,public,9586,moderately difficult,0.76,5953,moscow,ID,Western,44900,82000,43000,56700,104000,142000
+california state university sacramento,7204,19084,public,27876,moderately difficult,0.72,23944,sacramento,CA,California,47800,82400,42900,59600,111000,154000
+university of vermont,17740,41356,public,11159,moderately difficult,0.69,22476,burlington,VT,Northeastern,44800,82700,44700,58000,122000,194000
+university of alabama huntsville,10280,21480,public,6507,moderately difficult,0.76,4545,huntsville,AL,Southern,43100,82700,46100,67800,106000,132000
+university of arkansas,9062,24308,public,22548,moderately difficult,0.63,21539,fayetteville,AR,Southern,44100,82800,43200,60700,113000,160000
+seattle university,42885,42885,private,4776,moderately difficult,0.74,8149,seattle,WA,Western,48300,82800,50600,62400,110000,150000
+university of new haven,38170,38170,private,4936,moderately difficult,0.81,10720,west haven,CT,Northeastern,44400,82900,48500,66100,113000,157000
+university of nevada reno,7538,21726,public,18191,moderately difficult,0.83,9644,reno,NV,Western,46500,82900,41900,54600,113000,143000
+university of oklahoma,11538,26919,public,21609,moderately difficult,0.7,14522,norman,OK,Southern,44700,82900,41200,60300,114000,167000
+university of utah,8824,28067,public,23789,moderately difficult,0.76,14308,salt lake city,UT,Western,45400,83200,43000,58400,116000,148000
+oregon state university,10797,29457,public,25327,moderately difficult,0.77,14595,corvallis,OR,Western,45100,83300,46900,64000,113000,146000
+north carolina state university,9058,27406,public,23847,very difficult,0.46,25929,raleigh,NC,Southern,47200,83300,49200,64800,112000,153000
+widener university,44166,44166,private,3591,moderately difficult,0.7,5175,chester,PA,Northeastern,52900,83400,42600,61400,106000,138000
+wellesley college,51148,51148,private,2356,most difficult,0.3,4555,wellesley,MA,Northeastern,42800,83500,NA,58600,125000,NA
+denison university,50440,50440,private,2277,very difficult,0.44,6881,granville,OH,Midwestern,42000,83500,NA,62100,122000,NA
+randolph-macon college,40100,40100,private,1446,moderately difficult,0.61,2842,ashland,VA,Southern,42600,83600,NA,54100,123000,NA
+hamilton college,52770,52770,private,1879,very difficult,0.26,5230,clinton,NY,Northeastern,49200,83700,NA,51900,123000,NA
+ohio state university,10591,29695,public,45831,very difficult,0.54,44845,columbus,OH,Midwestern,44900,83700,45500,60700,116000,162000
+smith college,50044,50044,private,2514,very difficult,0.37,5254,northampton,MA,Northeastern,44000,83900,45100,59800,129000,184000
+university of iowa,8964,30608,public,22354,moderately difficult,0.81,24097,iowa city,IA,Midwestern,44700,83900,43300,61100,116000,163000
+indiana university bloomington,10533,34845,public,39184,moderately difficult,0.79,34646,bloomington,IN,Midwestern,46300,84000,43600,60400,119000,178000
+university of california santa cruz,13969,41983,public,16231,very difficult,0.51,44871,santa cruz,CA,California,44700,84100,46100,62000,121000,165000
+arizona state university,10792,27372,public,42477,moderately difficult,0.83,24764,tempe,AZ,Western,47400,84100,44600,60700,114000,163000
+farmingdale state college,8076,17726,public,9235,moderately difficult,0.58,6169,farmingdale,NY,Northeastern,47300,84200,50200,59800,110000,162000
+university of minnesota,14417,26603,public,34871,moderately difficult,0.44,49129,minneapolis,MN,Midwestern,46200,84200,49000,63200,112000,148000
+california state university east bay,6834,18714,public,13340,moderately difficult,0.7,15670,hayward,CA,California,49200,84300,46000,62400,115000,155000
+duquesne university,36394,36394,private,6039,moderately difficult,0.73,7655,pittsburgh,PA,Northeastern,40700,84400,42600,59500,107000,131000
+university of colorado denver,11258,31448,public,14622,moderately difficult,0.61,12252,denver,CO,Western,46100,84400,46400,58600,105000,144000
+university of delaware,13160,33150,public,18374,moderately difficult,0.65,24456,newark,DE,Southern,45900,84500,44500,64000,119000,165000
+rochester institute of technology,40068,40068,private,13384,moderately difficult,0.55,19824,rochester,NY,Northeastern,48900,84600,45000,62100,112000,159000
+iowa state university,8636,22472,public,30671,moderately difficult,0.87,19433,ames,IA,Midwestern,45400,84600,44400,60000,109000,147000
+california state university long beach,6794,18674,public,32246,moderately difficult,0.32,60732,long beach,CA,California,45100,84700,47400,62500,113000,154000
+la salle university,29500,29500,private,3652,moderately difficult,0.77,5673,philadelphia,PA,Northeastern,43400,84700,45300,57500,106000,151000
+auburn university,10968,29640,public,22658,moderately difficult,0.81,18256,auburn university,AL,Southern,45400,84700,45400,62700,109000,145000
+washington state university,10078,24504,public,17716,moderately difficult,0.73,21410,pullman,WA,Western,45300,84700,43600,59000,113000,162000
+depaul university,38410,38410,private,15961,moderately difficult,0.72,19628,chicago,IL,Midwestern,46400,84800,50300,63900,115000,160000
+siena college,36335,36335,private,3186,moderately difficult,0.73,8037,loudonville,NY,Northeastern,45500,85200,38700,58400,129000,189000
+san diego state university,7460,19340,public,29853,moderately difficult,0.35,60691,san diego,CA,California,46200,85200,45500,61800,116000,158000
+university of rhode island,13792,30042,public,14801,moderately difficult,0.71,21797,kingston,RI,Northeastern,43900,85300,45400,60100,112000,157000
+university of washington,10974,35538,public,30933,very difficult,0.45,43517,seattle,WA,Western,48800,85300,47000,59800,115000,149000
+michigan state university,14460,39405,public,39090,moderately difficult,0.66,37480,east lansing,MI,Midwestern,46300,85300,44200,61500,119000,170000
+pennsylvania state university,18436,33664,public,41359,very difficult,0.56,52974,university park,PA,Northeastern,49900,85700,46300,62000,117000,160000
+colby college,53120,53120,private,1857,most difficult,0.23,7593,waterville,ME,Northeastern,46400,85800,NA,63500,129000,NA
+gettysburg college,52640,52640,private,2384,most difficult,0.43,6816,gettysburg,PA,Northeastern,44700,85800,NA,66300,132000,NA
+syracuse university,46755,46755,private,15218,very difficult,0.52,30923,syracuse,NY,Northeastern,45700,85900,46400,59400,119000,178000
+university of georgia,11818,30392,public,27951,moderately difficult,0.54,22694,athens,GA,Southern,44100,86000,43100,57800,118000,164000
+clemson university,14712,35654,public,18599,very difficult,0.51,23506,clemson,SC,Southern,48400,86000,50500,61800,111000,150000
+university of arizona,11877,35307,public,34072,moderately difficult,0.79,36166,tucson,AZ,Western,47500,86100,44800,61700,117000,160000
+st. olaf college,46000,46000,private,3040,very difficult,0.45,6041,northfield,MN,Midwestern,45300,86200,41300,61000,120000,185000
+northeastern university,49497,49497,private,17923,very difficult,0.29,51063,boston,MA,Northeastern,50500,86400,47100,62700,117000,159000
+san francisco state university,7254,19134,public,25945,moderately difficult,0.68,36223,san francisco,CA,California,47300,86400,45100,62700,114000,150000
+university of massachusetts lowell,14800,31865,public,13639,moderately difficult,0.6,11231,lowell,MA,Northeastern,45400,86600,50900,65000,113000,158000
+george mason university,11924,34370,public,23062,NA,NA,NA,fairfax,VA,Southern,47800,86900,51300,67200,114000,150000
+california state university fullerton,6830,18710,public,34576,moderately difficult,0.48,44493,fullerton,CA,California,45700,87000,45400,62500,119000,158000
+bradley university,32930,32930,private,4473,moderately difficult,0.7,9786,peoria,IL,Midwestern,47000,87300,45900,64900,113000,151000
+ithaca college,42884,42884,private,6221,moderately difficult,0.7,14380,ithaca,NY,Northeastern,42700,87400,50200,62400,128000,174000
+louisiana state university,11374,28051,public,26118,moderately difficult,0.76,18122,baton rouge,LA,Southern,46900,87800,43700,61300,120000,165000
+university of wisconsin madison,10533,34783,public,31710,very difficult,0.53,32887,madison,WI,Midwestern,48900,87800,47400,62400,118000,170000
+university of florida,6381,28658,public,34554,very difficult,0.46,30118,gainesville,FL,Southern,47100,87900,45400,62900,120000,172000
+california state university chico,7348,19228,public,16471,moderately difficult,0.67,23124,chico,CA,California,47400,88100,46800,62800,122000,154000
+university of massachusetts amherst,15596,33662,public,23373,moderately difficult,0.6,40703,amherst,MA,Northeastern,46600,88200,43100,61300,122000,168000
+depauw university,47838,47838,private,2225,moderately difficult,0.65,4845,greencastle,IN,Midwestern,41400,88200,49500,57400,133000,185000
+marquette university,39900,39900,private,8238,moderately difficult,0.84,13136,milwaukee,WI,Midwestern,48500,88400,49500,67400,121000,184000
+providence college,48760,48760,private,4270,NA,NA,NA,providence,RI,Northeastern,48000,88600,42800,62900,138000,194000
+brigham young university,5460,5460,private,30979,moderately difficult,0.51,12739,provo,UT,Western,49400,88600,50600,68500,119000,164000
+baylor university,43970,43970,private,14348,moderately difficult,0.4,34636,waco,TX,Southern,48300,88600,46300,60700,130000,2.00E+05
+university of tulsa,41459,41459,private,3406,very difficult,0.37,8089,tulsa,OK,Southern,42400,88700,42300,60300,120000,197000
+university of connecticut,14880,36948,public,18395,moderately difficult,0.5,31280,storrs,CT,Northeastern,48000,88800,46100,66400,120000,162000
+rider university,41310,41310,private,4128,moderately difficult,0.69,9851,lawrenceville,NJ,Northeastern,43600,88900,47100,63100,127000,150000
+seton hall university,40888,40888,private,5839,moderately difficult,0.79,10730,south orange,NJ,Northeastern,48900,89200,55700,70600,133000,195000
+pace university,43986,43986,private,6284,moderately difficult,0.87,14545,new york,NY,Northeastern,53200,89700,44200,65400,129000,187000
+pratt institute,50038,50038,private,3310,very difficult,0.52,5711,brooklyn,NY,Northeastern,43800,89900,48600,65400,123000,155000
+purdue university,9992,28794,public,30043,moderately difficult,0.56,48774,west lafayette,IN,Midwestern,51400,90500,49900,67400,121000,168000
+american university,46615,46615,private,7901,very difficult,0.26,19325,washington,DC,Southern,45300,90800,45200,62400,134000,169000
+emory university,49392,49392,private,6861,most difficult,0.25,19924,atlanta,GA,Southern,52000,91600,52500,63300,128000,192000
+rutgers university,14638,30579,public,36168,moderately difficult,0.57,36677,piscataway,NJ,Northeastern,50300,91800,48100,65100,128000,176000
+university albany,9550,24430,public,12908,very difficult,0.56,22337,albany,NY,Northeastern,44500,92200,47000,63100,135000,209000
+hofstra university,43960,43960,private,6899,moderately difficult,0.62,28617,hempstead,NY,Northeastern,46800,92700,48900,67000,135000,189000
+franklin & marshall college,54580,54580,private,2255,very difficult,0.36,6953,lancaster,PA,Northeastern,49100,92800,NA,55800,185000,NA
+stony brook university,9257,26767,public,17026,very difficult,0.41,34999,stony brook,NY,Northeastern,49500,93000,47200,67100,129000,181000
+university of michigan,14826,47476,public,28983,very difficult,0.29,55504,ann arbor,MI,Midwestern,52700,93000,50900,69400,128000,182000
+long island university,36978,36978,private,4661,moderately difficult,0.91,7289,brooklyn,NY,Northeastern,47300,93200,46300,62100,122000,169000
+st. john's university,40520,40520,private,16440,moderately difficult,0.63,28590,queens,NY,Northeastern,48000,93400,48000,65400,124000,181000
+new mexico institute of mining & technology,7183,20991,public,1569,moderately difficult,0.23,1663,socorro,NM,Western,51000,93400,NA,67400,123000,NA
+south dakota school of mines & technology,9627,13806,public,2485,moderately difficult,0.85,1368,rapid city,SD,Midwestern,55800,93400,71500,81900,122000,147000
+drexel university,52002,52002,private,15499,moderately difficult,0.75,28535,philadelphia,PA,Northeastern,53400,93500,54900,72500,122000,161000
+boston university,52082,52082,private,17944,very difficult,0.29,57441,boston,MA,Northeastern,49000,93900,48000,64900,130000,193000
+university of texas austin,10136,35766,public,40168,moderately difficult,0.4,47501,austin,TX,Southern,49700,93900,50100,67400,129000,188000
+middlebury college,52496,52496,private,2532,most difficult,0.16,8819,middlebury,VT,Northeastern,47700,94200,NA,69100,129000,NA
+mount holyoke college,47940,47940,private,2202,very difficult,0.52,3543,south hadley,MA,Northeastern,42400,94200,NA,57100,131000,NA
+vassar college,55210,55210,private,2424,very difficult,0.27,7284,poughkeepsie,NY,Northeastern,46000,94600,NA,60600,123000,NA
+university of richmond,50910,50910,private,3036,very difficult,0.32,10422,university of richmond,VA,Southern,48600,94600,44500,59400,151000,211000
+university of california santa barbara,14409,42423,public,21574,very difficult,0.36,77098,santa barbara,CA,California,50500,95000,51300,71200,129000,173000
+university of maryland,10399,33606,public,28472,moderately difficult,0.48,30272,college park,MD,Southern,52000,95000,50400,68300,126000,166000
+virginia polytechnic institute & state university,13230,30410,public,25791,moderately difficult,0.71,25000,blacksburg,VA,Southern,53500,95400,50600,71400,124000,163000
+new york university,50464,50464,private,24985,very difficult,0.35,50804,new york,NY,Northeastern,50300,95600,47500,65000,142000,216000
+san jose state university,7721,18881,public,26822,very difficult,0.55,30583,san jose,CA,California,53500,95600,50700,70500,122000,156000
+union college,53490,53490,private,2203,very difficult,0.37,6648,schenectady,NY,Northeastern,47200,95800,48700,75200,135000,230000
+union college,53490,53490,private,805,moderately difficult,0.64,1811,lincoln,NE,Midwestern,47200,95800,48700,75200,135000,230000
+union college,53490,53490,private,975,moderately difficult,0.67,1344,barbourville,KY,Southern,47200,95800,48700,75200,135000,230000
+union college,23070,23070,private,2203,very difficult,0.37,6648,schenectady,NY,Northeastern,47200,95800,48700,75200,135000,230000
+union college,23070,23070,private,805,moderately difficult,0.64,1811,lincoln,NE,Midwestern,47200,95800,48700,75200,135000,230000
+union college,23070,23070,private,975,moderately difficult,0.67,1344,barbourville,KY,Southern,47200,95800,48700,75200,135000,230000
+missouri university of science & technology,9839,27701,public,6909,very difficult,0.79,4166,rolla,MO,Midwestern,57100,95800,67600,80400,122000,166000
+tulane university,52960,52960,private,6377,very difficult,0.26,32006,new orleans,LA,Southern,49100,95800,46500,64400,134000,185000
+union college,26080,26080,private,2203,very difficult,0.37,6648,schenectady,NY,Northeastern,47200,95800,48700,75200,135000,230000
+union college,26080,26080,private,805,moderately difficult,0.64,1811,lincoln,NE,Midwestern,47200,95800,48700,75200,135000,230000
+union college,26080,26080,private,975,moderately difficult,0.67,1344,barbourville,KY,Southern,47200,95800,48700,75200,135000,230000
+binghamton university,9523,24403,public,13632,very difficult,0.41,32139,binghamton,NY,Northeastern,53600,95900,50900,71200,146000,201000
+northwestern university,52678,52678,private,8353,most difficult,0.11,35100,evanston,IL,Midwestern,52700,95900,51900,69100,144000,205000
+texas a&m university,10403,37154,public,50735,moderately difficult,0.66,35494,college station,TX,Southern,49700,96100,51100,71300,131000,171000
+university of illinois urbana-champaign,15868,31988,public,32695,very difficult,0.62,33203,champaign,IL,Midwestern,52900,96100,48200,68900,132000,177000
+bates college,52042,52042,private,1780,very difficult,0.23,5356,lewiston,ME,Northeastern,47300,96500,NA,60700,162000,NA
+case western reserve university,47500,47500,private,5152,very difficult,0.35,23115,cleveland,OH,Midwestern,56200,96500,54900,76500,123000,168000
+wentworth institute of technology,32954,32954,private,3974,moderately difficult,0.71,7556,boston,MA,Northeastern,53000,96700,55200,74000,117000,153000
+university of california irvine,15516,43530,public,27331,very difficult,0.41,77810,irvine,CA,California,48300,96700,47800,66000,123000,172000
+university of colorado boulder,12086,36220,public,27846,moderately difficult,0.77,34047,boulder,CO,Western,47100,97600,51600,69000,128000,187000
+illinois institute of technology,45534,45534,private,2991,moderately difficult,0.53,4403,chicago,IL,Midwestern,56000,97800,56100,77400,121000,165000
+wesleyan university,52774,52774,private,2971,most difficult,0.18,11928,middletown,CT,Northeastern,46500,97900,42000,62500,126000,215000
+george washington university,53518,53518,private,11504,most difficult,0.4,25488,washington,DC,Southern,47000,97900,48400,69600,132000,194000
+university of california davis,14382,42396,public,29546,very difficult,0.42,67472,davis,CA,California,52300,99600,52000,71600,135000,202000
+university of southern california,54323,54323,private,18794,most difficult,0.17,54280,los angeles,CA,California,54800,99600,49700,73800,140000,201000
+fordham university,50986,50986,private,9258,very difficult,0.48,42811,new york,NY,Northeastern,47800,99900,48600,65900,142000,198000
+villanova university,51284,51284,private,6999,very difficult,0.44,17272,villanova,PA,Northeastern,55800,101000,56800,76200,156000,226000
+cal poly san luis obispo,9432,21312,public,20426,moderately difficult,0.29,48162,san luis obispo,CA,California,57200,101000,55000,74700,133000,178000
+university of california san diego,14028,42042,public,28127,very difficult,0.36,84209,la jolla,CA,California,51100,101000,51700,75400,131000,177000
+university of california los angeles,13749,41763,public,30873,very difficult,0.18,97121,los angeles,CA,California,52600,101000,51300,72500,139000,193000
+pomona college,51075,51075,private,1660,most difficult,0.09,8102,claremont,CA,California,48600,101000,NA,63300,161000,NA
+williams college,53550,53550,private,2076,most difficult,0.18,6985,williamstown,MA,Northeastern,51700,102000,NA,76400,143000,NA
+boston college,53346,53346,private,9309,very difficult,0.31,28956,chestnut hill,MA,Northeastern,52700,103000,48900,70000,143000,195000
+carleton college,52782,52782,private,2105,very difficult,0.23,6485,northfield,MN,Midwestern,47500,103000,NA,69400,141000,NA
+university of virginia,16781,46634,public,16736,very difficult,0.3,30840,charlottesville,VA,Southern,52700,103000,52200,71800,146000,215000
+swarthmore college,50822,50822,private,1620,NA,NA,NA,swarthmore,PA,Northeastern,49700,104000,NA,67200,167000,NA
+davidson college,49949,49949,private,1796,very difficult,0.2,5618,davidson,NC,Southern,46100,104000,NA,70500,146000,NA
+vanderbilt university,47664,47664,private,6871,most difficult,0.11,32442,nashville,TN,Southern,51200,104000,49900,68100,147000,222000
+washington & lee university,50170,50170,private,1830,most difficult,0.24,5101,lexington,VA,Southern,53600,104000,NA,82800,146000,NA
+stevens institute of technology,50554,50554,private,3115,very difficult,0.39,7409,hoboken,NJ,Northeastern,60600,105000,68700,81900,138000,185000
+lehigh university,50740,50740,private,5080,most difficult,0.26,13403,bethlehem,PA,Northeastern,59200,105000,69500,85000,160000,229000
+occidental college,52838,52838,private,2062,very difficult,0.46,6409,los angeles,CA,California,51900,105000,NA,54800,157000,NA
+colorado school of mines,18386,37436,public,4612,very difficult,0.4,12284,golden,CO,Western,58100,106000,62200,87900,142000,201000
+college of the holy cross,50630,50630,private,2941,very difficult,0.38,6693,worcester,MA,Northeastern,50200,106000,NA,65600,143000,NA
+duke university,53500,53500,private,6639,most difficult,0.12,30112,durham,NC,Southern,58900,106000,56000,77400,149000,218000
+georgia institute of technology,12418,33014,public,15489,NA,0.26,30528,atlanta,GA,Southern,58300,106000,67200,85200,137000,183000
+amherst college,54310,54310,private,1849,most difficult,0.14,8406,amherst,MA,Northeastern,54500,107000,NA,84900,162000,NA
+bowdoin college,51848,51848,private,1806,most difficult,0.15,6799,brunswick,ME,Northeastern,48100,107000,NA,74600,146000,NA
+columbia university,57208,57208,private,6158,most difficult,0.06,36292,new york,NY,Northeastern,59400,107000,50300,71900,161000,241000
+lafayette college,50850,50850,private,2550,NA,NA,NA,easton,PA,Northeastern,53900,107000,70600,79300,144000,204000
+colgate university,53980,53980,private,2853,most difficult,0.27,8724,hamilton,NY,Northeastern,52800,108000,60000,76700,167000,265000
+brown university,53419,53419,private,6926,most difficult,0.09,32390,providence,RI,Northeastern,56200,109000,55400,74400,159000,228000
+rensselaer polytechnic institute,52305,52305,private,6265,very difficult,0.44,18524,troy,NY,Northeastern,61100,110000,71600,85500,140000,182000
+bucknell university,53986,53986,private,3571,most difficult,0.3,10487,lewisburg,PA,Northeastern,54100,110000,62800,80600,156000,251000
+rice university,45608,45608,private,3893,most difficult,0.15,18236,houston,TX,Southern,64000,110000,55900,82100,141000,216000
+cornell university,52853,52853,private,14566,most difficult,0.14,44965,ithaca,NY,Northeastern,60300,110000,56800,79800,160000,210000
+georgetown university,52300,52300,private,7453,most difficult,0.17,19997,washington,DC,Southern,55000,110000,60300,85800,174000,248000
+carnegie mellon university,53910,53910,private,6673,most difficult,0.22,21189,pittsburgh,PA,Northeastern,61800,111000,63300,80100,150000,209000
+university of california berkeley,13928,41942,public,27496,NA,0.15,78924,berkeley,CA,California,59900,112000,59500,81000,149000,201000
+university of chicago,54825,54825,private,5941,most difficult,0.08,31484,chicago,IL,Midwestern,53400,113000,62200,83300,174000,255000
+worcester polytechnic institute,48628,48628,private,4432,very difficult,0.48,10468,worcester,MA,Northeastern,61000,114000,80000,91200,137000,180000
+cooper union,45100,45100,private,876,NA,NA,NA,new york,NY,Northeastern,62200,114000,NA,80200,142000,NA
+university of notre dame,51505,51505,private,8530,most difficult,0.19,19505,notre dame,IN,Midwestern,56300,116000,66400,85100,163000,235000
+university of pennsylvania,53534,53534,private,10019,most difficult,0.09,38918,philadelphia,PA,Northeastern,60900,120000,55900,79200,192000,282000
+harvey mudd college,54886,54886,private,829,most difficult,0.13,4180,claremont,CA,California,71800,122000,NA,96000,180000,NA
+california institute of technology,49908,49908,private,979,most difficult,0.08,6855,pasadena,CA,California,75500,123000,NA,104000,161000,NA
+harvard university,48859,48859,private,6712,most difficult,0.05,39041,cambridge,MA,Northeastern,63400,124000,54800,86200,179000,288000
+massachusetts institute of technology,49892,49892,private,4524,most difficult,0.08,19020,cambridge,MA,Northeastern,72200,126000,76800,99200,168000,220000
+yale university,51400,51400,private,5532,most difficult,0.07,30236,new haven,CT,Northeastern,59100,126000,58000,80600,198000,326000
+stanford university,49617,49617,private,7034,most difficult,0.05,43997,stanford,CA,California,70400,129000,68400,93100,184000,257000
+princeton university,47140,47140,private,5400,most difficult,0.07,29303,princeton,NJ,Northeastern,66500,131000,68900,1.00E+05,190000,261000
+dartmouth college,53786,53786,private,4310,most difficult,0.11,20675,hanover,NH,Northeastern,58000,134000,63100,90200,234000,321000
