@@ -10,6 +10,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+```{r Load Package and Datasets}
+library(perturb)
+library(tidyverse)
+library(tree)
+library(class)
+library(car)
+fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
+```
+
+
 The final project report will contain the following sections:
 
 ##Section 1 Analytics Question/Problem (5 pts.) 
@@ -45,6 +55,83 @@ b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must sp
 c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
 
 All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
+
+
+log.model <- lm(log(Starting.Median.Salary) ~ CostIState + CostOState + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + City +State + Region, data=fullDataTraining[train,])
+
+
+
+```{r}
+# log.model.1.null <- lm(log(Starting.Median.Salary) ~ log(CostIState), data=fullDataTraining)
+# log.model.1.full <- lm(log(Starting.Median.Salary) ~ . -CostOState -CostIState +log(CostIState)-
+#                          Mid.Career.25th.Percentile.Salary - Mid.Career.Median.Salary - 
+#                          Mid.Career.10th.Percentile.Salary - Mid.Career.75th.Percentile.Salary -
+#                          Mid.Career.90th.Percentile.Salary, data=fullDataTraining)
+# 
+# log.model.1.forward <- step(log.model.1.null, scope=list(lower=log.model.1.null, upper=log.model.1.full), direction="forward", test="F")
+```
+
+
+```{r training split}
+train <- sample(1:nrow(fullDataTraining), 0.8*nrow(fullDataTraining))
+
+```
+
+
+```{r full logistic regression}
+log.model.1.full <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.1.full)
+
+vif(log.model.1.full)
+
+log.model.2.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.2.full)
+
+vif(log.model.2.full)
+
+log.model.3.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.3.full)
+
+vif(log.model.3.full)
+
+```
+
+```{r CART}
+
+tree.fullDataTrain=tree(Starting.Median.Salary ~ log(CostIState) + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining,subset=train)
+
+yhat=predict(tree.fullDataTrain,newdata=fullDataTraining[-train,]) 
+fullDataTrain.test= fullDataTraining[-train,"Starting.Median.Salary"] # These are the actual values
+plot(yhat,fullDataTrain.test) # Let's plot predicted vs. actual
+abline(0,1) # And draw a line
+mean((yhat-fullDataTrain.test)^2) # And calculate the MSE
+
+
+
+```
+
+```{r KNN}
+
+```
+
+```{r Best Selection}
+
+```
+
+```{r Prediction}
+
+```
+
+
+
+
+
+
 
 ##Section 6 Analysis of Results	 (20 pts.) 
 
