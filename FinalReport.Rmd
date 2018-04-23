@@ -32,13 +32,37 @@ b.	What type of problem or question you are addressing – i.e., quantitative or
 
 c.	What your analytics goal(s) is(are) – i.e., inference, interpretation and/or prediction. 
 
+
+One of the main reasons students attend universities in the US is the hope of getting a better paying job once they graduated. Our hope is to figure out do certain universities provide a better opportunity of doing this than others. Our team wants to predict given a school and several school statistics, can we predict the starting median salary that a graduate from that particular university would earn.
+
+Since our team wants to predict a starting salary this problem is a quantitative problem. Our main goal is to compare salaries that we do not know with salaries that we do know therefore the main analytical goal here is high predictive accuracy.
+
+
 ##Section 2 Business Rational (10 pts.)
 
 A brief but compelling business rationale about the importance of this question/problem from a business perspective. Why is the problem you are analyzing important? 
 
+This analytics question is important from two perspectives: a student and a school.
+
+For the student:
+
+For students entering a university a career is several years away, knowing what the salary is for alumni may influence their decision as where to go. On top of this with the known cost of the university and their predicted salary they would be able to determine a general return on investment as well how long their payback period would be.
+
+
+For the school:
+
+Even though admission rates throughout the country are decreasing, schools are still competing to attract top talent. While there are numerous reasons to attend schools (close to home, prestige of a university, or top program for a degree) one of the major reasons to attend is money. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with their alumni starting salary. 
+
+
 ##Section 3 Description of the Data (10 pts.) 
 
 A description of the data set utilized for the analysis (if the data set is not available in an R package or public web site, the data set must be attached). Your data description should be sufficient for your reading audience to understand your data set, variables and the interpretations you provide in your report, including variable types and units of measurement. The data description should be accompanied by any necessary descriptive analytics artifacts necessary for your predictive modeling (e.g., descriptive statistics, correlation matrix, correlation plots, other plots, etc.). 
+
+The data for this project originated from two sources. The first is from a Kaggle Dataset called Where it Pays to Attend College. This data set includes the university, region, and the schools alumnus median starting salary (in \$) and mid-career salary at certain percentiles (in \$). The second was collected from publicly available information on www.collegedata.com, this data includes admission rates (as decimal), number of undergraduates, cost of tuition (in \$), and location of the school. These datasets were combined together and is attached to this report.
+
+Need descriptive statistics correlation matrix and correlation plots other plots
+
+
 
 ##Section 4 Pre-Processing	 (10 pts.) 
 
@@ -85,13 +109,13 @@ log.model.1.full <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergrad
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
 summary(log.model.1.full)
 
-vif(log.model.1.full)
+#vif(log.model.1.full)
 
 train.fit.1 <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
 summary(train.fit.1)
 
-predict(train.fit.1, fullDataTraining)[-train]
+#predict(train.fit.1, fullDataTraining)[-train]
 
 mse.test.1 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.1, fullDataTraining))[-train]^2)
 mse.test.1 # Check it out
@@ -102,13 +126,13 @@ log.model.2.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeTy
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
 summary(log.model.2.full)
 
-vif(log.model.2.full)
+#vif(log.model.2.full)
 
 train.fit.2 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
 summary(train.fit.2)
 
-predict(train.fit.2, fullDataTraining)[-train]
+#predict(train.fit.2, fullDataTraining)[-train]
 
 mse.test.2 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.2, fullDataTraining))[-train]^2)
 mse.test.2 # Check it out
@@ -119,18 +143,18 @@ log.model.3.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostI
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
 summary(log.model.3.full)
 
-vif(log.model.3.full)
+#vif(log.model.3.full)
 
 train.fit.3 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
 summary(train.fit.3)
 
-predict(train.fit.3, fullDataTraining)[-train]
+#predict(train.fit.3, fullDataTraining)[-train]
 
 mse.test.3 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.3, fullDataTraining))[-train]^2)
 mse.test.3 # Check it out
 
-
+cbind("Model 1 MSE"=mse.test.1, "Model 2 MSE"=mse.test.2, "Model 3 MSE" = mse.test.3)
 
 ```
 
@@ -180,15 +204,4 @@ a.	Your final model method and specification selection. Why did you pick this pa
 b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
 
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
-
-
-##Section 8 Writng Quality Formatting and Presentation (Not in Paper) (10 pts.) 
-
-Writing Quality, Formatting and Presentation. Analytics projects, no matter how good, are not very useful unless the analytics report is well written and clearly articulated. Nobody wants to see a bunch of statistical output without sound commentary about the results and their implications for business. Consequently, heavy weight will be placed on the attractiveness, presentation, writing clarity of the report, free of grammatical errors and typos. More importantly, the entire report needs to flow and be understandable to your audience. 
-
-##Other Requirements: 
-
-(1) all R code and R output/graphics must be visible in the knitted R Markdown HTML or R Presentation file; 
-(2) the data used set must also be submitted or made available by other means; and 
-(3) the written material in the report should be about 1500 words long (approx. 3 pages single-spaced).
 
