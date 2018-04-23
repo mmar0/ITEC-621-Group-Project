@@ -80,11 +80,23 @@ train <- sample(1:nrow(fullDataTraining), 0.8*nrow(fullDataTraining))
 
 
 ```{r full logistic regression}
+#Specification 1
 log.model.1.full <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
 summary(log.model.1.full)
 
 vif(log.model.1.full)
+
+train.fit.1 <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.1)
+
+predict(train.fit.1, fullDataTraining)[-train]
+
+mse.test.1 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.1, fullDataTraining))[-train]^2)
+mse.test.1 # Check it out
+
+#Specification 2
 
 log.model.2.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
@@ -92,11 +104,33 @@ summary(log.model.2.full)
 
 vif(log.model.2.full)
 
+train.fit.2 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.2)
+
+predict(train.fit.2, fullDataTraining)[-train]
+
+mse.test.2 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.2, fullDataTraining))[-train]^2)
+mse.test.2 # Check it out
+
+
+#Specificaiton 3
 log.model.3.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
 summary(log.model.3.full)
 
 vif(log.model.3.full)
+
+train.fit.3 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.3)
+
+predict(train.fit.3, fullDataTraining)[-train]
+
+mse.test.3 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.3, fullDataTraining))[-train]^2)
+mse.test.3 # Check it out
+
+
 
 ```
 
