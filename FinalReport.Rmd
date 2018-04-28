@@ -174,8 +174,49 @@ mean((yhat-fullDataTrain.test)^2) # And calculate the MSE
 ```
 
 ```{r KNN}
+library(FNN)
+set.seed(12345)
+fdt=sample(1:nrow(fullDataTraining), 0.7*nrow(fullDataTraining))
+fdt.train=fullDataTraining[fdt, -12]
+fdt.train.results=fullDataTraining[fdt, 12]
+fdt.test=fullDataTraining[-fdt, -12]
+fdt.test.results=fullDataTraining[-fdt, 12]
+fdt.knn=knn.reg(fdt.train, fdt.test, fdt.train.results, k=10)
+(mean(fdt.knn$pred - fdt.test.results)^2)^0.5
+```
+
+
+```{r OLS Test - Y is Continuous}
+
+#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
 
 ```
+
+
+```{r OLS Test - Errors are Normally Distributed}
+fdt.full=lm(Starting.Median.Salary~., data=fullDataTraining)
+plot(fdt.full)
+```
+
+```{r OLS Assumptions - X's are Independent}
+collin.diag = colldiag(mod=fdt.full, scale=FALSE, center=FALSE, add.intercept=TRUE)
+collin.diag
+```
+
+```{r OLS Assumptions - Error Variance is Constant}
+library(lmtest)
+lm.formula=Starting.Median.Salary~.
+bptest(lm.formula, data=fullDataTraining)
+```
+
+BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
+
+
+```{r OLS Assumptions - Observations/Errors are Independent}
+#Durbin-Watson Test
+dwtest(fdt.full) 
+```
+
 
 ```{r Best Selection}
 
