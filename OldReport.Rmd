@@ -1,11 +1,8 @@
 ---
-title: "Final Report"
-author: "Angela, Jeremy, George, Mat"
-date: "May 3, 2018"
-output: 
-  word_document:
-     toc: true
-     toc_depth: 2
+title: "OldReport"
+author: "Group Name"
+date: "April 28, 2018"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -87,6 +84,135 @@ c.	Predictive accuracy based on cross-validation test statistics. Similarly, the
 
 All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
 
+
+log.model <- lm(log(Starting.Median.Salary) ~ CostIState + CostOState + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + City +State + Region, data=fullDataTraining[train,])
+
+
+
+```{r}
+# log.model.1.null <- lm(log(Starting.Median.Salary) ~ log(CostIState), data=fullDataTraining)
+# log.model.1.full <- lm(log(Starting.Median.Salary) ~ . -CostOState -CostIState +log(CostIState)-
+#                          Mid.Career.25th.Percentile.Salary - Mid.Career.Median.Salary - 
+#                          Mid.Career.10th.Percentile.Salary - Mid.Career.75th.Percentile.Salary -
+#                          Mid.Career.90th.Percentile.Salary, data=fullDataTraining)
+# 
+# log.model.1.forward <- step(log.model.1.null, scope=list(lower=log.model.1.null, upper=log.model.1.full), direction="forward", test="F")
+```
+
+
+```{r training split}
+train <- sample(1:nrow(fullDataTraining), 0.8*nrow(fullDataTraining))
+
+```
+
+
+```{r full logistic regression}
+#Specification 1
+log.model.1.full <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.1.full)
+
+#vif(log.model.1.full)
+
+train.fit.1 <- lm(log(Starting.Median.Salary) ~ log(CostIState) + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.1)
+
+#predict(train.fit.1, fullDataTraining)[-train]
+
+mse.test.1 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.1, fullDataTraining))[-train]^2)
+mse.test.1 # Check it out
+
+#Specification 2
+
+log.model.2.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.2.full)
+
+#vif(log.model.2.full)
+
+train.fit.2 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + CollegeType + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.2)
+
+#predict(train.fit.2, fullDataTraining)[-train]
+
+mse.test.2 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.2, fullDataTraining))[-train]^2)
+mse.test.2 # Check it out
+
+
+#Specificaiton 3
+log.model.3.full <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+summary(log.model.3.full)
+
+#vif(log.model.3.full)
+
+train.fit.3 <- lm(log(Starting.Median.Salary) ~ log(CostOState) + log(CostIState)+  Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining[train,])
+summary(train.fit.3)
+
+#predict(train.fit.3, fullDataTraining)[-train]
+
+mse.test.3 <- mean((log(fullDataTraining$Starting.Median.Salary)-predict(train.fit.3, fullDataTraining))[-train]^2)
+mse.test.3 # Check it out
+
+cbind("Model 1 MSE"=mse.test.1, "Model 2 MSE"=mse.test.2, "Model 3 MSE" = mse.test.3)
+
+```
+
+```{r CART}
+
+tree.fullDataTrain=tree(Starting.Median.Salary ~ CostIState + Undergraduates + 
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining,subset=train)
+
+summary(tree.fullDataTrain) # The summary shows the number of terminal nodes and it's respective residual mean deaviance
+
+yhat=predict(tree.fullDataTrain,newdata=fullDataTraining[-train,]) 
+fullDataTrain.test= fullDataTraining[-train,"Starting.Median.Salary"] # These are the actual values
+
+plot(yhat,fullDataTrain.test) # Let's plot predicted vs. actual
+abline(0,1) # Draw a line
+
+mse.tree=mean((yhat-fullDataTrain.test)^2) # Calculate the MSE
+mse.tree # Check it out
+
+plot(tree.fullDataTrain) # plot the tree
+text(tree.fullDataTrain, cex=0.6)
+title("Starting Median Salary")
+
+cv.fullDataTrain=cv.tree(tree.fullDataTrain) # The cv.tree() function does 10FCV and minimizes the deviance measured as the MSE in regression trees.
+
+plot(cv.fullDataTrain$size,cv.fullDataTrain$dev,type='b') # Let's plot tree size (number of terminal nodes) vs. deviance
+
+tree.Prune.fullDataTrain=prune.tree(tree.fullDataTrain, best=7) 
+plot(tree.Prune.fullDataTrain) # plot the tree
+text(tree.Prune.fullDataTrain, cex=0.6)
+title("Starting Median Salary")
+
+library(randomForest) # Contains the randomForest() function
+set.seed(1); Train = sample(1:nrow(fullDataTraining), 0.7*nrow(fullDataTraining)) # Bagging 500 trees (default), with 13 predictors each, with variable importance statistics
+#bag.school=randomForest(Starting.Median.Salary~., data=fullDataTraining[Train,], mtry=11, importance=TRUE) # mtry=13 uses all 13 predictors; ntree= is number of trees to fit (default is 500)
+# bag.school # Check it out
+# varImpPlot(bag.school) # Variable importance plots
+# importance(bag.school)
+
+
+
+```
+
+```{r KNN}
+library(FNN)
+set.seed(12345)
+fdt=sample(1:nrow(fullDataTraining), 0.7*nrow(fullDataTraining))
+fdt.train=fullDataTraining[fdt, -12]
+fdt.train.results=fullDataTraining[fdt, 12]
+fdt.test=fullDataTraining[-fdt, -12]
+fdt.test.results=fullDataTraining[-fdt, 12]
+fdt.knn=knn.reg(fdt.train, fdt.test, fdt.train.results, k=10)
+(mean(fdt.knn$pred - fdt.test.results)^2)^0.5
+```
 
 
 ```{r OLS Test - Y is Continuous}
