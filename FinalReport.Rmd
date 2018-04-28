@@ -1,8 +1,11 @@
 ---
 title: "Final Report"
-author: "Group Name"
+author: "Angela, Jeremy, George, Mat"
 date: "May 3, 2018"
-output: html_document
+output: 
+  word_document:
+     toc: true
+     toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
@@ -160,14 +163,39 @@ cbind("Model 1 MSE"=mse.test.1, "Model 2 MSE"=mse.test.2, "Model 3 MSE" = mse.te
 
 ```{r CART}
 
-tree.fullDataTrain=tree(Starting.Median.Salary ~ log(CostIState) + Undergraduates + 
+tree.fullDataTrain=tree(Starting.Median.Salary ~ CostIState + Undergraduates + 
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining,subset=train)
+
+summary(tree.fullDataTrain) # The summary shows the number of terminal nodes and it's respective residual mean deaviance
 
 yhat=predict(tree.fullDataTrain,newdata=fullDataTraining[-train,]) 
 fullDataTrain.test= fullDataTraining[-train,"Starting.Median.Salary"] # These are the actual values
+
 plot(yhat,fullDataTrain.test) # Let's plot predicted vs. actual
-abline(0,1) # And draw a line
-mean((yhat-fullDataTrain.test)^2) # And calculate the MSE
+abline(0,1) # Draw a line
+
+mse.tree=mean((yhat-fullDataTrain.test)^2) # Calculate the MSE
+mse.tree # Check it out
+
+plot(tree.fullDataTrain) # plot the tree
+text(tree.fullDataTrain, cex=0.6)
+title("Starting Median Salary")
+
+cv.fullDataTrain=cv.tree(tree.fullDataTrain) # The cv.tree() function does 10FCV and minimizes the deviance measured as the MSE in regression trees.
+
+plot(cv.fullDataTrain$size,cv.fullDataTrain$dev,type='b') # Let's plot tree size (number of terminal nodes) vs. deviance
+
+tree.Prune.fullDataTrain=prune.tree(tree.fullDataTrain, best=7) 
+plot(tree.Prune.fullDataTrain) # plot the tree
+text(tree.Prune.fullDataTrain, cex=0.6)
+title("Starting Median Salary")
+
+library(randomForest) # Contains the randomForest() function
+set.seed(1); Train = sample(1:nrow(fullDataTraining), 0.7*nrow(fullDataTraining)) # Bagging 500 trees (default), with 13 predictors each, with variable importance statistics
+bag.school=randomForest(Starting.Median.Salary~., data=fullDataTraining[Train,] mtry=11, importance=TRUE) # mtry=13 uses all 13 predictors; ntree= is number of trees to fit (default is 500)
+bag.school # Check it out
+varImpPlot(bag.school) # Variable importance plots
+importance(bag.school)
 
 
 
