@@ -75,17 +75,25 @@ Need descriptive statistics correlation matrix and correlation plots other plots
 
 A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation. 
 
-##Section 5 Model Justification (20 pts.) 
+```{r training split}
+set.seed(123)
+train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
+```
 
-A justification for the analytics methods and model specifications used. All methods used must be appropriate and relevant to the problem and you need to provide a justification for the selected methods based on: 
+```{r}
+qqnorm(fullDataTraining$Starting.Median.Salary)
+qqline(fullDataTraining$Starting.Median.Salary)
 
-a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
+qqnorm(log(fullDataTraining$Starting.Median.Salary))
+qqline(log(fullDataTraining$Starting.Median.Salary))
 
-b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
+qqnorm(fDTNoOut$Starting.Median.Salary)
+qqline(fDTNoOut$Starting.Median.Salary)
 
-c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
+qqnorm(log(fDTNoOut$Starting.Median.Salary))
+qqline(log(fDTNoOut$Starting.Median.Salary))
 
-All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
+```
 
 
 
@@ -120,6 +128,21 @@ BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
 #Durbin-Watson Test
 dwtest(fdt.full) 
 ```
+
+
+##Section 5 Model Justification (20 pts.) 
+
+A justification for the analytics methods and model specifications used. All methods used must be appropriate and relevant to the problem and you need to provide a justification for the selected methods based on: 
+
+a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
+
+b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
+
+c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
+
+All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
+
+
 
 ```{r}
 plot(fullDataTraining$CostIState, fullDataTraining$Starting.Median.Salary)
@@ -204,50 +227,64 @@ EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
 
 vif(ols.full)
 
+#ols
 #Unlogged
 
-ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
+ols.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+summary(ols.unlogged)
+ols.unlogged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(ols.unlogged,fDTNoOut))[-train]^2) 
+ols.unlogged.mse.test
 
+#Ols Logged
+ols.logged <- lm(log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+summary(ols.logged)
+ols.logged.mse.test <- mean((log(fDTNoOut$Starting.Median.Salary)-(predict(ols.logged,fDTNoOut)))[-train]^2) 
+ols.logged.mse.test
+
+
+#OLS
+#with interaction
+ols.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
+summary(ols.interaction)
+ols.interaction.mse.test <-
+mean((fDTNoOut$Starting.Median.Salary-predict(ols.interaction,fDTNoOut))[-train]^2) 
+ols.interaction.mse.test
+
+
+
+#WLS
+#Unlogged
+
+wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
 lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region
-lm.fit.wls1=lm(lm.formula,data=fDTNoOut, weights=1/ols.full$residuals^2)
+lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
 summary(lm.fit.wls1)
+mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
 
-SST <- sum((fDTNoOut$Starting.Median.Salary-mean(fDTNoOut$Starting.Median.Salary))^2)
-SSE <- sum((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1))^2)
-RealRSqWLS = 1-(SSE/SST)
-RealRSqWLS
+#WLS
+#Logged TBD if made
+# 
+# wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+# EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+# lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+# EntranceDifficulty + AdmitRate + Applicants + Region
+# lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
+# summary(lm.fit.wls1)
+# mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
 
-#log Salary
-ols.full <- lm(log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
-
-lm.formula <- log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region
-lm.fit.wls1=lm(lm.formula,data=fDTNoOut, weights=1/ols.full$residuals^2)
-summary(lm.fit.wls1)
-
-SST <- sum((log(fDTNoOut$Starting.Median.Salary)-mean(log(fDTNoOut$Starting.Median.Salary)))^2)
-SSE <- sum((log(fDTNoOut$Starting.Median.Salary)-predict(lm.fit.wls1))^2)
-RealRSqWLS = 1-(SSE/SST)
-RealRSqWLS
-
-#with interaction
-ols.full <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
-                 CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut)
-summary(ols.full)
+#WLS
+#Interaction
+wls.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
 
 lm.formula <- Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + AdmitRate + Region
-lm.fit.wls1=lm(lm.formula,data=fDTNoOut, weights=1/ols.full$residuals^2)
-summary(lm.fit.wls1)
-
-SST <- sum((fDTNoOut$Starting.Median.Salary-mean(fDTNoOut$Starting.Median.Salary))^2)
-SSE <- sum((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1))^2)
-RealRSqWLS = 1-(SSE/SST)
-RealRSqWLS
-SSE/279
+lm.fit.wls2=lm(lm.formula,data=fDTNoOut[train,], weights=1/ols.full$residuals^2)
+summary(lm.fit.wls2)
+mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls2,fDTNoOut))[-train]^2)
 
 
 admitlimits=range(fDTNoOut$AdmitRate)
@@ -257,24 +294,26 @@ admit.seq=seq(from=admitlimits[1],to=admitlimits[2])
 
 plot(fDTNoOut$AdmitRate,fDTNoOut$Starting.Median.Salary,xlim=admitlimits,cex=.5,col="black")
 
-
-#Only Admit Rate
+#Piecewise
+#Only Admit Rate #TBD if used
 fit.piecewise=lm(Starting.Median.Salary~AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut)
 summary(fit.piecewise)
 
-
-#Only all predictors
-fit.piecewise=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
+#Piecewise
+#Unlogged
+piecewise.unlogged=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
                  CollegeType+Undergraduates + Applicants + Region+
-                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut)
-summary(fit.piecewise)
+                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
+summary(piecewise.unlogged)
+mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.unlogged,fDTNoOut))[-train]^2)
 
+#Piecewise
 #Interaction Effect
-fit.piecewise=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
+piecewise.interaction=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + Region+
-                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut)
-summary(fit.piecewise)
-
+                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
+summary(piecewise.interaction)
+mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.interaction,fDTNoOut))[-train]^2)
 
 ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
