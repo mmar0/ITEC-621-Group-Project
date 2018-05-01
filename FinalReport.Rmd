@@ -76,10 +76,6 @@ Need descriptive statistics correlation matrix and correlation plots other plots
 
 A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation. 
 
-```{r training split}
-set.seed(123)
-train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
-```
 
 ```{r}
 qqnorm(fullDataTraining$Starting.Median.Salary)
@@ -115,6 +111,10 @@ qqline(log(fDTNoOut$Starting.Median.Salary))
 
 ```
 
+```{r training split}
+set.seed(123)
+train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
+```
 
 
 ```{r OLS Test - Y is Continuous}
