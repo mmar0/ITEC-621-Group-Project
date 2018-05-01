@@ -73,6 +73,7 @@ Need descriptive statistics correlation matrix and correlation plots other plots
 
 ##Section 4 Pre-Processing	 (10 pts.) 
 
+
 A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation. 
 
 ```{r training split}
@@ -86,6 +87,25 @@ qqline(fullDataTraining$Starting.Median.Salary)
 
 qqnorm(log(fullDataTraining$Starting.Median.Salary))
 qqline(log(fullDataTraining$Starting.Median.Salary))
+
+hist(fullDataTraining$Starting.Median.Salary)
+
+boxplot(fullDataTraining$Starting.Median.Salary)
+
+calc.limits <- function(x, na.rm = TRUE) {
+    qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm)
+    H <- 1.5 * IQR(x, na.rm = na.rm)
+    lwr <- qnt[1] - H
+    upr <- qnt[2] + H
+    c(lwr, upr)
+}
+calc.limits(fullDataTraining$Starting.Median.Salary)
+fDTNoOut<- fullDataTraining%>% 
+  filter(Starting.Median.Salary>32475 & Starting.Median.Salary<58275)
+
+hist(fDTNoOut$Starting.Median.Salary)
+
+setdiff(fullDataTraining$University,fDTNoOut$University)
 
 qqnorm(fDTNoOut$Starting.Median.Salary)
 qqline(fDTNoOut$Starting.Median.Salary)
@@ -186,34 +206,7 @@ RealRSqWLS = 1-(SSE/SST)
 RealRSqWLS
 plot(lm.fit.wls1)
 
-hist(fullDataTraining$Starting.Median.Salary)
-hist(log(fullDataTraining$Starting.Median.Salary))
-hist(log(fullDataTraining$Starting.Median.Salary/1000))
-hist(log(fullDataTraining$Starting.Median.Salary/1000))
 
-calc.limits <- function(x, na.rm = TRUE) {
-    qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm)
-    H <- 1.5 * IQR(x, na.rm = na.rm)
-    lwr <- qnt[1] - H
-    upr <- qnt[2] + H
-    c(lwr, upr)
-}
-calc.limits(fullDataTraining$Starting.Median.Salary)
-fullDataTraining$Starting.Median.Salary>32475 & fullDataTraining$Starting.Median.Salary< 58275
-fDTNoOut<- fullDataTraining%>% 
-  filter(Starting.Median.Salary>32475 & Starting.Median.Salary<58275)
-
-hist(fDTNoOut$Starting.Median.Salary)
-hist(log(fDTNoOut$Starting.Median.Salary))
-
-qqplot(fDTNoOut$Starting.Median.Salary, fDTNoOut$AdmitRate)
-qqplot(log(fDTNoOut$Starting.Median.Salary), fDTNoOut$AdmitRate)
-plot(fDTNoOut$AdmitRate, fDTNoOut$Starting.Median.Salary)
-plot(log(fDTNoOut$AdmitRate), log(fDTNoOut$Starting.Median.Salary))
-plot((fDTNoOut$AdmitRate), log(fDTNoOut$Starting.Median.Salary))
-plot(log(fDTNoOut$AdmitRate), (fDTNoOut$Starting.Median.Salary))
-
-setdiff(fullDataTraining$University,fDTNoOut$University)
 
 ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
 
