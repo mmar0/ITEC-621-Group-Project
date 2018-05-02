@@ -23,7 +23,9 @@ library(FNN)
 library(lmtest)
 library(randomForest)
 library(car)
+require(lmtest)
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
+
 ```
 
 
@@ -72,6 +74,8 @@ Need descriptive statistics correlation matrix and correlation plots other plots
 
 
 ##Section 4 Pre-Processing	 (10 pts.) 
+
+A. A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation.
 
 The data was pulled from two source locations: kaggle.com and college.com.  Each of these sites provided the university name, number of undergraduates, admit rates, entrance difficulty, and school location.  After both lists were created, they were merged in order to create a single data set.  The intent of using two sources for the data was to ensure that we had a more complete picture of what the school reported as its admit rates, post undergraduate salaries, and cost of tuition.  Out of the 1800 schools that were pulled from these two sources, 311 of the schools had complete data reported on all the categories that we were identifying as possible factors in post undergraduate salaries. The rest of the schools, we identified the missing variables and replaced blanks with “N/A” in order to allow R to read the data without any blanks. 
 
@@ -125,15 +129,6 @@ EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
 
 vif(ols.full)
 
-#OLS assumptions:
- #YC (Y is continuous): No
- #EN (Errors are normally distributed): Yes
- #XI (X's are independent): Yes
- #LI (Y and X's have linear reltionship): Yes
- #OI (Observations are independent): Yes
- #EI (Errors are independent): Yes
- #EA (The error average is 0): 
- #EV (The error variance is constant (homoscedasticity)): Yes
 ```
 
 ```{r training split}
@@ -141,23 +136,20 @@ set.seed(123)
 train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
 ```
 
-
 ```{r OLS Test - Y is Continuous}
-
 #Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
-
 ```
 
-
 ```{r OLS Test - Errors are Normally Distributed}
-fdt.full=lm(Starting.Median.Salary~., data=fullDataTraining)
-
-plot(fdt.full)
+fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
+plot(fdt)
 ```
 
 ```{r OLS Assumptions - Xs are Independent}
-# collin.diag = colldiag(mod=fdt.full, scale=FALSE, center=FALSE, add.intercept=TRUE)
-# collin.diag
+ct1 <- with(fdt.full, c(NA,cons[-length(cons)]))
+fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
+cd<- colldiag(mod=fdt, scale=FALSE, center=FALSE, add.intercept=TRUE)
+
 ```
 
 ```{r OLS Assumptions - Error Variance is Constant}
@@ -167,10 +159,20 @@ bptest(lm.formula, data=fullDataTraining)
 
 BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
 
-
 ```{r OLS Assumptions - Observations/Errors are Independent}
-#Durbin-Watson Test
-#dwtest(fdt.full) 
+dwtest(fdt.full) 
+```
+
+```{r OLS Assumptions}
+#OLS assumptions:
+ #YC (Y is continuous): No
+ #EN (Errors are normally distributed): Yes
+ #XI (X's are independent): Yes
+ #LI (Y and X's have linear reltionship): Yes
+ #OI (Observations are independent): Yes
+ #EI (Errors are independent): Yes
+ #EA (The error average is 0): Yes
+ #EV (The error variance is constant (homoscedasticity)): Yes
 ```
 
 
@@ -300,12 +302,6 @@ mse.table
 ```{r Prediction}
 summary(lm.fit.wls1)
 ```
-
-
-
-
-
-
 
 ##Section 6 Analysis of Results	 (20 pts.) 
 
