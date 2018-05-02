@@ -1,6 +1,6 @@
 ---
-title: "Final Report"
-author: "Angela, Jeremy, George, Mat"
+title: "What is the Value of a University's Pedigree?"
+author: "Angela, Jeremy, George, Matt"
 date: "May 3, 2018"
 output: 
   word_document:
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r Load Package and Datasets}
+```{r Load Package and Datasets, message=FALSE}
 library(perturb)
 library(tidyverse)
 library(tree)
@@ -130,13 +130,12 @@ fdt.full=lm(Starting.Median.Salary~., data=fullDataTraining)
 plot(fdt.full)
 ```
 
-```{r OLS Assumptions - X's are Independent}
-collin.diag = colldiag(mod=fdt.full, scale=FALSE, center=FALSE, add.intercept=TRUE)
-collin.diag
+```{r OLS Assumptions - Xs are Independent}
+# collin.diag = colldiag(mod=fdt.full, scale=FALSE, center=FALSE, add.intercept=TRUE)
+# collin.diag
 ```
 
 ```{r OLS Assumptions - Error Variance is Constant}
-library(lmtest)
 lm.formula=Starting.Median.Salary~.
 bptest(lm.formula, data=fullDataTraining)
 ```
@@ -146,7 +145,7 @@ BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
 
 ```{r OLS Assumptions - Observations/Errors are Independent}
 #Durbin-Watson Test
-dwtest(fdt.full) 
+#dwtest(fdt.full) 
 ```
 
 
@@ -156,171 +155,127 @@ A justification for the analytics methods and model specifications used. All met
 
 a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
 
+As shown in the prior section, our dataset conforms with these ______ OLS assumptions, and these ______ are the assumptions which our dataset  departs from OLS. We find this ok to still use OLS because. Because these violations are not drastic or have been minimized through the methods above ols can still be ran. 
+
 b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
+
+If university can lead to a better paying job down the road does the university matter. The goal of the project is to show how a choice in a school can lead to this difference. Therefore our goal is inference and interpretablity of the result.This allows for the results to be useful for both students and student's families and schools. 
 
 c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
 
+The outcome variable our project is trying to explain is the Starting Median Salary. The predictors used were Cost of Out of State Tuition, the Number of Undergraduates, Private/Public School, Percieved Entrance Difficulty, Admission Rate, the Number of Applicants and the Region.
+
+The models used were OLS, WLS, and Piecewise because ______. The specifications used were No Transformation which incorporated base because ______. Log transformed outcome variable, all predictors remained the same because _______. Lastly an interaction effect between number of undergraduates and college type because ______.
+
+The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because ________. This variable ________ was not almost significant but we kept it because __________.
+
+<!-- Need to add new title to report -->
+
+<!-- Look up the Weighted Regression p-value interpretation  --> 
+<!-- Check Figure Size and If All Packages are Needed -->
+
 All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
 
+<!-- Used echo = FALSE and eval = FALSE to prevent the code chunks for the piecewise AdmitRate from being ran --> 
 
-
-```{r}
-plot(fullDataTraining$CostIState, fullDataTraining$Starting.Median.Salary)
-boxplot(fullDataTraining$Starting.Median.Salary)
-MyDiamondData <- as.matrix(data.frame(fullDataTraining$CostIState+fullDataTraining$CostOState,fullDataTraining$Starting.Median.Salary))
-head(MyDiamondData)
-cor(MyDiamondData, use="complete.obs")
-
-plot(fullDataTraining$AdmitRate, fullDataTraining$Starting.Median.Salary)
-MyDiamondData <- as.matrix(data.frame(fullDataTraining$AdmitRate,fullDataTraining$Starting.Median.Salary))
-cor(MyDiamondData, use="complete.obs")
-
-plot(fullDataTraining$AdmitRate * fullDataTraining$CostIState, fullDataTraining$Starting.Median.Salary)
-MyDiamondData <- as.matrix(data.frame(-1*fullDataTraining$AdmitRate+fullDataTraining$CostIState+fullDataTraining$AdmitRate*fullDataTraining$CostIState,fullDataTraining$Starting.Median.Salary))
-cor(MyDiamondData, use="complete.obs")
-
-
-
-
-plot(fullDataTraining$CostOState, fullDataTraining$Starting.Median.Salary)
+```{r OLS No Transformation}
+ols.noTransformation <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType + EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+ols.noTransformation.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(ols.noTransformation,fDTNoOut))[-train]^2) 
 ```
 
-```{r}
-ols.full <- lm(Starting.Median.Salary ~ CostIState*CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
-qqplot(fullDataTraining$AdmitRate, fullDataTraining$Starting.Median.Salary)
-qqplot((fullDataTraining$AdmitRate), log(fullDataTraining$Starting.Median.Salary))
-qqplot(log(fullDataTraining$AdmitRate), log(fullDataTraining$Starting.Median.Salary))
-qqplot(log(fullDataTraining$AdmitRate), fullDataTraining$Starting.Median.Salary)
-plot(ols.full)
-
-
-lm.formula <- Starting.Median.Salary ~ CostIState*CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region
-lm.fit.wls1=lm(lm.formula,data=fullDataTraining, weights=1/ols.full$residuals^2)
-summary(lm.fit.wls1)
-
-SST <- sum((fullDataTraining$Starting.Median.Salary-mean(fullDataTraining$Starting.Median.Salary))^2)
-SSE <- sum((fullDataTraining$Starting.Median.Salary-predict(lm.fit.wls1))^2)
-RealRSqWLS = 1-(SSE/SST)
-RealRSqWLS
-plot(lm.fit.wls1)
-
-
-
-ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
-
-collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
-
-collin.diag
-
-
-ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
-
-vif(ols.full)
-
-#ols
-#Unlogged
-
-ols.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
-summary(ols.unlogged)
-ols.unlogged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(ols.unlogged,fDTNoOut))[-train]^2) 
-ols.unlogged.mse.test
-
-#Ols Logged
+```{r OLS Logged}
 ols.logged <- lm(log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
-summary(ols.logged)
-ols.logged.mse.test <- mean((log(fDTNoOut$Starting.Median.Salary)-(predict(ols.logged,fDTNoOut)))[-train]^2) 
-ols.logged.mse.test
+ols.logged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-exp(predict(ols.logged,fDTNoOut)))[-train]^2) 
+```
 
-
-#OLS
-#with interaction
+```{r OLS Interaction}
 ols.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
-summary(ols.interaction)
 ols.interaction.mse.test <-
 mean((fDTNoOut$Starting.Median.Salary-predict(ols.interaction,fDTNoOut))[-train]^2) 
-ols.interaction.mse.test
+```
 
-
-
-#WLS
-#Unlogged
-
-wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+```{r WLS No Transformation}
+wls.noTransformation <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+
 lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region
-lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
-summary(lm.fit.wls1)
-mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
 
-#WLS
-#Logged TBD if made
-# 
-# wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-# EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
-# lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-# EntranceDifficulty + AdmitRate + Applicants + Region
-# lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
-# summary(lm.fit.wls1)
-# mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
+lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.noTransformation$residuals^2)
 
-#WLS
-#Interaction
+wls.noTransformation.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
+```
+
+```{r WLS Logged}
+wls.logged <- lm(log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+
+lm.formula <- log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region
+
+lm.fit.wls2=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.logged$residuals^2)
+
+wls.logged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-exp(predict(lm.fit.wls2,fDTNoOut)))[-train]^2)
+```
+
+```{r WLS Interaction}
 wls.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
 
 lm.formula <- Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + AdmitRate + Region
-lm.fit.wls2=lm(lm.formula,data=fDTNoOut[train,], weights=1/ols.full$residuals^2)
-summary(lm.fit.wls2)
-mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls2,fDTNoOut))[-train]^2)
+lm.fit.wls3=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.interaction$residuals^2)
+wls.interaction.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls3,fDTNoOut))[-train]^2)
+```
 
-
+```{r Piecewise Setup}
 admitlimits=range(fDTNoOut$AdmitRate)
 admit.seq=seq(from=admitlimits[1],to=admitlimits[2])
+plot(fDTNoOut$AdmitRate,fDTNoOut$Starting.Median.Salary,xlim=admitlimits,cex=.5,col="black", xlab = "Admit Rate", ylab = "Starting Median Salary", main = "Admit Rate vs. Starting Median Salary")
+# Knots look to be at AdmitRate .155 and AdmitRate .6
+abline(v=c(.155,.6), col="red", lty=2, lwd=1)
+```
 
-# To fit a sequence of regression lines sequentially along the data, we first need to figure out the "knots" or "cut points", where the regression slope changes. Take a look at the data first:
-
-plot(fDTNoOut$AdmitRate,fDTNoOut$Starting.Median.Salary,xlim=admitlimits,cex=.5,col="black")
-
-#Piecewise
-#Only Admit Rate #TBD if used
+```{r Piecewise AdmitRate, echo=FALSE, eval=FALSE}
 fit.piecewise=lm(Starting.Median.Salary~AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut)
 summary(fit.piecewise)
+```
 
-#Piecewise
-#Unlogged
-piecewise.unlogged=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
+```{r Piecewise No Transformation}
+piecewise.noTransformation=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
                  CollegeType+Undergraduates + Applicants + Region+
                    AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
-summary(piecewise.unlogged)
-mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.unlogged,fDTNoOut))[-train]^2)
+pw.noTransformation.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.noTransformation,fDTNoOut))[-train]^2)
+```
 
-#Piecewise
-#Interaction Effect
+```{r Piecewise Logged}
+piecewise.logged=lm(log(Starting.Median.Salary)~ CostOState + EntranceDifficulty + 
+                 CollegeType+Undergraduates + Applicants + Region+
+                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
+pw.logged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-exp(predict(piecewise.logged,fDTNoOut)))[-train]^2)
+```
+
+```{r Piecewise Interaction}
 piecewise.interaction=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
                  CollegeType*Undergraduates + Applicants + Region+
                    AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
-summary(piecewise.interaction)
-mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.interaction,fDTNoOut))[-train]^2)
-
-ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
-#ols.full <- lm(Starting.Median.Salary ~ AdmitRate, data=fullDataTraining)
-summary(ols.full)
+pw.interaction.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.interaction,fDTNoOut))[-train]^2)
 ```
 
-
-```{r Best Selection}
-
+```{r MSE}
+mse.table<- matrix(c(ols.noTransformation.mse.test, ols.logged.mse.test, ols.interaction.mse.test,
+                     wls.noTransformation.mse.test, wls.logged.mse.test, wls.interaction.mse.test, 
+                     pw.noTransformation.mse.test, pw.logged.mse.test, pw.interaction.mse.test),
+                   ncol=3, byrow=TRUE)
+colnames(mse.table) <- c("No Transformations","Logged", "Interaction")
+rownames(mse.table) <- c("OLS","WLS","Piecewise")
+mse.table <- as.table(mse.table)
+mse.table
 ```
 
 ```{r Prediction}
-
+summary(lm.fit.wls1)
 ```
 
 
