@@ -1,0 +1,44 @@
+---
+title: "PA Write-Up"
+author: "Angela, George, Jeremy, Matt"
+date: "May 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+##Section 1 Analytics Question/Problem (5 pts.) 
+
+One of the main reasons students attend universities in the US is the hope of getting a better paying job once they have graduated. Our hope is to determine whether certain universities provide a better opportunity of achieving this. Our team wants to predict, given a school and corresponding school statistics, can we predict the starting median salary that a graduate from that particular university would earn in their first year out of school.
+
+Since our team wants to predict the starting salary of new graduates, this problem is a quantitative one. Our main analytic goals for these models are inference and interpreation, examining and attempting to explain the relationships between the starting median salary and the other available statistics for each school, as well as attempting to better understand the final results.  Since we are presenting this information to potential college students and their families through their high schools, we feel it is important to be able to explain our findings in an easy to approach manner that will help inform their future college decisions.
+
+
+##Section 2 Business Rational (10 pts.)
+
+As consultants hired by a high school, it is imperative that we deliver findings that are easy to understand to better inform schools, as well as students, about the real-world effect on how their college choice will alter their potential starting salary.
+
+For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.
+
+As admission rates throughout the country are decreasing, schools are competing to attract the top students more then ever. While there are numerous reasons for students to choose specific schools, such as proximity to home, the prestige of the university, or the school having the best preferred program, one of the major reasons to attend is the perception of higher salaries. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with the average starting salary of new alumnus.
+
+
+##Section 3 Description of the Data (10 pts.) 
+
+The data for this project originated from two sources. The first is from a Kaggle Dataset called Where it Pays to Attend College. This data set includes the university, region, and the schools alumnus median starting salary in dollars. The second was collected from publicly available information on www.collegedata.com, this data includes admission rates of the schools (as a decimal), the number of undergraduates, cost of tuition in dollars, and the location of the school. These datasets were combined together and is attached to this report.
+
+Below, we have generated a correlation matrix using the quantitative variables from our dataset.  This is to help us understand some possible correlations that exist in the data from the beginning, before we begin transforming the data.  One large positive correlation that already exists is the one between the in-state tuition and the out-of-state tuition.  This makes sense as, if the university is a private one, then the cost would be the same whether the student lived in the state or not.  However, another correlation that caught our attention was the negative correlation  between the starting median salary and the admit rate of the university.  Upon further investigation, this made sense as schools that were harder to be accepted in would result in the university graduates having a higher starting salary.  With these correlations in mind for our predictive modeling, we proceeded with the data pre-processing.
+
+```{r}
+attach(fullDataTraining)
+fdtData <- as.matrix(data.frame(Starting.Median.Salary,AdmitRate,CostIState, CostOState, Undergraduates, Applicants))
+correlation <- cor(fdtData, use="complete.obs")
+corrplot(correlation, method="circle")
+detach(fullDataTraining)
+```
+
+
