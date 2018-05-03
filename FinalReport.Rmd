@@ -12,7 +12,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 ```{r Load Package and Datasets, message=FALSE}
 library(perturb)
 library(tidyverse)
@@ -25,13 +24,11 @@ library(corrplot)
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
 ```
 
-
 ##Section 1 The Analytics Question:
 
 One of the main reasons students attend universities in the US is the hope of getting a better paying job once they have graduated. Our hope is to determine whether certain universities provide a better opportunity of achieving this. Our team wants to predict, given a school and corresponding school statistics, can we predict the starting median salary that a graduate from that particular university would earn in their first year out of school.
 
 Since our team wants to predict the starting salary of new graduates, this problem is a quantitative one. Our main analytic goals for these models are inference and interpreation, examining and attempting to explain the relationships between the starting median salary and the other available statistics for each school, as well as attempting to better understand the final results.  Since we are presenting this information to potential college students and their families through their high schools, we feel it is important to be able to explain our findings in an easy to approach manner that will help inform their future college decisions.
-
 
 ##Section 2 The Business Rational:
 
@@ -40,7 +37,6 @@ As consultants hired by a high school, it is imperative that we deliver findings
 For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.
 
 As admission rates throughout the country are decreasing, schools are competing to attract the top students more then ever. While there are numerous reasons for students to choose specific schools, such as proximity to home, the prestige of the university, or the school having the best preferred program, one of the major reasons to attend is the perception of higher salaries. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with the average starting salary of new alumnus.
-
 
 ##Section 3 Description of the Data: 
 
@@ -56,17 +52,15 @@ corrplot(correlation, method="pie")
        detach(fullDataTraining)
 ```
 
-
 ##Section 4 Pre-Processing:
 
 The data set was pulled from two different sources which required us to combine in to one data set in order to allow us to analyze the data.  The two data sets combined provided a complete picture of an undergraduate student's salary post-graduation from almost any American University.  A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had data in each column that we needed in order to properly analyze the data set.  We decided to utilize only the 311 complete rows to conduct our analysis. 
 
-Once determined which variables we were going to use, we ran a qqplot on it so that we may determine if the data set had normality in it.  The initial qqplot identified that there was a strong right tail which indicates that there is some non-normality in the data and further analysis is required to determine what is causing this.  Next, we ran a histogram so that we may further identify and confirm that the data had a significant right skewness to it.  In identifying the right skewness in the data, we decided to log the output variable, "Starting.Median. Salary" so the data set would be more normally distributed; however, the qqplot and the histogram show that logging the output variable had no significant effect in normalizing the data. Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project.  
+Once determined which variables we were going to use, we ran a unlogged ggplot and histogram to identify if the data was normally distributed but idenitified that the data was skewed to the right.  We then ran a logged ggplot and histogram to correct for the right skeweness; however, this did not correct for the skeweness.  Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project. 
 
-We used a function to split the data in a 25/75 split allowing us to identify the outliers that were causing the skewness.  We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set.  To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
+We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set.  To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
 
 Once the outliers were removed, we conducted another logged and unlogged qqplots and histograms.  As expected, the qqplots and histograms showed the data was more normally distributed.  We determined that logging the data had no significant effect resulting in our choice to use unlogged data for this analysis.
-
 
 ```{r}
 qqnorm(fullDataTraining$Starting.Median.Salary, main = "Starting Median Salary Q-Q Plot")
@@ -106,7 +100,6 @@ qqline(log(fDTNoOut$Starting.Median.Salary))
 hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Median Salary) (Without Outliers)", xlab = "log(Starting Median Salary)")
 ```
 
-
 ##Section 5 Model Justification: 
 
  
@@ -118,15 +111,6 @@ If university can lead to a better paying job down the road does the university 
 The outcome variable our project is trying to explain is the Starting Median Salary. The predictors used were Cost of Out of State Tuition, the Number of Undergraduates, Private/Public School, Percieved Entrance Difficulty, Admission Rate, the Number of Applicants and the Region.
 
 The models used were OLS, WLS, and Piecewise because of their ability to be used for interpretability and inference. The first specification used was No Transformation which incorporated the all the variables listed above without transformations, to establish a baseline of the models. The next specification was The Log transformed outcome variable, but all predictors remained the same. This was used because y showed signs of not being continuous. Lastly an interaction effect between number of undergraduates and college type because public schools typically have a higher population of students then privates schools so this difference was thought to be caught with an interaction variable between the two.
-
-
-
-<!-- Check Figure Size and If All Packages are Needed -->
-
-All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
-
-<!-- Used echo = FALSE and eval = FALSE to prevent the code chunks for the piecewise AdmitRate from being ran --> 
-
 
 ```{r training split section 4}
 set.seed(123)
@@ -152,13 +136,13 @@ collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE
 collin.diag
 
 ```
+
 ```{r OLS VIF}
 ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
 
 vif(ols.full)
 ```
-
 
 ```{r OLS Assumptions - Error Variance is Constant section 4}
 lm.formula=Starting.Median.Salary~.
@@ -183,7 +167,6 @@ dwtest(ols.full)
  #EI (Errors are independent): Yes
  #EA (The error average is 0): Yes
  #EV (The error variance is constant (homoscedasticity)): Yes
- #
 ```
 
 ```{r OLS No Transformation}
