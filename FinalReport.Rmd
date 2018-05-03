@@ -125,15 +125,6 @@ The outcome variable our project is trying to explain is the Starting Median Sal
 
 The models used were OLS, WLS, and Piecewise because of their ability to be used for interpretability and inference. The first specification used was No Transformation which incorporated the all the variables listed above without transformations, to establish a baseline of the models. The next specification was The Log transformed outcome variable, but all predictors remained the same. This was used because y showed signs of not being continuous. Lastly an interaction effect between number of undergraduates and college type because public schools typically have a higher population of students then privates schools so this difference was thought to be caught with an interaction variable between the two.
 
-
-
-<!-- Check Figure Size and If All Packages are Needed -->
-
-All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
-
-<!-- Used echo = FALSE and eval = FALSE to prevent the code chunks for the piecewise AdmitRate from being ran --> 
-
-
 ```{r training split section 4}
 set.seed(123)
 train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
@@ -189,7 +180,6 @@ dwtest(ols.full)
  #EI (Errors are independent): Yes
  #EA (The error average is 0): Yes
  #EV (The error variance is constant (homoscedasticity)): Yes
- #
 ```
 
 ```{r OLS No Transformation}
