@@ -130,7 +130,7 @@ The outcome variable our project is trying to explain is the Starting Median Sal
 
 The models used were OLS, WLS, and Piecewise because of their ability to be used for interpretability and inference. The first specification used was No Transformation which incorporated the all the variables listed above without transformations, to establish a baseline of the models. The next specification was The Log transformed outcome variable, but all predictors remained the same. This was used because y showed signs of not being continuous. Lastly an interaction effect between number of undergraduates and college type because public schools typically have a higher population of students then privates schools so this difference was thought to be caught with an interaction variable between the two.
 
-The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
+
 
 <!-- Check Figure Size and If All Packages are Needed -->
 
@@ -299,6 +299,8 @@ summary(lm.fit.wls1)
 ##Section 6 Analysis of Results	 (20 pts.) 
 
 Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
+
+The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
 
 ##Section 7 Conclusion	(15 pts.) 
 
