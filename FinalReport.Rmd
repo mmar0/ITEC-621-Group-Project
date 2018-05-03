@@ -190,6 +190,7 @@ dwtest(fdt)
  #EI (Errors are independent): Yes
  #EA (The error average is 0): Yes
  #EV (The error variance is constant (homoscedasticity)): Yes
+ #
 ```
 
 ```{r OLS No Transformation}
