@@ -52,8 +52,8 @@ Below, we have generated a correlation matrix using the quantitative variables f
 attach(fullDataTraining)
 fdtData <- as.matrix(data.frame(Starting.Median.Salary,AdmitRate,CostIState, CostOState, Undergraduates, Applicants))
 correlation <- cor(fdtData, use="complete.obs")
-corrplot(correlation, method="circle")
-detach(fullDataTraining)
+corrplot(correlation, method="pie")
+       detach(fullDataTraining)
 ```
 
 
@@ -109,17 +109,11 @@ hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Med
 
 ##Section 5 Model Justification: 
 
-A justification for the analytics methods and model specifications used. All methods used must be appropriate and relevant to the problem and you need to provide a justification for the selected methods based on: 
+ 
 
-a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
-
-As shown in the prior section, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous. We find that because the errors are normally distributed and Y is now normally distributed it is still ok to run OLS even though Y is not continuous.
-
-b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
+As shown below, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous. We find that because the errors are normally distributed and Y is now normally distributed it is still ok to run OLS even though Y is not continuous.
 
 If university can lead to a better paying job down the road does the university matter. The goal of the project is to show how a choice in a school can lead to this difference. Therefore our goal is inference and interpretablity of the result.This allows for the results to be useful for both students and student's families and schools. 
-
-c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
 
 The outcome variable our project is trying to explain is the Starting Median Salary. The predictors used were Cost of Out of State Tuition, the Number of Undergraduates, Private/Public School, Percieved Entrance Difficulty, Admission Rate, the Number of Applicants and the Region.
 
@@ -293,8 +287,6 @@ summary(lm.fit.wls1)
 ```
 
 ##Section 6 Analysis of Results:
-
-Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
 
 The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
 
