@@ -51,7 +51,7 @@ As admission rates throughout the country are decreasing, schools are competing 
 
 The data for this project originated from two sources. The first is from a Kaggle Dataset called "Where it Pays to Attend College". This data set includes the university name, region, and the schools alumnus median starting salary in dollars. The second was collected from publicly available information on www.collegedata.com, this data includes admission rates of the schools (as a decimal), the number of undergraduates, cost of tuition in dollars, and the location of the school (city/state). These datasets were combined together and is attached to this report.
 
-Below, we have generated a correlation matrix using the quantitative variables from our dataset.  This is to help us understand some possible correlations that exist in the data from the beginning, before we begin transforming the data.  One large positive correlation that already exists is the one between the in-state tuition and the out-of-state tuition.  This makes sense as if the university is a private one, then the cost would be the same whether the student lived in the state or not.  However, another correlation that caught our attention was the negative correlation  between the starting median salary and the admit rate of the university.  Upon further investigation, this made sense as schools that were harder to be accepted in would result in the university graduates having a higher starting salary.  With these correlations in mind for our predictive modeling, we proceeded with the data pre-processing.
+Below, we have generated a correlation matrix using the quantitative variables from our dataset.  This is to help us understand some possible correlations that exist in the data from the beginning, before we begin transforming the data.  
 
 ```{r}
 attach(fullDataTraining)
@@ -60,13 +60,14 @@ correlation <- cor(fdtData, use="complete.obs")
 corrplot(correlation, method="circle")
 detach(fullDataTraining)
 ```
+One large positive correlation that already exists is the one between the in-state tuition and the out-of-state tuition.  This makes sense as if the university is a private one, then the cost would be the same whether the student lived in the state or not.  However, another correlation that caught our attention was the negative correlation  between the starting median salary and the admit rate of the university.  Upon further investigation, this made sense as schools that were more selective resulted in the university's graduates having a higher starting salary.  With these correlations in mind for our predictive modeling, we proceeded with the data pre-processing.
 
 
 ##Section 4 Pre-Processing	 (10 pts.) 
 
 A. A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation.
 
-The data was pulled from two source locations: kaggle.com and college.com.  Each of these sites provided the university name, number of undergraduates, admit rates, entrance difficulty, and school location.  After both lists were created, they were merged in order to create a single data set.  The intent of using two sources for the data was to ensure that we had a more complete picture of what the school reported as its admit rates, post undergraduate salaries, and cost of tuition.  Out of the 1800 schools that were pulled from these two sources, 311 of the schools had complete data reported on all the categories that we were identifying as possible factors in post undergraduate salaries. The rest of the schools, we identified the missing variables and replaced blanks with “N/A” in order to allow R to read the data without any blanks. 
+As we mentioned earlied, our dataset is a combination of information from a kaggle.com dataset and scaping the collegedata.com website. All of this data yielded us 1800 unique universities, however, only 311 of the schools had complete data reported on all the categories, including post undergraduate starting salaries. We used this set of 311 schools as our working dataset. 
 
 To further refine our data set, we utilized a Q-Q Plot to visually see how the data was distributed. The plot identified that the data has some non-normality in it with the starting median salary being skewed right meaning that there may be more extreme values in our data that we did not expect. To correct this, we logged the response variable in order to see if this would normalize the data; however, it did not. The logged Q-Q Plot continued to show a more than non-normal distribution to the data. We then utilized a histogram to further explore how the data was distributed and confirmed that the data was significantly skewed to the right. We then utilized a boxplot in order to identify if there were any data points that “fell” out of the normal distribution and identified that several data points did. This led us to do a function that would identify which data points were significantly different than the rest. There were 17 universities reported starting median salary that is significantly higher than the other universities. This group of schools were identified as “Ivy League” or a technical school that had a reputation of “high caliber” production of students. Since these schools were significantly higher than 75% of the entire data set, we removed these points in order to obtain a more normally distributed data set so that we may further analyze the data. After removing these points, we ran another a normal and a logged Q-Q Plot. Both plots showed a more normal distribution of data but neither plot was more significant than the other.  This is also evident in the histogram that we ran to confirm the data was more normally distributed. We chose to use the non-logged data set to continue with the analysis.
 
@@ -126,7 +127,7 @@ train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
 ```
 
 ```{r OLS Test - Y is Continuous}
-#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
+#Y cannot be less then 0, as salary cannot be below 0, therefore Y is not continuous over an open interval
 ```
 
 ```{r OLS Test - Errors are Normally Distributed}
@@ -171,11 +172,11 @@ A justification for the analytics methods and model specifications used. All met
 
 a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
 
-As shown in the prior section, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous. We find that because the errors are normally distributed and Y is now normally distributed it is still ok to run OLS even though Y is not continuous.
+As shown in the prior section, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous as in the context of our problem you cannot have a negative salary. This isn't a huge concern as it is continuous on the interval (0, infinity). Additionally, the errors are normally distributed and Y is now normally distributed so it is ok to run OLS even though Y is not continuous.
 
 b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
 
-If university can lead to a better paying job down the road does the university matter. The goal of the project is to show how a choice in a school can lead to this difference. Therefore our goal is inference and interpretablity of the result.This allows for the results to be useful for both students and student's families and schools. 
+If university can lead to a better paying job down the road does the university matter. The goal of the project is to show how a choice in a school can lead to this difference. Therefore our goal is inference and interpretablity of the result. This allows for the results to be useful for both students and student's families and schools. 
 
 c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
 
@@ -296,7 +297,6 @@ summary(lm.fit.wls1)
 
 Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
 
-After comparing the MSE from all of our models and specifications, our WLS model with interaction varaibles had the smallest MSE, indicating it is the most accurate model. The addd complexity of including the interaction varaible is justified because it significantly improves the model's accuracy.
 
 ##Section 7 Conclusion	(15 pts.) 
 
@@ -304,7 +304,14 @@ A short section with final thoughts, conclusions and lessons learned. These conc
 
 a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification. 
 
+We select the WLS with no transformations as our model because it has the lowest MSE comparitively to all the other modeling methods and specification combinations while still maintaining our key goal of interpretibility.
+
 b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
 
+We learned that many varibales contribute in determining what the median starting salary is for college graduates. However, our most iluminating find was how much the reputation and branding of a school has on starting median salaries. Our outliers contained 5/7 Ivys and other prestigious schools like MIT and Staford. It appears that these highly prestegious and recognizable schools impact salaries more than the other variables included in our list. It would be interesting to find data and include a school's reputation if we continued on with this project.
+
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
+
+Since we have an ad hoc dataset (we created it), we ran into issues of having a small number of data points with full data. We only have information for roughly 17% of the schools we collected. 
+Understnading how to re-transform logged models to get an MSE than can be compared to our other two models was challenging.
 
