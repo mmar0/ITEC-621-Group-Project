@@ -333,6 +333,8 @@ summary(ols.full)
 
 Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
 
+After comparing the MSE from all of our models and specifications, our WLS model with interaction varaibles had the smallest MSE, indicating it is the most accurate model. The addd complexity of including the interaction varaible is justified because it significantly improves the model's accuracy.
+
 ##Section 7 Conclusion	(15 pts.) 
 
 A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
