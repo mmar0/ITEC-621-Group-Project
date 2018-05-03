@@ -25,7 +25,7 @@ library(randomForest)
 library(car)
 library(corrplot)
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
-
+fullDataTraining
 ```
 
 
@@ -106,62 +106,6 @@ qqnorm(log(fDTNoOut$Starting.Median.Salary), main = "log(Starting Median Salary)
 qqline(log(fDTNoOut$Starting.Median.Salary))
 
 hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Median Salary) (Without Outliers)", xlab = "log(Starting Median Salary)")
-
-ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
-
-collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
-
-collin.diag
-
-ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
-
-vif(ols.full)
-
-```
-
-```{r training split}
-set.seed(123)
-train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
-```
-
-```{r OLS Test - Y is Continuous}
-#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
-```
-
-```{r OLS Test - Errors are Normally Distributed}
-fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
-plot(fdt)
-```
-
-```{r OLS Assumptions - Xs are Independent}
-ct1 <- with(fdt.full, c(NA,cons[-length(cons)]))
-fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
-cd<- colldiag(mod=fdt, scale=FALSE, center=FALSE, add.intercept=TRUE)
-
-```
-
-```{r OLS Assumptions - Error Variance is Constant}
-lm.formula=Starting.Median.Salary~.
-bptest(lm.formula, data=fullDataTraining)
-```
-
-BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
-
-```{r OLS Assumptions - Observations/Errors are Independent}
-dwtest(fdt.full) 
-```
-
-```{r OLS Assumptions}
-#OLS assumptions:
- #YC (Y is continuous): No
- #EN (Errors are normally distributed): Yes
- #XI (X's are independent): Yes
- #LI (Y and X's have linear reltionship): Yes
- #OI (Observations are independent): Yes
- #EI (Errors are independent): Yes
- #EA (The error average is 0): Yes
- #EV (The error variance is constant (homoscedasticity)): Yes
 ```
 
 
@@ -185,12 +129,68 @@ The models used were OLS, WLS, and Piecewise because of their ability to be used
 
 The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
 
-
 <!-- Check Figure Size and If All Packages are Needed -->
 
 All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
 
 <!-- Used echo = FALSE and eval = FALSE to prevent the code chunks for the piecewise AdmitRate from being ran --> 
+
+```{r from section 4}
+ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
+
+collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
+
+collin.diag
+
+ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
+
+vif(ols.full)
+
+```
+
+```{r training split section 4}
+set.seed(123)
+train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
+```
+
+```{r OLS Test - Y is Continuous section 4}
+#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
+```
+
+```{r OLS Test - Errors are Normally Distributed section 4}
+fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
+plot(fdt)
+```
+
+```{r OLS Assumptions - Xs are Independent section 4}
+
+cd<- colldiag(mod=fdt, scale=FALSE, center=FALSE, add.intercept=TRUE)
+
+```
+
+```{r OLS Assumptions - Error Variance is Constant section 4}
+lm.formula=Starting.Median.Salary~.
+bptest(lm.formula, data=fullDataTraining)
+```
+
+BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
+
+```{r OLS Assumptions - Observations/Errors are Independent section 4}
+dwtest(fdt) 
+```
+
+```{r OLS Assumptions section 4}
+#OLS assumptions:
+ #YC (Y is continuous): No
+ #EN (Errors are normally distributed): Yes
+ #XI (X's are independent): Yes
+ #LI (Y and X's have linear reltionship): Yes
+ #OI (Observations are independent): Yes
+ #EI (Errors are independent): Yes
+ #EA (The error average is 0): Yes
+ #EV (The error variance is constant (homoscedasticity)): Yes
+```
 
 ```{r OLS No Transformation}
 ols.noTransformation <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType + EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
