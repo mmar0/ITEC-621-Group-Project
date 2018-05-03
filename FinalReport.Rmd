@@ -50,9 +50,15 @@ detach(fullDataTraining)
 
 ##Section 4 Pre-Processing:
 
+<<<<<<< HEAD
 The data set was pulled from two different sources which required us to combine in to one data set in order to allow us to analyze the data. The two data sets combined provided a complete picture of an undergraduate student's salary post-graduation from almost any American University. A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had data in each column that we needed in order to properly analyze the data set. We decided to utilize only the 311 complete rows to conduct our analysis. 
 
 Once determined which variables we were going to use, we ran a unlogged ggplot and histogram to identify if the data was normally distributed but idenitified that the data was skewed to the right. We then ran a logged ggplot and histogram to correct for the right skeweness; however, this did not correct for the skeweness. Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data. After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project. 
+=======
+The data set was pulled from two different sources which required us to combine it into one data set. A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had complete data, as in they are the only ones that inclueded a median starting salary. Since this is our response variable,  we decided to utilize only the 311 complete rows to conduct our analysis. 
+
+Once we determined which variables we were going to use, we ran a unlogged ggplot and histogram to identify if the data was normally distributed and we idenitified that the data was skewed to the right.  We then ran a logged ggplot and histogram to correct for the right skeweness; however, this did not correct for the skeweness.  Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project. 
+>>>>>>> 4eb3eea506a38225a646b67bef3a6c5582eeedfe
 
 We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set. To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
 
@@ -97,8 +103,6 @@ hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Med
 ```
 
 ##Section 5 Model Justification: 
-
- 
 
 As shown below, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous. We find that because the errors are normally distributed and Y is now normally distributed it is still ok to run OLS even though Y is not continuous.
 
