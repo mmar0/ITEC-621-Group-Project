@@ -25,7 +25,6 @@ library(randomForest)
 library(car)
 library(corrplot)
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
-fullDataTraining
 ```
 
 
