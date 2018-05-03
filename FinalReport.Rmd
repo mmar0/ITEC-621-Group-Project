@@ -40,11 +40,7 @@ Since our team wants to predict the starting salary of new graduates, this probl
 
 ##Section 2 Business Rational (10 pts.)
 
-As consultants hired by a high school, it is imperative that we deliver findings that are easy to understand to better inform schools, as well as students, about the real-world effect on how their college choice will alter their potential starting salary.
-
-For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.
-
-As admission rates throughout the country are decreasing, schools are competing to attract the top students more then ever. While there are numerous reasons for students to choose specific schools, such as proximity to home, the prestige of the university, or the school having the best preferred program, one of the major reasons to attend is the perception of higher salaries. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with the average starting salary of new alumnus.
+For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.  And finally, knowing the average starting salary benefits both the prospective students, allowing them to have a better understanding of the investment they're making, as well as the universities, as they can market it in the future.
 
 
 ##Section 3 Description of the Data (10 pts.) 
