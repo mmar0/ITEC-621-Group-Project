@@ -304,9 +304,13 @@ Analysis and presentation of results. Your analysis and results need to contain 
 
 A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
 
-a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification. 
+a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification.
+We select the WLS with no transformations as our model because it has the lowest MSE comparitively to all the other modeling methods and specification combinations while still maintaining our key goal of interpretibility.
 
 b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
+We learned that many varibales contribute in determining what the median starting salary is for college graduates. However, our most iluminating find was how much the reputation and branding of a school has on starting median salaries. Our outliers contained 5/7 Ivys and other prestigious schools like MIT and Staford. It appears that these highly prestegious and recognizable schools impact salaries more than the other variables included in our list. It would be interesting to find data and include a school's reputation if we continued on with this project.
 
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
+Since we have an ad hoc dataset (we created it), we ran into issues of having a small number of data points with full data. We only have information for roughly 17% of the schools we collected. 
+Understnading how to re-transform logged models to get an MSE than can be compared to our other two models was challenging.
 
