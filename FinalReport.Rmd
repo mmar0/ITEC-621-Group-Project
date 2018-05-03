@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
 ```{r Load Package and Datasets, message=FALSE}
@@ -50,7 +50,6 @@ detach(fullDataTraining)
 
 ##Section 4 Pre-Processing:
 
-<<<<<<< HEAD
 The data set was pulled from two different sources which required us to combine in to one data set in order to allow us to analyze the data. The two data sets combined provided a complete picture of an undergraduate student's salary post-graduation from almost any American University. A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had data in each column that we needed in order to properly analyze the data set. We decided to utilize only the 311 complete rows to conduct our analysis. 
 
 Once determined which variables we were going to use, we ran a unlogged ggplot and histogram to identify if the data was normally distributed but idenitified that the data was skewed to the right. We then ran a logged ggplot and histogram to correct for the right skeweness; however, this did not correct for the skeweness. Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data. After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project. 
@@ -88,18 +87,18 @@ calc.limits(fullDataTraining$Starting.Median.Salary)
 fDTNoOut<- fullDataTraining%>% 
   filter(Starting.Median.Salary>32475 & Starting.Median.Salary<58275)
 
-#University Outliers are as follows:
+#Staqring Median Salaries without Outliers are as follows:
 setdiff(fullDataTraining,fDTNoOut) %>% arrange(desc(Starting.Median.Salary)) %>% select(University, Starting.Median.Salary)
 
-qqnorm(fDTNoOut$Starting.Median.Salary, main = "Starting Median Salary (Without Outliers) Q-Q Plot")
+qqnorm(fDTNoOut$Starting.Median.Salary, main = "Starting Median Salary Q-Q Plot")
 qqline(fDTNoOut$Starting.Median.Salary)
 
 hist(fDTNoOut$Starting.Median.Salary, main = "Histogram of Starting Median Salary", xlab = "Starting Median Salary")
 
-qqnorm(log(fDTNoOut$Starting.Median.Salary), main = "log(Starting Median Salary) (Without Outliers) Q-Q Plot")
+qqnorm(log(fDTNoOut$Starting.Median.Salary), main = "log(Starting Median Salary) Q-Q Plot")
 qqline(log(fDTNoOut$Starting.Median.Salary))
 
-hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Median Salary) (Without Outliers)", xlab = "log(Starting Median Salary)")
+hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Median Salary)", xlab = "log(Starting Median Salary)")
 ```
 
 ##Section 5 Model Justification: 
