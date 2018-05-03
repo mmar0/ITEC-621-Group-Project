@@ -130,7 +130,7 @@ The outcome variable our project is trying to explain is the Starting Median Sal
 
 The models used were OLS, WLS, and Piecewise because of their ability to be used for interpretability and inference. The first specification used was No Transformation which incorporated the all the variables listed above without transformations, to establish a baseline of the models. The next specification was The Log transformed outcome variable, but all predictors remained the same. This was used because y showed signs of not being continuous. Lastly an interaction effect between number of undergraduates and college type because public schools typically have a higher population of students then privates schools so this difference was thought to be caught with an interaction variable between the two.
 
-The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
+
 
 <!-- Check Figure Size and If All Packages are Needed -->
 
@@ -301,13 +301,19 @@ summary(lm.fit.wls1)
 
 Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
 
+The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
+
 ##Section 7 Conclusion	(15 pts.) 
 
 A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
 
-a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification. 
+a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification.
+We select the WLS with no transformations as our model because it has the lowest MSE comparitively to all the other modeling methods and specification combinations while still maintaining our key goal of interpretibility.
 
 b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
+We learned that many varibales contribute in determining what the median starting salary is for college graduates. However, our most iluminating find was how much the reputation and branding of a school has on starting median salaries. Our outliers contained 5/7 Ivys and other prestigious schools like MIT and Staford. It appears that these highly prestegious and recognizable schools impact salaries more than the other variables included in our list. It would be interesting to find data and include a school's reputation if we continued on with this project.
 
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
+Since we have an ad hoc dataset (we created it), we ran into issues of having a small number of data points with full data. We only have information for roughly 17% of the schools we collected. 
+Understnading how to re-transform logged models to get an MSE than can be compared to our other two models was challenging.
 
