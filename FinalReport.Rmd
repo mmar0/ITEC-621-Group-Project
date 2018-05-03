@@ -23,11 +23,7 @@ library(FNN)
 library(lmtest)
 library(randomForest)
 library(car)
-<<<<<<< HEAD
-require(lmtest)
-=======
 library(corrplot)
->>>>>>> 00b9b96dc09d9bb3e73c45b0c8ade17bff069f1b
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
 
 ```
