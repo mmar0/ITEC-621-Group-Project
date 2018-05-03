@@ -98,8 +98,6 @@ hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Med
 
 ##Section 5 Model Justification: 
 
- 
-
 As shown below, our dataset conforms with these OLS assumptions: errors are normally distributed, X's are independent,	Y and X's have linear reltionship, observations are independent, errors are independent, the error average is 0, and error variance is constant. The assumptions which our dataset departs from OLS is Y is continuous. We find that because the errors are normally distributed and Y is now normally distributed it is still ok to run OLS even though Y is not continuous.
 
 If university can lead to a better paying job down the road does the university matter. The goal of the project is to show how a choice in a school can lead to this difference. Therefore our goal is inference and interpretablity of the result.This allows for the results to be useful for both students and student's families and schools. 
