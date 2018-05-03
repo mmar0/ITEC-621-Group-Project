@@ -437,3 +437,357 @@ b.	The main conclusions of your analysis. These conclusions must answer/solve yo
 
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
 
+
+---
+title: "Final Report"
+author: "Angela, Jeremy, George, Mat"
+date: "May 3, 2018"
+output: 
+  word_document:
+     toc: true
+     toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r Load Package and Datasets}
+library(perturb)
+library(tidyverse)
+library(tree)
+library(class)
+library(car)
+library(FNN)
+library(lmtest)
+library(randomForest)
+library(car)
+fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
+```
+
+
+The final project report will contain the following sections:
+
+##Section 1 Analytics Question/Problem (5 pts.) 
+
+The analytics question/problem being addressed. In your framing of the analytics question, please state clearly articulate: 
+
+a.	The specific predictive analytic question you are attempting to answer, or problem you are trying to solve? Since this course is about predictive analytics, it is important that you clearly specify the response variable you are predicting. 
+
+b.	What type of problem or question you are addressing – i.e., quantitative or classification 
+
+c.	What your analytics goal(s) is(are) – i.e., inference, interpretation and/or prediction. 
+
+
+One of the main reasons students attend universities in the US is the hope of getting a better paying job once they graduated. Our hope is to figure out do certain universities provide a better opportunity of doing this than others. Our team wants to predict given a school and several school statistics, can we predict the starting median salary that a graduate from that particular university would earn.
+
+Since our team wants to predict a starting salary this problem is a quantitative problem. Our main goal is to compare salaries that we do not know with salaries that we do know therefore the main analytical goal here is high predictive accuracy.
+
+
+##Section 2 Business Rational (10 pts.)
+
+A brief but compelling business rationale about the importance of this question/problem from a business perspective. Why is the problem you are analyzing important? 
+
+This analytics question is important from two perspectives: a student and a school.
+
+For the student:
+
+For students entering a university a career is several years away, knowing what the salary is for alumni may influence their decision as where to go. On top of this with the known cost of the university and their predicted salary they would be able to determine a general return on investment as well how long their payback period would be.
+
+
+For the school:
+
+Even though admission rates throughout the country are decreasing, schools are still competing to attract top talent. While there are numerous reasons to attend schools (close to home, prestige of a university, or top program for a degree) one of the major reasons to attend is money. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with their alumni starting salary. 
+
+
+##Section 3 Description of the Data (10 pts.) 
+
+A description of the data set utilized for the analysis (if the data set is not available in an R package or public web site, the data set must be attached). Your data description should be sufficient for your reading audience to understand your data set, variables and the interpretations you provide in your report, including variable types and units of measurement. The data description should be accompanied by any necessary descriptive analytics artifacts necessary for your predictive modeling (e.g., descriptive statistics, correlation matrix, correlation plots, other plots, etc.). 
+
+The data for this project originated from two sources. The first is from a Kaggle Dataset called Where it Pays to Attend College. This data set includes the university, region, and the schools alumnus median starting salary (in \$) and mid-career salary at certain percentiles (in \$). The second was collected from publicly available information on www.collegedata.com, this data includes admission rates (as decimal), number of undergraduates, cost of tuition (in \$), and location of the school. These datasets were combined together and is attached to this report.
+
+Need descriptive statistics correlation matrix and correlation plots other plots
+
+
+
+##Section 4 Pre-Processing	 (10 pts.) 
+
+A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation. 
+
+```{r training split}
+set.seed(123)
+train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
+```
+
+```{r}
+qqnorm(fullDataTraining$Starting.Median.Salary)
+qqline(fullDataTraining$Starting.Median.Salary)
+
+qqnorm(log(fullDataTraining$Starting.Median.Salary))
+qqline(log(fullDataTraining$Starting.Median.Salary))
+
+qqnorm(fDTNoOut$Starting.Median.Salary)
+qqline(fDTNoOut$Starting.Median.Salary)
+
+qqnorm(log(fDTNoOut$Starting.Median.Salary))
+qqline(log(fDTNoOut$Starting.Median.Salary))
+
+```
+
+
+
+```{r OLS Test - Y is Continuous}
+
+#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
+
+```
+
+
+```{r OLS Test - Errors are Normally Distributed}
+fdt.full=lm(Starting.Median.Salary~., data=fullDataTraining)
+
+plot(fdt.full)
+```
+
+```{r OLS Assumptions - X's are Independent}
+collin.diag = colldiag(mod=fdt.full, scale=FALSE, center=FALSE, add.intercept=TRUE)
+collin.diag
+```
+
+```{r OLS Assumptions - Error Variance is Constant}
+library(lmtest)
+lm.formula=Starting.Median.Salary~.
+bptest(lm.formula, data=fullDataTraining)
+```
+
+BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
+
+
+```{r OLS Assumptions - Observations/Errors are Independent}
+#Durbin-Watson Test
+dwtest(fdt.full) 
+```
+
+
+##Section 5 Model Justification (20 pts.) 
+
+A justification for the analytics methods and model specifications used. All methods used must be appropriate and relevant to the problem and you need to provide a justification for the selected methods based on: 
+
+a.	Conformance with or departure from OLS assumptions; If you are using OLS as one of your methods, you must test key OLS assumptions. If you don’t plan to use the OLS model, you need to specify which OLS assumption would be violated. 
+
+b.	Analysis goals (i.e., inference, interpretation and/or accuracy); you must specify your analysis goal(s). 
+
+c.	Predictive accuracy based on cross-validation test statistics. Similarly, the particular model specifications utilized must have a rationale. For example, if you chose a quadratic regression specification, you must have some rationale for the respective non-linear relationship. All projects must be analyzed with a variety of appropriate model with different model specification. Please consult with me if in doubt, but these are the minimum requirements 
+
+All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
+
+
+
+```{r}
+plot(fullDataTraining$CostIState, fullDataTraining$Starting.Median.Salary)
+boxplot(fullDataTraining$Starting.Median.Salary)
+MyDiamondData <- as.matrix(data.frame(fullDataTraining$CostIState+fullDataTraining$CostOState,fullDataTraining$Starting.Median.Salary))
+head(MyDiamondData)
+cor(MyDiamondData, use="complete.obs")
+
+plot(fullDataTraining$AdmitRate, fullDataTraining$Starting.Median.Salary)
+MyDiamondData <- as.matrix(data.frame(fullDataTraining$AdmitRate,fullDataTraining$Starting.Median.Salary))
+cor(MyDiamondData, use="complete.obs")
+
+plot(fullDataTraining$AdmitRate * fullDataTraining$CostIState, fullDataTraining$Starting.Median.Salary)
+MyDiamondData <- as.matrix(data.frame(-1*fullDataTraining$AdmitRate+fullDataTraining$CostIState+fullDataTraining$AdmitRate*fullDataTraining$CostIState,fullDataTraining$Starting.Median.Salary))
+cor(MyDiamondData, use="complete.obs")
+
+
+
+
+plot(fullDataTraining$CostOState, fullDataTraining$Starting.Median.Salary)
+```
+
+```{r}
+ols.full <- lm(Starting.Median.Salary ~ CostIState*CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fullDataTraining)
+qqplot(fullDataTraining$AdmitRate, fullDataTraining$Starting.Median.Salary)
+qqplot((fullDataTraining$AdmitRate), log(fullDataTraining$Starting.Median.Salary))
+qqplot(log(fullDataTraining$AdmitRate), log(fullDataTraining$Starting.Median.Salary))
+qqplot(log(fullDataTraining$AdmitRate), fullDataTraining$Starting.Median.Salary)
+plot(ols.full)
+
+
+lm.formula <- Starting.Median.Salary ~ CostIState*CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region
+lm.fit.wls1=lm(lm.formula,data=fullDataTraining, weights=1/ols.full$residuals^2)
+summary(lm.fit.wls1)
+
+SST <- sum((fullDataTraining$Starting.Median.Salary-mean(fullDataTraining$Starting.Median.Salary))^2)
+SSE <- sum((fullDataTraining$Starting.Median.Salary-predict(lm.fit.wls1))^2)
+RealRSqWLS = 1-(SSE/SST)
+RealRSqWLS
+plot(lm.fit.wls1)
+
+hist(fullDataTraining$Starting.Median.Salary)
+hist(log(fullDataTraining$Starting.Median.Salary))
+hist(log(fullDataTraining$Starting.Median.Salary/1000))
+hist(log(fullDataTraining$Starting.Median.Salary/1000))
+
+calc.limits <- function(x, na.rm = TRUE) {
+    qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm)
+    H <- 1.5 * IQR(x, na.rm = na.rm)
+    lwr <- qnt[1] - H
+    upr <- qnt[2] + H
+    c(lwr, upr)
+}
+calc.limits(fullDataTraining$Starting.Median.Salary)
+fullDataTraining$Starting.Median.Salary>32475 & fullDataTraining$Starting.Median.Salary< 58275
+fDTNoOut<- fullDataTraining%>% 
+  filter(Starting.Median.Salary>32475 & Starting.Median.Salary<58275)
+
+hist(fDTNoOut$Starting.Median.Salary)
+hist(log(fDTNoOut$Starting.Median.Salary))
+
+qqplot(fDTNoOut$Starting.Median.Salary, fDTNoOut$AdmitRate)
+qqplot(log(fDTNoOut$Starting.Median.Salary), fDTNoOut$AdmitRate)
+plot(fDTNoOut$AdmitRate, fDTNoOut$Starting.Median.Salary)
+plot(log(fDTNoOut$AdmitRate), log(fDTNoOut$Starting.Median.Salary))
+plot((fDTNoOut$AdmitRate), log(fDTNoOut$Starting.Median.Salary))
+plot(log(fDTNoOut$AdmitRate), (fDTNoOut$Starting.Median.Salary))
+
+setdiff(fullDataTraining$University,fDTNoOut$University)
+
+ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
+
+collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
+
+collin.diag
+
+
+ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
+
+vif(ols.full)
+
+#ols
+#Unlogged
+
+ols.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+summary(ols.unlogged)
+ols.unlogged.mse.test <- mean((fDTNoOut$Starting.Median.Salary-predict(ols.unlogged,fDTNoOut))[-train]^2) 
+ols.unlogged.mse.test
+
+#Ols Logged
+ols.logged <- lm(log(Starting.Median.Salary) ~ CostOState + Undergraduates + CollegeType +EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+summary(ols.logged)
+ols.logged.mse.test <- mean((log(fDTNoOut$Starting.Median.Salary)-(predict(ols.logged,fDTNoOut)))[-train]^2) 
+ols.logged.mse.test
+
+
+#OLS
+#with interaction
+ols.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
+summary(ols.interaction)
+ols.interaction.mse.test <-
+mean((fDTNoOut$Starting.Median.Salary-predict(ols.interaction,fDTNoOut))[-train]^2) 
+ols.interaction.mse.test
+
+
+
+#WLS
+#Unlogged
+
+wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region
+lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
+summary(lm.fit.wls1)
+mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
+
+#WLS
+#Logged TBD if made
+# 
+# wls.unlogged <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+# EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
+# lm.formula <- Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+# EntranceDifficulty + AdmitRate + Applicants + Region
+# lm.fit.wls1=lm(lm.formula,data=fDTNoOut[train,], weights=1/wls.unlogged$residuals^2)
+# summary(lm.fit.wls1)
+# mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls1,fDTNoOut))[-train]^2)
+
+#WLS
+#Interaction
+wls.interaction <- lm(Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + AdmitRate + Region, data=fDTNoOut[train,])
+
+lm.formula <- Starting.Median.Salary ~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + AdmitRate + Region
+lm.fit.wls2=lm(lm.formula,data=fDTNoOut[train,], weights=1/ols.full$residuals^2)
+summary(lm.fit.wls2)
+mean((fDTNoOut$Starting.Median.Salary-predict(lm.fit.wls2,fDTNoOut))[-train]^2)
+
+
+admitlimits=range(fDTNoOut$AdmitRate)
+admit.seq=seq(from=admitlimits[1],to=admitlimits[2])
+
+# To fit a sequence of regression lines sequentially along the data, we first need to figure out the "knots" or "cut points", where the regression slope changes. Take a look at the data first:
+
+plot(fDTNoOut$AdmitRate,fDTNoOut$Starting.Median.Salary,xlim=admitlimits,cex=.5,col="black")
+
+#Piecewise
+#Only Admit Rate #TBD if used
+fit.piecewise=lm(Starting.Median.Salary~AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut)
+summary(fit.piecewise)
+
+#Piecewise
+#Unlogged
+piecewise.unlogged=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
+                 CollegeType+Undergraduates + Applicants + Region+
+                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
+summary(piecewise.unlogged)
+mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.unlogged,fDTNoOut))[-train]^2)
+
+#Piecewise
+#Interaction Effect
+piecewise.interaction=lm(Starting.Median.Salary~ CostOState + EntranceDifficulty + 
+                 CollegeType*Undergraduates + Applicants + Region+
+                   AdmitRate+I((AdmitRate-.155)*(AdmitRate>.155))+I((AdmitRate-.6)*(AdmitRate>.6)), data=fDTNoOut[train,])
+summary(piecewise.interaction)
+mean((fDTNoOut$Starting.Median.Salary-predict(piecewise.interaction,fDTNoOut))[-train]^2)
+
+ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
+#ols.full <- lm(Starting.Median.Salary ~ AdmitRate, data=fullDataTraining)
+summary(ols.full)
+```
+
+
+```{r Best Selection}
+
+```
+
+```{r Prediction}
+
+```
+
+
+
+
+
+
+
+##Section 6 Analysis of Results	 (20 pts.) 
+
+Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
+
+##Section 7 Conclusion	(15 pts.) 
+
+A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
+
+a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification. 
+
+b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
+
+c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
+
+
