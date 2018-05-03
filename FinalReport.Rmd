@@ -57,9 +57,9 @@ detach(fullDataTraining)
 
 The data set was pulled from two different sources which required us to combine in to one data set in order to allow us to analyze the data.  The two data sets combined provided a complete picture of an undergraduate student's salary post-graduation from almost any American University.  A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had data in each column that we needed in order to properly analyze the data set.  We decided to utilize only the 311 complete rows to conduct our analysis. 
 
-Once determined which variables we were going to use, we ran a qqplot on it so that we may determine if the data set had normality in it.  The initial qqplot identified that there was a strong right tail which indicates that there is some non-normality in the data and further analysis is required to determine what is causing this.  Next, we ran a histogram so that we may further identify and confirm that the data had a significant right skewness to it.  In identifying the right skewness in the data, we decided to log the output variable, "Starting.Median. Salary" so the data set would be more normally distributed; however, the qqplot and the histogram show that logging the output variable had no significant effect in normalizing the data. Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project.  
+Once determined which variables we were going to use, we ran a unlogged ggplot and histogram to identify if the data was normally distributed but idenitified that the data was skewed to the right.  We then ran a logged ggplot and histogram to correct for the right skeweness; however, this did not correct for the skeweness.  Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project. 
 
-We used a function to split the data in a 25/75 split allowing us to identify the outliers that were causing the skewness.  We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set.  To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
+We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set.  To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
 
 Once the outliers were removed, we conducted another logged and unlogged qqplots and histograms.  As expected, the qqplots and histograms showed the data was more normally distributed.  We determined that logging the data had no significant effect resulting in our choice to use unlogged data for this analysis.
 
@@ -154,13 +154,13 @@ collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE
 collin.diag
 
 ```
+
 ```{r OLS VIF}
 ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
 EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
 
 vif(ols.full)
 ```
-
 
 ```{r OLS Assumptions - Error Variance is Constant section 4}
 lm.formula=Starting.Median.Salary~.
