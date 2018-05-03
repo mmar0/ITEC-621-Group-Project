@@ -32,11 +32,7 @@ Since our team wants to predict the starting salary of new graduates, this probl
 
 ##Section 2 The Business Rational:
 
-As consultants hired by a high school, it is imperative that we deliver findings that are easy to understand to better inform schools, as well as students, about the real-world effect on how their college choice will alter their potential starting salary.
-
-For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.
-
-As admission rates throughout the country are decreasing, schools are competing to attract the top students more then ever. While there are numerous reasons for students to choose specific schools, such as proximity to home, the prestige of the university, or the school having the best preferred program, one of the major reasons to attend is the perception of higher salaries. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with the average starting salary of new alumnus.
+For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.  And finally, knowing the average starting salary benefits both the prospective students, allowing them to have a better understanding of the investment they're making, as well as the universities, as they can market it in the future.
 
 ##Section 3 Description of the Data: 
 
@@ -275,15 +271,10 @@ The best model was a plain Weighted Least Squares Regression where the outcome v
 
 ##Section 7 Conclusion:
 
-A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
-
-a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification.
 We select the WLS with no transformations as our model because it has the lowest MSE comparitively to all the other modeling methods and specification combinations while still maintaining our key goal of interpretibility.
 
-b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
 We learned that many varibales contribute in determining what the median starting salary is for college graduates. However, our most iluminating find was how much the reputation and branding of a school has on starting median salaries. Our outliers contained 5/7 Ivys and other prestigious schools like MIT and Staford. It appears that these highly prestegious and recognizable schools impact salaries more than the other variables included in our list. It would be interesting to find data and include a school's reputation if we continued on with this project.
 
-c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
 Since we have an ad hoc dataset (we created it), we ran into issues of having a small number of data points with full data. We only have information for roughly 17% of the schools we collected. 
 Understnading how to re-transform logged models to get an MSE than can be compared to our other two models was challenging.
 

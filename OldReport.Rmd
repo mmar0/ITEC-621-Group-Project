@@ -44,18 +44,9 @@ Since our team wants to predict a starting salary this problem is a quantitative
 
 ##Section 2 Business Rational (10 pts.)
 
-A brief but compelling business rationale about the importance of this question/problem from a business perspective. Why is the problem you are analyzing important? 
+As analysts, it is imperative to deliver our final data and results in a way that it is easy to review. Since this data will be read not just by schools, but also by students and their families, it is imperative that we deliver findings that are easy to understand. This will help them understand the real-world effect on how their college choice will alter their potential starting salary.
 
-This analytics question is important from two perspectives: a student and a school.
-
-For the student:
-
-For students entering a university a career is several years away, knowing what the salary is for alumni may influence their decision as where to go. On top of this with the known cost of the university and their predicted salary they would be able to determine a general return on investment as well how long their payback period would be.
-
-
-For the school:
-
-Even though admission rates throughout the country are decreasing, schools are still competing to attract top talent. While there are numerous reasons to attend schools (close to home, prestige of a university, or top program for a degree) one of the major reasons to attend is money. Going to a university is an investment and the cost of that investment is increasing. Therefore universities need to justify that investment to their customers, one of the best ways to do this is with their alumni starting salary. 
+For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.  And finally, knowing the average starting salary benefits both the prospective students, allowing them to have a better understanding of the investment they're making, as well as the universities, as they can market it in the future.
 
 
 ##Section 3 Description of the Data (10 pts.) 
