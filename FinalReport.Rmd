@@ -19,31 +19,26 @@ library(tidyverse)
 library(tree)
 library(class)
 library(car)
-library(FNN)
 library(lmtest)
-library(randomForest)
 library(car)
 library(corrplot)
 fullDataTraining <- read.csv("FullDataTrainingComplete.csv", header = TRUE, stringsAsFactors = FALSE)
-
 ```
 
 
-The final project report will contain the following sections:
-
-##Section 1 Analytics Question/Problem (5 pts.) 
+##Section 1 The Analytics Question:
 
 One of the main reasons students attend universities in the US is the hope of getting a better paying job once they have graduated. Our hope is to determine whether certain universities provide a better opportunity of achieving this. Our team wants to predict, given a school and corresponding school statistics, can we predict the starting median salary that a graduate from that particular university would earn in their first year out of school.
 
 Since our team wants to predict the starting salary of new graduates, this problem is a quantitative one. Our main analytic goals for these models are inference and interpreation, examining and attempting to explain the relationships between the starting median salary and the other available statistics for each school, as well as attempting to better understand the final results.  Since we are presenting this information to potential college students and their families through their high schools, we feel it is important to be able to explain our findings in an easy to approach manner that will help inform their future college decisions.
 
 
-##Section 2 Business Rational (10 pts.)
+##Section 2 The Business Rational:
 
 For students entering college, a career is several years away. Knowing what the average salary is for alumni may influence their decision as to what school they choose. In addition, with the known cost of the university and their predicted salaries upon graduation, they would be able to determine a general return on investment, as well how long their payback period would be.  Furthermore, should the student be deciding between two or more schools of similar standing but a large difference in tuition cost, such a prediction would allow them to know if such an increase in cost would be worth it.  And finally, knowing the average starting salary benefits both the prospective students, allowing them to have a better understanding of the investment they're making, as well as the universities, as they can market it in the future.
 
 
-##Section 3 Description of the Data (10 pts.) 
+##Section 3 Description of the Data: 
 
 The data for this project originated from two sources. The first is from a Kaggle Dataset called Where it Pays to Attend College. This data set includes the university, region, and the schools alumnus median starting salary in dollars. The second was collected from publicly available information on www.collegedata.com, this data includes admission rates of the schools (as a decimal), the number of undergraduates, cost of tuition in dollars, and the location of the school. These datasets were combined together and is attached to this report.
 
@@ -58,13 +53,16 @@ detach(fullDataTraining)
 ```
 
 
-##Section 4 Pre-Processing	 (10 pts.) 
+##Section 4 Pre-Processing:
 
-A. A discussion of any pre-processing (e.g., grouping, combining variables, etc.) and transformations done with the data (e.g., normality, logs, standardization, non-linear, etc.), along with the rationale for the appropriateness of this transformation.
+The data set was pulled from two different sources which required us to combine in to one data set in order to allow us to analyze the data.  The two data sets combined provided a complete picture of an undergraduate student's salary post-graduation from almost any American University.  A challenge in our data is that out of the 1800 universities that we gathered information on, only 311 of the universities had data in each column that we needed in order to properly analyze the data set.  We decided to utilize only the 311 complete rows to conduct our analysis. 
 
-The data was pulled from two source locations: kaggle.com and college.com.  Each of these sites provided the university name, number of undergraduates, admit rates, entrance difficulty, and school location.  After both lists were created, they were merged in order to create a single data set.  The intent of using two sources for the data was to ensure that we had a more complete picture of what the school reported as its admit rates, post undergraduate salaries, and cost of tuition.  Out of the 1800 schools that were pulled from these two sources, 311 of the schools had complete data reported on all the categories that we were identifying as possible factors in post undergraduate salaries. The rest of the schools, we identified the missing variables and replaced blanks with “N/A” in order to allow R to read the data without any blanks. 
+Once determined which variables we were going to use, we ran a qqplot on it so that we may determine if the data set had normality in it.  The initial qqplot identified that there was a strong right tail which indicates that there is some non-normality in the data and further analysis is required to determine what is causing this.  Next, we ran a histogram so that we may further identify and confirm that the data had a significant right skewness to it.  In identifying the right skewness in the data, we decided to log the output variable, "Starting.Median. Salary" so the data set would be more normally distributed; however, the qqplot and the histogram show that logging the output variable had no significant effect in normalizing the data. Utilizing a boxplot, we were able to determine that several data points were significantly outside the normal distribution of the rest of the data and this is what is causing the significant right skewness in the data.  After some discussion, we determined that by identifying and removing these data points that the rest of the data would be normalized enough to utilize for the project.  
 
-To further refine our data set, we utilized a Q-Q Plot to visually see how the data was distributed. The plot identified that the data has some non-normality in it with the starting median salary being skewed right meaning that there may be more extreme values in our data that we did not expect. To correct this, we logged the response variable in order to see if this would normalize the data; however, it did not. The logged Q-Q Plot continued to show a more than non-normal distribution to the data. We then utilized a histogram to further explore how the data was distributed and confirmed that the data was significantly skewed to the right. We then utilized a boxplot in order to identify if there were any data points that “fell” out of the normal distribution and identified that several data points did. This led us to do a function that would identify which data points were significantly different than the rest. There were 17 universities reported starting median salary that is significantly higher than the other universities. This group of schools were identified as “Ivy League” or a technical school that had a reputation of “high caliber” production of students. Since these schools were significantly higher than 75% of the entire data set, we removed these points in order to obtain a more normally distributed data set so that we may further analyze the data. After removing these points, we ran another a normal and a logged Q-Q Plot. Both plots showed a more normal distribution of data but neither plot was more significant than the other.  This is also evident in the histogram that we ran to confirm the data was more normally distributed. We chose to use the non-logged data set to continue with the analysis.
+We used a function to split the data in a 25/75 split allowing us to identify the outliers that were causing the skewness.  We were able to determine that 17 universities (which consisted of 5 Ivy League Universities and Top Technical schools) were the outliers of the data set.  To note, these 17 universities starting salaries were significantly higher than the bulk of the universities but this is expected with these 17 universities due to the prestige associated with attending these specific universities. 
+
+Once the outliers were removed, we conducted another logged and unlogged qqplots and histograms.  As expected, the qqplots and histograms showed the data was more normally distributed.  We determined that logging the data had no significant effect resulting in our choice to use unlogged data for this analysis.
+
 
 ```{r}
 qqnorm(fullDataTraining$Starting.Median.Salary, main = "Starting Median Salary Q-Q Plot")
@@ -102,66 +100,10 @@ qqnorm(log(fDTNoOut$Starting.Median.Salary), main = "log(Starting Median Salary)
 qqline(log(fDTNoOut$Starting.Median.Salary))
 
 hist(log(fDTNoOut$Starting.Median.Salary), main = "Histogram of log(Starting Median Salary) (Without Outliers)", xlab = "log(Starting Median Salary)")
-
-ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
-
-collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
-
-collin.diag
-
-ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
-EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
-
-vif(ols.full)
-
-```
-
-```{r training split}
-set.seed(123)
-train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
-```
-
-```{r OLS Test - Y is Continuous}
-#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
-```
-
-```{r OLS Test - Errors are Normally Distributed}
-fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
-plot(fdt)
-```
-
-```{r OLS Assumptions - Xs are Independent}
-ct1 <- with(fdt.full, c(NA,cons[-length(cons)]))
-fdt=lm(Starting.Median.Salary~., data=fullDataTraining)
-cd<- colldiag(mod=fdt, scale=FALSE, center=FALSE, add.intercept=TRUE)
-
-```
-
-```{r OLS Assumptions - Error Variance is Constant}
-lm.formula=Starting.Median.Salary~.
-bptest(lm.formula, data=fullDataTraining)
-```
-
-BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
-
-```{r OLS Assumptions - Observations/Errors are Independent}
-dwtest(fdt.full) 
-```
-
-```{r OLS Assumptions}
-#OLS assumptions:
- #YC (Y is continuous): No
- #EN (Errors are normally distributed): Yes
- #XI (X's are independent): Yes
- #LI (Y and X's have linear reltionship): Yes
- #OI (Observations are independent): Yes
- #EI (Errors are independent): Yes
- #EA (The error average is 0): Yes
- #EV (The error variance is constant (homoscedasticity)): Yes
 ```
 
 
-##Section 5 Model Justification (20 pts.) 
+##Section 5 Model Justification: 
 
 A justification for the analytics methods and model specifications used. All methods used must be appropriate and relevant to the problem and you need to provide a justification for the selected methods based on: 
 
@@ -179,7 +121,6 @@ The outcome variable our project is trying to explain is the Starting Median Sal
 
 The models used were OLS, WLS, and Piecewise because of their ability to be used for interpretability and inference. The first specification used was No Transformation which incorporated the all the variables listed above without transformations, to establish a baseline of the models. The next specification was The Log transformed outcome variable, but all predictors remained the same. This was used because y showed signs of not being continuous. Lastly an interaction effect between number of undergraduates and college type because public schools typically have a higher population of students then privates schools so this difference was thought to be caught with an interaction variable between the two.
 
-The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
 
 
 <!-- Check Figure Size and If All Packages are Needed -->
@@ -187,6 +128,65 @@ The best model was a plain Weighted Least Squares Regression where the outcome v
 All projects must evaluate 3 different methods, with 2 different model specifications for each. You need to provide in this section a sound justification for your choice of models to evaluate. 
 
 <!-- Used echo = FALSE and eval = FALSE to prevent the code chunks for the piecewise AdmitRate from being ran --> 
+
+
+```{r training split section 4}
+set.seed(123)
+train <- sample(1:nrow(fDTNoOut), 0.8*nrow(fDTNoOut))
+```
+
+```{r OLS Test - Y is Continuous section 4}
+#Y cannot be less then 0, as tuition, salary, and acceptance rate cannot be below 0, therefore Y is not continuous.
+```
+
+```{r OLS Test - Errors are Normally Distributed section 4, warning=FALSE}
+
+plot(lm(Starting.Median.Salary~.,data=fDTNoOut), which = 2)
+
+```
+
+```{r OLS Assumptions - Xs are Independent section 4}
+
+ols.full <- lm(Starting.Median.Salary ~ CostIState + CostOState + Undergraduates + AdmitRate + Applicants, data=fDTNoOut)
+
+collin.diag = colldiag(mod=ols.full, scale=TRUE, center=TRUE, add.intercept=TRUE)
+
+collin.diag
+
+```
+```{r OLS VIF}
+ols.full <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType +
+EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut)
+
+vif(ols.full)
+```
+
+
+```{r OLS Assumptions - Error Variance is Constant section 4}
+lm.formula=Starting.Median.Salary~.
+bptest(lm.formula, data=fDTNoOut)
+```
+
+BP-Test resulted in p-value = 0.3638, so unlikely Heteroscedasticity is present.
+
+```{r OLS Assumptions - Observations/Errors are Independent section 4}
+
+dwtest(ols.full)
+
+```
+
+```{r OLS Assumptions section 4}
+#OLS assumptions:
+ #YC (Y is continuous): No
+ #EN (Errors are normally distributed): Yes
+ #XI (X's are independent): Yes
+ #LI (Y and X's have linear reltionship): Yes
+ #OI (Observations are independent): Yes
+ #EI (Errors are independent): Yes
+ #EA (The error average is 0): Yes
+ #EV (The error variance is constant (homoscedasticity)): Yes
+ #
+```
 
 ```{r OLS No Transformation}
 ols.noTransformation <- lm(Starting.Median.Salary ~ CostOState + Undergraduates + CollegeType + EntranceDifficulty + AdmitRate + Applicants + Region, data=fDTNoOut[train,])
@@ -288,17 +288,23 @@ mse.table
 summary(lm.fit.wls1)
 ```
 
-##Section 6 Analysis of Results	 (20 pts.) 
+##Section 6 Analysis of Results:
 
 Analysis and presentation of results. Your analysis and results need to contain some narrative to allow your audience to understand what you did. A simple output and diagram dump with no explanation will receive very little credit. Every procedure, output and diagram needs to be briefly but appropriately introduced before and briefly commented on its meaning after. Don’t leave it up to the reader to interpret what you did. 
 
-##Section 7 Conclusion	(15 pts.) 
+The best model was a plain Weighted Least Squares Regression where the outcome variable was not logged and there was no interaction effect. We chose this not only because it has the lowest test MSE, but also because it weighted certain variables to correct for errors that would have been seen in the ols model. This variable Undergraduates was seen as not significant in the model, but we though it was relevant because of it is possible that it is also a proxy for class sizes which could effect the quality of a graduates education i.e. larger schools potentially have larger class sizes.
+
+##Section 7 Conclusion:
 
 A short section with final thoughts, conclusions and lessons learned. These conclusions must contain a discussion of: 
 
-a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification. 
+a.	Your final model method and specification selection. Why did you pick this particular modeling method and model specification.
+We select the WLS with no transformations as our model because it has the lowest MSE comparitively to all the other modeling methods and specification combinations while still maintaining our key goal of interpretibility.
 
 b.	The main conclusions of your analysis. These conclusions must answer/solve your analytics question/problem stated in 1 above. Please be brief but concise and discuss the main insights you obtained from your analysis 
+We learned that many varibales contribute in determining what the median starting salary is for college graduates. However, our most iluminating find was how much the reputation and branding of a school has on starting median salaries. Our outliers contained 5/7 Ivys and other prestigious schools like MIT and Staford. It appears that these highly prestegious and recognizable schools impact salaries more than the other variables included in our list. It would be interesting to find data and include a school's reputation if we continued on with this project.
 
 c.	A brief statement of your lessons learned in this project in terms of: data issues, methodological challenges, do's and don'ts, what you learned from this experience. You don't need to address all of this. But please be thoughtful and make it interesting. 
+Since we have an ad hoc dataset (we created it), we ran into issues of having a small number of data points with full data. We only have information for roughly 17% of the schools we collected. 
+Understnading how to re-transform logged models to get an MSE than can be compared to our other two models was challenging.
 
